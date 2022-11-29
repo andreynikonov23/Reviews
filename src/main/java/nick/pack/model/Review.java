@@ -3,6 +3,7 @@ package nick.pack.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Objects;
 import java.util.Set;
 
 @Data
@@ -40,4 +41,35 @@ public class Review {
 
     @OneToMany (mappedBy = "review")
     Set<Comment> commentSet;
+
+    public Review(String name, String trailerUrl, String poster, String filmName, int year, String director, String cast, double rating, String text, User user, Country country) {
+        this.name = name;
+        this.trailerUrl = trailerUrl;
+        this.poster = poster;
+        this.filmName = filmName;
+        this.year = year;
+        this.director = director;
+        this.cast = cast;
+        this.rating = rating;
+        this.text = text;
+        this.user = user;
+        this.country = country;
+    }
+
+    @Override
+    public String toString(){
+        return String.format("Review: %d, %s, %s, %s", id, name, filmName, user);
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Review review = (Review) o;
+        return id == review.id && year == review.year && Double.compare(review.rating, rating) == 0 && name.equals(review.name) && trailerUrl.equals(review.trailerUrl) && poster.equals(review.poster) && filmName.equals(review.filmName) && director.equals(review.director) && cast.equals(review.cast) && text.equals(review.text) && user.equals(review.user) && country.equals(review.country);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, trailerUrl, poster, filmName, year, director, cast, rating, text, user, country);
+    }
 }

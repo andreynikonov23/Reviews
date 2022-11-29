@@ -3,6 +3,7 @@ package nick.pack.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Objects;
 import java.util.Set;
 
 @Data
@@ -32,4 +33,43 @@ public class User {
     Set<Review> reviewSet;
     @OneToMany(mappedBy = "user")
     Set<Comment> commentSet;
+
+    public User(String login, String password, String name, String photo, Role role, Status status) {
+        this.login = login;
+        this.password = password;
+        this.name = name;
+        this.photo = photo;
+        this.role = role;
+        this.status = status;
+    }
+
+    @Override
+    public String toString(){
+        return String.format("User: [%d, %s, %s, %s, %s, %s, %s]", id, login, password, name, photo, role, status);
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(id, login, password, name, photo, role, status);
+    }
+    @Override
+    public boolean equals(Object obj){
+        if (obj == null){
+            return false;
+        }
+        if (!(obj instanceof User)){
+            return false;
+        }
+        if (obj.getClass() != this.getClass()){
+            return false;
+        }
+        if (this == obj){
+            return true;
+        }
+        User user = (User) obj;
+        if (user.hashCode() == hashCode()){
+            return id == user.getId() && login.equals(user.login) && password.equals(user.getPassword());
+        }
+        return false;
+    }
 }
