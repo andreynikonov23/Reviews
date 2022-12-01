@@ -22,9 +22,9 @@ public class UserService implements UserDetailsService {
     public List<User> selectAll(){
         return repository.findAll();
     }
-    public User findById(int id){
-        return repository.findById(id);
-    }
+//    public User findById(int id){
+//        return repository.findById(id);
+//    }
     public void saveAndFlush(User user){
         repository.saveAndFlush(user);
     }

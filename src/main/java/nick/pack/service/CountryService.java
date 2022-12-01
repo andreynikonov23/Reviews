@@ -20,10 +20,10 @@ public class CountryService implements DAO<Country, Integer> {
         return repository.findAll();
     }
 
-    @Override
-    public Country findById(Integer integer) {
-        return repository.findCountryById(integer);
-    }
+//    @Override
+//    public Country findById(Integer integer) {
+//        return repository.findCountryById(integer);
+//    }
 
     @Override
     public void saveAndFlush(Country country) {

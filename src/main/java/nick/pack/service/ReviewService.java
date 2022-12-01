@@ -22,10 +22,10 @@ public class ReviewService implements DAO<Review, Integer> {
         return repository.findAll();
     }
 
-    @Override
-    public Review findById(Integer integer) {
-        return repository.findReviewById(integer);
-    }
+//    @Override
+//    public Review findById(Integer integer) {
+//        return repository.findReviewById(integer);
+//    }
 
     @Override
     public void saveAndFlush(Review review) {

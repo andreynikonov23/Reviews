@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface StatusRepository extends JpaRepository<Status, Integer> {
-    @Query("SELECT s FROM status s WHERE s.id = :id")
-    Status findById(@Param("id") int id);
+//    @Query("SELECT s FROM status s WHERE s.id = :id")
+//    Status findStatusById(@Param("id") int id);
 }
