@@ -1,12 +1,14 @@
 package nick.pack.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
 
 @Data
+@NoArgsConstructor
 @Entity
 @Table (name = "country")
 public class Country {

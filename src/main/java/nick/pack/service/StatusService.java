@@ -22,8 +22,8 @@ public class StatusService implements Find<Status, Integer> {
         return repository.findAll();
     }
 
-//    @Override
-//    public Status findById(Integer integer) {
-//        return repository.findStatusById(integer);
-//    }
+    @Override
+    public Status findById(Integer integer) {
+        return repository.findStatusById(integer);
+    }
 }

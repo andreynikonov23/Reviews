@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserService implements UserDetailsService {
+public class UserService  {
     private final UserRepository repository;
 
     @Autowired
@@ -22,17 +22,14 @@ public class UserService implements UserDetailsService {
     public List<User> selectAll(){
         return repository.findAll();
     }
-//    public User findById(int id){
-//        return repository.findById(id);
-//    }
+    public User findById(int id){
+        return repository.findUserById(id);
+    }
     public void saveAndFlush(User user){
         repository.saveAndFlush(user);
     }
     public void delete(User user){
         repository.delete(user);
     }
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
-    }
+
 }

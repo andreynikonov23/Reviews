@@ -1,12 +1,14 @@
 package nick.pack.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
 
 @Data
+@NoArgsConstructor
 @Entity
 @Table (name = "users")
 public class User {
@@ -23,10 +25,10 @@ public class User {
     private String photo;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "role")
+    @JoinColumn(name = "role_id")
     private Role role;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "status")
+    @JoinColumn(name = "status_id")
     private Status status;
 
     @OneToMany(mappedBy = "user")

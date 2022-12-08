@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface Find<Entity, Key> {
     List<Entity> findByAll();
-//    Entity findById(Key key);
+    Entity findById(Key key);
 }

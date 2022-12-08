@@ -1,12 +1,14 @@
 package nick.pack.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
 
 @Data
+@NoArgsConstructor
 @Entity
 @Table(name = "reviews")
 public class Review {
@@ -25,7 +27,7 @@ public class Review {
     private int year;
     @Column (name = "director")
     private String director;
-    @Column (name = "cast")
+    @Column (name = "cast_names")
     private String cast;
     @Column (name = "rating")
     private double rating;
@@ -36,7 +38,7 @@ public class Review {
     @JoinColumn (name = "user_id")
     private User user;
     @ManyToOne (fetch = FetchType.EAGER)
-    @JoinColumn (name = "country")
+    @JoinColumn (name = "country_id")
     private Country country;
 
     @OneToMany (mappedBy = "review")
@@ -55,6 +57,7 @@ public class Review {
         this.user = user;
         this.country = country;
     }
+
 
     @Override
     public String toString(){

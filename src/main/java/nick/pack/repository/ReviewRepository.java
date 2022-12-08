@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface ReviewRepository extends JpaRepository<Review, Integer> {
-//    @Query("SELECT r FROM reviews r WHERE r.id = :id")
-//    Review findReviewById(@Param("id") int id);
+    @Query("SELECT r FROM Review r WHERE r.id = :id")
+    Review findReviewById(@Param("id") int id);
 }

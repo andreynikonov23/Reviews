@@ -23,8 +23,8 @@ public class RoleService implements Find<Role, Integer> {
         return repository.findAll();
     }
 
-//    @Override
-//    public Role findById(Integer integer) {
-//        return repository.findRoleById(integer);
-//    }
+    @Override
+    public Role findById(Integer integer) {
+        return repository.findRoleById(integer);
+    }
 }
