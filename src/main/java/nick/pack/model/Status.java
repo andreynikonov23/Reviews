@@ -1,13 +1,11 @@
 package nick.pack.model;
 
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
 
-@Data
 @NoArgsConstructor
 @Entity
 @Table(name = "status")
@@ -15,19 +13,36 @@ public class Status {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
+    @Enumerated (value = EnumType.STRING)
     @Column (name = "status")
-    private String status;
+    private StatusEnum status;
 
     @OneToMany(mappedBy = "status")
     Set<User> userSet;
 
-    public Status(String status) {
+    public Status(StatusEnum status) {
+        this.status = status;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public StatusEnum getStatusEnum() {
+        return status;
+    }
+
+    public void setStatusEnum(StatusEnum status) {
         this.status = status;
     }
 
     @Override
     public String toString(){
-        return status;
+        return status.toString();
     }
 
     @Override

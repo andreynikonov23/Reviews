@@ -15,19 +15,20 @@ public class Role {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
+    @Enumerated (value = EnumType.STRING)
     @Column (name = "name")
-    private String name;
+    private RoleEnum name;
 
     @OneToMany(mappedBy = "role")
     Set<User> userSet;
 
-    public Role(String name) {
+    public Role(RoleEnum name) {
         this.name = name;
     }
 
     @Override
     public String toString(){
-        return name;
+        return name.toString();
     }
 
     @Override

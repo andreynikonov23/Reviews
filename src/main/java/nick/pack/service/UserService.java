@@ -2,6 +2,7 @@ package nick.pack.service;
 
 import nick.pack.model.User;
 import nick.pack.repository.UserRepository;
+import nick.pack.security.SecurityUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,13 +12,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserService  {
+public class UserService implements UserDetailsService {
     private final UserRepository repository;
 
     @Autowired
     public UserService(UserRepository repository) {
         this.repository = repository;
     }
+
 
     public List<User> selectAll(){
         return repository.findAll();
@@ -32,4 +34,11 @@ public class UserService  {
         repository.delete(user);
     }
 
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = repository.findByLogin(username).orElseThrow(() ->
+                new UsernameNotFoundException("User doesn't exist"));
+        return SecurityUser.fromUser(user);
+    }
 }
