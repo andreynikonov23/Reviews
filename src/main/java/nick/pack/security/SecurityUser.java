@@ -1,5 +1,7 @@
 package nick.pack.security;
 
+import nick.pack.model.Role;
+import nick.pack.model.RoleEnum;
 import nick.pack.model.StatusEnum;
 import nick.pack.model.User;
 import org.springframework.security.core.GrantedAuthority;
@@ -59,13 +61,14 @@ public class SecurityUser implements UserDetails {
     }
 
     public static UserDetails fromUser(User user) {
+
         return new org.springframework.security.core.userdetails.User(
                 user.getName(),
                 user.getPassword(),
                 true,
                 true,
                 true,
-                true,
-                user.getRole().getName().getAuthorities());
+                user.getStatus().getStatusEnum().equals(StatusEnum.ACTIVE),
+                user.getRole().getRoleName().getAuthorities());
     }
 }

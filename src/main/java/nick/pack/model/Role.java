@@ -7,7 +7,6 @@ import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
 
-@Data
 @NoArgsConstructor
 @Entity
 @Table (name = "role")
@@ -23,6 +22,22 @@ public class Role {
     Set<User> userSet;
 
     public Role(RoleEnum name) {
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public RoleEnum getRoleName() {
+        return name;
+    }
+
+    public void setName(RoleEnum name) {
         this.name = name;
     }
 
@@ -51,7 +66,7 @@ public class Role {
         }
         Role roleObj = (Role) obj;
         if (roleObj.hashCode() == hashCode()){
-            return id == roleObj.getId() && name.equals(roleObj.getName());
+            return id == roleObj.getId() && name.equals(roleObj.getRoleName());
         }
         return false;
     }
