@@ -1,38 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Reviews</title>
-    <link rel="stylesheet" href="/style.css">
-</head>
-<body>
-    <div id="container">
-        <header>
-            <div class="upper-head">
-                <div id="logo">REVIEWS</div>
-                <button id="sign-in-button">Вход</button>
-            </div>
-            <nav>
-                <div>Новости</div>
-                <div>Смотреть онлайн</div>
-                <div>Афиша</div>
-                <div>Что посмотреть</div>
-                <div>Коллекция</div>
-                <div>Главное</div>
-            </nav>
-        </header>
-        <aside>
-            <div th:each="review : ${reviews}">
-                <div class="page">
-                    <img class="image">
-                    <div class="info">
-                        <div class="rating" th:text="${review.getRating()}"></div>
-                        <div class="name" th:text="${review.getName()}"></div>
-                        <div class="author" th:text="${review.getUser().getName()}"></div>
-                    </div>
-                </div>
-            </div>
-        </aside>
-    </div>
-</body>
+    <head th:insert="parts/layouts :: head">
+
+    </head>
+    <body>
+        <div th:insert="parts/layouts :: bootstrap-js"></div>
+        <header th:insert="parts/layouts :: header"></header>
+    </body>
 </html>
