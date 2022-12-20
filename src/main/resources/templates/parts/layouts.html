@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <title>Reviews</title>
-        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/style.css">
         <style>
             .selector-for-some-widget {
                 box-sizing: content-box;
@@ -24,13 +24,70 @@
                     <div class="col text-uppercase h3">
                         <span class="reviews" onclick="document.location='/'">REVIEWS</span>
                     </div>
-                    <div class="col">
-                        <div th:if="${auth}">
-                            <button th:text="${auth}"></button>
+                    <div class="col d-flex justify-content-end">
+                        <button class="sign-in">Вход</button>
+                    </div>
+                </div>
+                <nav class="row mt-2">
+                    <div class="col text-center"><span class="nav-link">Новости</span></div>
+                    <div class="col text-center"><span class="nav-link">Смотреть онлайн</span></div>
+                    <div class="col text-center"><span class="nav-link">Афиша</span></div>
+                    <div class="col text-center"><span class="nav-link">Что посмотреть</span></div>
+                    <div class="col text-center"><span class="nav-link">Коллекции</span></div>
+                </nav>
+            </div>
+        </header>
+        <div class="page-block" th:fragment="page-block">
+            <div class="row">
+                <div class="col-10">
+                    <div class="row">
+                        <div class="col-4">
+                            <img th:src="${reviews.get(0).getPoster()}" width="100" height="100"/>
+                        </div>
+                        <div class="col-8">
+                            <div th:text="${reviews.get(0).getName()}"></div>
+                            <div th:text="${reviews.get(0).getUser().getName()}"></div>
                         </div>
                     </div>
                 </div>
+                <div class="col-1">
+                    <div>
+                        <img th:src="${reviews.get(1).getPoster()}" width="100" height="100">
+                    </div>
+                    <div>
+                        <div th:text="${reviews.get(1).getName()}"></div>
+                        <div th:text="${reviews.get(1).getUser().getName()}"></div>
+                    </div>
+                </div>
             </div>
-        </header>
+            <div class="row">
+                <div class="col" th:each="review, state : ${reviews}" th:if="${state.index > 1}">
+                    <div>
+                        <img th:src="${review.getPoster()}" width="100" height="100">
+                    </div>
+                    <div>
+                        <div th:text="${review.getName()}"></div>
+                        <div th:text="${review.getUser().getName()}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pages" th:each="review, state : ${reviews}" th:fragment="m-page">
+            <div class="page" th:if="${state.index > 4}">
+                <div class="row">
+                    <div class="col-3 img-block">
+                        <img th:src="${review.getPoster()}" class="img">
+                    </div>
+                    <div class="col-8 info-block">
+                        <div class="rounded-circle rating text-center">
+                            <p th:text="${review.getRating()}"></p>
+                        </div>
+                        <div class="name" th:text="${review.getName()}"></div>
+                        <div class="author" th:text="${review.getUser().getName()}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </body>
 </html>

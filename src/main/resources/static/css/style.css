@@ -1,0 +1,90 @@
+:root{
+    --orange: #fc7d7b;
+    --purple: #8e77fe;
+    --link-color: #8300ff;
+    --grey: #222222;
+    --light-grey: #c6c6c6;
+}
+
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
+header{
+    background-color: var(--grey);
+    color: #fff;
+    padding-top: 20px;
+}
+.row{
+    cursor: default;
+}
+.reviews{
+    text-decoration: none;
+    color: #fff;
+    width: fit-content;
+    cursor: pointer;
+}
+.sign-in{
+    width: 80px;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 8px;
+}
+.sign-in:hover{
+    background-color: var(--orange);
+    color: var(--grey);
+}
+nav div{
+    cursor: pointer;
+}
+.nav-link{
+    color: #fff;
+}
+aside{
+    padding-top: 20px;
+}
+.pages{
+    margin-bottom: 20px;
+}
+.page{
+    height: 340px;
+    box-shadow: 0px 0px 5px 2px #919191;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.img{
+    width: 260px;
+    height: 340px;
+    object-fit: cover;
+}
+.info-block{
+    padding-top: 15px;
+}
+.rating{
+    width: 50px;
+    height: 50px;
+    background-color: var(--orange);
+    padding-top: 13px;
+    margin-bottom: 30px;
+    color: #fff;
+    font-weight: 700;
+}
+.name{
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--grey);
+    margin-bottom: 30px;
+}
+.author{
+    font-size: 14px;
+    color: var(--light-grey);
+}
+.page:hover .name{
+    color: var(--link-color);
+    cursor: pointer;
+}

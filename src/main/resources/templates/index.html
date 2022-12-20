@@ -6,5 +6,11 @@
     <body>
         <div th:insert="parts/layouts :: bootstrap-js"></div>
         <header th:insert="parts/layouts :: header"></header>
+        <aside>
+            <div class="container">
+                <div th:insert="parts/layouts :: page-block"></div>
+                <div th:insert="parts/layouts :: m-page"></div>
+            </div>
+        </aside>
     </body>
 </html>

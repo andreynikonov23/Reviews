@@ -26,8 +26,6 @@ public class ViewController {
     @GetMapping("/")
     public String test(Model model){
         model.addAttribute("reviews", reviewService.findByAll());
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        model.addAttribute("session", auth);
         return "index";
     }
 }
