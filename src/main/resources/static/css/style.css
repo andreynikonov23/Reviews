@@ -53,6 +53,9 @@ aside{
 .pages{
     margin-bottom: 20px;
 }
+.pages a{
+    text-decoration: none;
+}
 .page{
     border-radius: 10px;
     height: 340px;
@@ -95,6 +98,9 @@ aside{
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 10px;
 }
+.grid-block a{
+    text-decoration: none;
+}
 .item{
     border-radius: 10px;
     height: 340px;
@@ -104,8 +110,10 @@ aside{
 .item:hover .name{
     color: var(--link-color);
 }
-.item-big{
+.link-item-big{
     grid-column: 1/5;
+}
+.item-big{
     display: grid;
     grid-template-columns: 1fr 3fr;
 }

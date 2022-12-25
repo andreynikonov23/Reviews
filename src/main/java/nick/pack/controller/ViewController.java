@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 
 import java.util.Collections;
@@ -21,10 +22,17 @@ public class ViewController {
     private UserService userService;
 
     @GetMapping("/")
-    public String test(Model model){
+    public String index(Model model){
         List<Review> reviews = reviewService.findByAll();
         Collections.reverse(reviews);
         model.addAttribute("reviews", reviews);
         return "index";
+    }
+
+    @GetMapping("/{id}")
+    public String review(@PathVariable("id") int id, Model model){
+        Review review = reviewService.findById(id);
+        model.addAttribute("review", review);
+        return "review";
     }
 }

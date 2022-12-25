@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+    <head th:insert="parts/layouts :: head">
+        <link rel="stylesheet" href="/css/review.css">
+
+        
+    </head>
+    <body>
+
+        <header th:insert="parts/layouts :: header"></header>
+        <div class="container">
+            <div id="player"></div>
+
+        </div>
+        <footer th:insert="parts/layouts :: footer"></footer>
+
+        <script type="text/javascript" src="/script/playerjs.js"></script>
+        <div th:insert="parts/layouts :: scripts"></div>
+        <script>
+                var player = new Playerjs({id:"player", file:"[[${review.getTrailerUrl}]]"});
+        </script>
+    </body>
+</html>
