@@ -2,6 +2,7 @@ package nick.pack.controller;
 
 import nick.pack.model.Review;
 
+import nick.pack.service.RatingService;
 import nick.pack.service.ReviewService;
 import nick.pack.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,8 @@ public class ViewController {
     @Autowired
     private ReviewService reviewService;
     @Autowired
+    private RatingService ratingService;
+    @Autowired
     private UserService userService;
 
     @GetMapping("/")
@@ -26,6 +29,7 @@ public class ViewController {
         List<Review> reviews = reviewService.findByAll();
         Collections.reverse(reviews);
         model.addAttribute("reviews", reviews);
+        model.addAttribute("ratingService", ratingService);
         return "index";
     }
 

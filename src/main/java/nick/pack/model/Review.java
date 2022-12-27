@@ -29,8 +29,6 @@ public class Review {
     private String director;
     @Column (name = "cast_names")
     private String cast;
-    @Column (name = "rating")
-    private double rating;
     @Column (name = "text")
     private String text;
 
@@ -43,8 +41,10 @@ public class Review {
 
     @OneToMany (mappedBy = "review")
     Set<Comment> commentSet;
+    @OneToMany (mappedBy = "review")
+    Set<Rating> ratingSet;
 
-    public Review(String name, String trailerUrl, String poster, String filmName, int year, String director, String cast, double rating, String text, User user, Country country) {
+    public Review(String name, String trailerUrl, String poster, String filmName, int year, String director, String cast, String text, User user, Country country) {
         this.name = name;
         this.trailerUrl = trailerUrl;
         this.poster = poster;
@@ -52,7 +52,6 @@ public class Review {
         this.year = year;
         this.director = director;
         this.cast = cast;
-        this.rating = rating;
         this.text = text;
         this.user = user;
         this.country = country;
@@ -68,11 +67,13 @@ public class Review {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Review review = (Review) o;
-        return id == review.id && year == review.year && Double.compare(review.rating, rating) == 0 && name.equals(review.name) && trailerUrl.equals(review.trailerUrl) && poster.equals(review.poster) && filmName.equals(review.filmName) && director.equals(review.director) && cast.equals(review.cast) && text.equals(review.text) && user.equals(review.user) && country.equals(review.country);
+        return id == review.id && year == review.year && name.equals(review.name) && trailerUrl.equals(review.trailerUrl) && poster.equals(review.poster) && filmName.equals(review.filmName) && director.equals(review.director) && cast.equals(review.cast) && text.equals(review.text) && user.equals(review.user) && country.equals(review.country);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, trailerUrl, poster, filmName, year, director, cast, rating, text, user, country);
+        return Objects.hash(id, name, trailerUrl, poster, filmName, year, director, cast, text, user, country);
     }
+
+
 }

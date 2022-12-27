@@ -35,6 +35,8 @@ public class User {
     Set<Review> reviewSet;
     @OneToMany(mappedBy = "user")
     Set<Comment> commentSet;
+    @OneToMany(mappedBy = "user")
+    Set<Rating> ratingSet;
 
     public User(String login, String password, String name, String photo, Role role, Status status) {
         this.login = login;
