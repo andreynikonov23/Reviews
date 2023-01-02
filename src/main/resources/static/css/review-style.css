@@ -1,0 +1,106 @@
+:root{
+    --orange: #fc7d7b;
+    --purple: #8e77fe;
+    --link-color: #8300ff;
+    --grey: #222222;
+    --light-grey: #c6c6c6;
+}
+
+
+.movie-info{
+    position: relative;
+    top: -8px;
+    background-color: var(--grey);
+    padding: 20px 10px;
+}
+.rating-section{
+    padding-top: 35px;
+}
+.rating-block{
+    display: flex;
+    align-items: flex-end;
+    font-size: 22px;
+    line-height: 0.75;
+}
+.rating-value{
+    font-size: 17px;
+    line-height: 1;
+    padding: 0 0 0 40px;
+    color: #fff;
+}
+.rating-body{
+    position: relative;
+}
+.rating-body::before{
+    content: "★★★★★★★★★★";
+    display: block;
+    color: #fff;
+}
+.rating-items{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.rating-item{
+    flex: 0 0 10%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+.rating-active{
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+.rating-active::before{
+    content: "★★★★★★★★★★";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    color: #F4CA16;
+}
+.film-name{
+    margin-bottom: 70px;
+    color: #fff;
+}
+.info-col{
+    margin-bottom: 30px;
+    color: #878787;
+}
+.info-col span{
+    color: #fff;
+}
+.review{
+    padding-bottom: 60px;
+    border-bottom: #222222 solid 4px;
+}
+.review-head{
+    text-align: center;
+    padding: 50px;
+}
+.text{
+    font: 18px/1.5 georgia,serif;
+}
+.comments{
+    background-color: var(--grey);
+}
+.icon{
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    margin-right: 40px;
+    background-color: orangered;
+}
+.comment-block{
+    background-color: white;
+    display: inline-block;
+}

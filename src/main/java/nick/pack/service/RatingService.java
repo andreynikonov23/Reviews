@@ -49,9 +49,10 @@ public class RatingService implements DAO<Rating, Integer> {
     }
 
     public double getOverallRating(Review review){
-        List<Rating> ratings = findRatingsReview(review);
-        int sum = ratings.stream().mapToInt(Rating::getRating).sum();
-        double overall = sum / ratings.size();
-        return overall;
+        List<Rating> ratings = repository.findRatingByReview(review);
+        if (ratings.size() > 0){
+            return ratings.stream().mapToDouble(Rating::getRating).sum() / ratings.size();
+        }
+        return 0;
     }
 }

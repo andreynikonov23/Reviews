@@ -10,8 +10,11 @@ import java.util.List;
 
 @Service
 public class ReviewService implements DAO<Review, Integer> {
+
     private final ReviewRepository repository;
 
+    @Autowired
+    private RatingService ratingService;
     @Autowired
     public ReviewService(ReviewRepository repository) {
         this.repository = repository;

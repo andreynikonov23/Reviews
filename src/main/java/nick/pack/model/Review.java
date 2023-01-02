@@ -2,8 +2,13 @@ package nick.pack.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -74,6 +79,4 @@ public class Review {
     public int hashCode() {
         return Objects.hash(id, name, trailerUrl, poster, filmName, year, director, cast, text, user, country);
     }
-
-
 }

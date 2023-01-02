@@ -2,6 +2,7 @@ package nick.pack.controller;
 
 import nick.pack.model.Review;
 
+import nick.pack.service.CommentService;
 import nick.pack.service.RatingService;
 import nick.pack.service.ReviewService;
 import nick.pack.service.UserService;
@@ -23,6 +24,8 @@ public class ViewController {
     private RatingService ratingService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private CommentService commentService;
 
     @GetMapping("/")
     public String index(Model model){
@@ -37,6 +40,8 @@ public class ViewController {
     public String review(@PathVariable("id") int id, Model model){
         Review review = reviewService.findById(id);
         model.addAttribute("review", review);
+        model.addAttribute("ratingService", ratingService);
+        model.addAttribute("comments", commentService.findCommentsReview(review));
         return "review";
     }
 }
