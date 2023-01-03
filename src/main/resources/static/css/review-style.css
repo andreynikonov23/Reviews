@@ -92,12 +92,22 @@
 .comments{
     background-color: white;
 }
+.mini-line{
+    height: 3px;
+    width: 400px;
+    background-color: #222222;
+    margin-bottom: 40px;
+}
+.comments-head{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
 .comment-item{
     display: flex;
     font-family: Arial, Helvetica, sans-serif;
 }
 .comment-block{
-    background-color: var(--orange);
+    background-color: #96A2FF;
     width: 100%;
     border-radius: 10px;
     padding: 10px;
@@ -108,10 +118,12 @@
     border-radius: 100px;
     margin-right: 40px;
     background-color: red;
+    overflow: hidden;
+    cursor: pointer;
 }
-/* .icon img{
-    object-fit: contain;
-} */
+.icon img{
+
+}
 .author-date{
     display: flex;
     justify-content: space-between;
@@ -120,4 +132,21 @@
     color: var(--grey);
     font-size: 19px;
 }
-
+.com-user{
+    cursor: pointer;
+}
+.date{
+    color: #444444;
+}
+.answer-block{
+    margin-top: 10px;
+    text-align: right;
+}
+.answer-txt{
+    color: #444444;
+    text-decoration: solid;
+    cursor: pointer;
+}
+.input-group{
+    height: 70px;
+}

@@ -61,11 +61,12 @@
         <div class="comments">
             <div class="container">
                 <div class="comments-head"><h1>Комментарии</h1></div>
+                <div class="mini-line"></div>
                 <div>
                     <div class="comment-item mb-2" th:each="comment : ${comments}" th:attr="id=${comment.getId()}">
                         <div class="icon">
-                            <img th:if="${comment.getUser().getPhoto()} != null" th:src="${comment.getUser().getPhoto()}">
-                            <img th:unless="${comment.getUser().getPhoto()} != null" src="C:/test/icon.jpg">
+                            <img th:if="${comment.getUser().getPhoto()} != null" th:src="@{/image/} + ${comment.getUser().getPhoto()}" width="100px" height="100px">
+                            <img th:unless="${comment.getUser().getPhoto()} != null" src="/image/avatar.jpeg" width="100px" height="100px">
                         </div>
                         <div class="comment-block">
                             <div class="author-date">
@@ -77,8 +78,11 @@
                                     <a th:href="@{#} + ${comment.getAnswer().getId()}" th:text="${comment.getAnswer().getUser().getName()}"></a>,
                                 </span>
                                 <span class="comment" th:text="${comment.getComment()}"></span>
+                                <div class="answer-block">
+                                    <span class="answer-txt">Ответить</span>
+                                </div>
                             </div>
-                            <img src="C:/test/icon.jpg">
+
                         </div>
                     </div>
                 </div>
