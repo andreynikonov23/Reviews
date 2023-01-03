@@ -62,15 +62,35 @@
             <div class="container">
                 <div class="comments-head"><h1>Комментарии</h1></div>
                 <div>
-                    <div class="comment-item" th:each="comment : ${comments}">
-                        <div class="icon"></div>
+                    <div class="comment-item mb-2" th:each="comment : ${comments}" th:attr="id=${comment.getId()}">
+                        <div class="icon">
+                            <img th:if="${comment.getUser().getPhoto()} != null" th:src="${comment.getUser().getPhoto()}">
+                            <img th:unless="${comment.getUser().getPhoto()} != null" src="C:/test/icon.jpg">
+                        </div>
                         <div class="comment-block">
-                            <div class="author" th:text="${comment.getUser().getName()}"></div>
-                            <div class="comment" th:text="${comment.getComment()}"></div>
+                            <div class="author-date">
+                                <div class="com-user"><a th:text="${comment.getUser().getName()}"></a></div>
+                                <div class="author date" th:text="${comment.getDate()}"></div>
+                            </div>
+                            <div >
+                                <span th:if="${comment.getAnswer() != null}">
+                                    <a th:href="@{#} + ${comment.getAnswer().getId()}" th:text="${comment.getAnswer().getUser().getName()}"></a>,
+                                </span>
+                                <span class="comment" th:text="${comment.getComment()}"></span>
+                            </div>
+                            <img src="C:/test/icon.jpg">
                         </div>
                     </div>
                 </div>
                 <div class="line"></div>
+                <div class="comment-form">
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Комментировать" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Отправить</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
         <footer th:insert="parts/layouts :: footer"></footer>

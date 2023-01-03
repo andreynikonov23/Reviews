@@ -25,12 +25,12 @@ public class Comment {
     private User user;
     @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn (name = "answer")
-    private User answer;
+    private Comment answer;
     @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn (name = "review_id")
     private Review review;
 
-    public Comment(String comment, User user, User answer, Review review) {
+    public Comment(String comment, User user, Comment answer, Review review) {
         this.comment = comment;
         this.user = user;
         this.answer = answer;
@@ -39,7 +39,7 @@ public class Comment {
 
     @Override
     public String toString(){
-        return String.format("Comment: %d, %t, %d, %d, %d, %d", id, date, user, comment, answer, review);
+        return String.format("Comment: %d, %s, %s, %s, %d", id, user.getLogin(), comment, answer, review.getId());
     }
 
     @Override

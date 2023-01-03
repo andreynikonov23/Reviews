@@ -90,17 +90,34 @@
     font: 18px/1.5 georgia,serif;
 }
 .comments{
-    background-color: var(--grey);
+    background-color: white;
+}
+.comment-item{
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.comment-block{
+    background-color: var(--orange);
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
 }
 .icon{
-    display: inline-block;
     width: 100px;
     height: 100px;
     border-radius: 100px;
     margin-right: 40px;
-    background-color: orangered;
+    background-color: red;
 }
-.comment-block{
-    background-color: white;
-    display: inline-block;
+/* .icon img{
+    object-fit: contain;
+} */
+.author-date{
+    display: flex;
+    justify-content: space-between;
 }
+.com-user{
+    color: var(--grey);
+    font-size: 19px;
+}
+
