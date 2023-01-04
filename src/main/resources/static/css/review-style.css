@@ -89,9 +89,6 @@
 .text{
     font: 18px/1.5 georgia,serif;
 }
-.comments{
-    background-color: white;
-}
 .mini-line{
     height: 3px;
     width: 400px;
@@ -149,4 +146,14 @@
 }
 .input-group{
     height: 70px;
+}
+.no-comments{
+    background-color: var(--light-grey);
+}
+.no-comment-text{
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    font-size: 26px;
+    color: var(--grey);
 }

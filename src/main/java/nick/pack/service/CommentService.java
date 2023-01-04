@@ -39,6 +39,6 @@ public class CommentService implements DAO<Comment, Integer> {
     }
 
     public List<Comment> findCommentsReview(Review review){
-        return repository.findCommentsReview(review);
+         return repository.findCommentsReview(review);
     }
 }

@@ -58,16 +58,18 @@
                 </div>
             </div>
         </div>
-        <div class="comments">
+        <div class="comments" th:if="${comments.size() > 0}">
             <div class="container">
                 <div class="comments-head"><h1>Комментарии</h1></div>
                 <div class="mini-line"></div>
                 <div>
                     <div class="comment-item mb-2" th:each="comment : ${comments}" th:attr="id=${comment.getId()}">
-                        <div class="icon">
-                            <img th:if="${comment.getUser().getPhoto()} != null" th:src="@{/image/} + ${comment.getUser().getPhoto()}" width="100px" height="100px">
-                            <img th:unless="${comment.getUser().getPhoto()} != null" src="/image/avatar.jpeg" width="100px" height="100px">
-                        </div>
+                        <a th:href="@{/{name}(name=${comment.getUser().getName()})}">
+                            <div class="icon">
+                                <img th:if="${comment.getUser().getPhoto()} != null" th:src="@{/image/} + ${comment.getUser().getPhoto()}" width="100px" height="100px">
+                                <img th:unless="${comment.getUser().getPhoto()} != null" src="/image/avatar.jpeg" width="100px" height="100px">
+                            </div>
+                        </a>
                         <div class="comment-block">
                             <div class="author-date">
                                 <div class="com-user"><a th:text="${comment.getUser().getName()}"></a></div>
@@ -97,11 +99,26 @@
                 </div>
             </div>
         </div>
+        <div class="no-comments" th:unless="${comments.size() > 0}">
+            <div class="container">
+                <div class="comments-head"><h1>Комментарии</h1></div>
+                <div class="mini-line"></div>
+                <div class="no-comment-text">Комментарий под этой рецензией пока нет, прокомментируйте ее первым</div>
+                <div class="line"></div>
+                <div class="comment-form">
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Комментировать" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Отправить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <footer th:insert="parts/layouts :: footer"></footer>
 
         <script type="text/javascript" src="/script/ratingScript.js"></script>
         <div th:insert="parts/layouts :: scripts"></div>
         </div>
-        
     </body>
 </html>

@@ -1,6 +1,7 @@
 package nick.pack.service;
 
 import nick.pack.model.Review;
+import nick.pack.model.User;
 import nick.pack.repository.ReviewRepository;
 import nick.pack.service.dao.DAO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +39,9 @@ public class ReviewService implements DAO<Review, Integer> {
     @Override
     public void delete(Review review) {
         repository.delete(review);
+    }
+
+    public List<Review> findReviewsByUser(User user){
+        return repository.findReviewsByUser(user);
     }
 }
