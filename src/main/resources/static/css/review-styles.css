@@ -125,9 +125,10 @@
     display: flex;
     justify-content: space-between;
 }
-.com-user{
+.com-user a{
     color: var(--grey);
     font-size: 19px;
+    text-decoration: none;
 }
 .com-user{
     cursor: pointer;

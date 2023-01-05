@@ -64,7 +64,7 @@
                 <div class="mini-line"></div>
                 <div>
                     <div class="comment-item mb-2" th:each="comment : ${comments}" th:attr="id=${comment.getId()}">
-                        <a th:href="@{/{name}(name=${comment.getUser().getName()})}">
+                        <a th:href="@{/user(id=${comment.getUser().getId()})}">
                             <div class="icon">
                                 <img th:if="${comment.getUser().getPhoto()} != null" th:src="@{/image/} + ${comment.getUser().getPhoto()}" width="100px" height="100px">
                                 <img th:unless="${comment.getUser().getPhoto()} != null" src="/image/avatar.jpeg" width="100px" height="100px">
@@ -72,7 +72,7 @@
                         </a>
                         <div class="comment-block">
                             <div class="author-date">
-                                <div class="com-user"><a th:text="${comment.getUser().getName()}"></a></div>
+                                <div class="com-user"><a th:href="@{/user(id=${comment.getUser().getId()})}" th:text="${comment.getUser().getName()}"></a></div>
                                 <div class="author date" th:text="${comment.getDate()}"></div>
                             </div>
                             <div >

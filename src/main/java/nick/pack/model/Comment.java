@@ -30,10 +30,18 @@ public class Comment {
     @JoinColumn (name = "review_id")
     private Review review;
 
-    public Comment(String comment, User user, Comment answer, Review review) {
+    public Comment(String comment, User user, Comment answer, LocalDate date, Review review) {
         this.comment = comment;
         this.user = user;
         this.answer = answer;
+        this.date = date;
+        this.review = review;
+    }
+
+    public Comment(String comment, LocalDate date, User user, Review review) {
+        this.comment = comment;
+        this.date = date;
+        this.user = user;
         this.review = review;
     }
 
