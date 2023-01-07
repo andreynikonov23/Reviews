@@ -5,9 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <title>Reviews</title>
-        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" href="/css/review-styles.css">
-        <link rel="stylesheet" href="/css/user-style.css">
+        <link rel="stylesheet" href="/css/user-styles.css">
+        <link rel="stylesheet" href="/css/auth.css">
         <style>
             .selector-for-some-widget {
                 box-sizing: content-box;
@@ -17,10 +18,6 @@
     </head>
 
     <body>
-        <div th:fragment="scripts">
-            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-        </div>
         <header th:fragment="header">
             <div class="container">
                 <div class="row">
@@ -28,16 +25,17 @@
                         <span class="reviews" onclick="document.location='/'">REVIEWS</span>
                     </div>
                     <div class="col">
-                        <form>
-                            <input class="search-field" type="search" placeholder="Поиск рецензии">
+                        <form method="get" action="/search">
+                            <input th:if="${value == null}" th:name="value" class="search-field" type="search" placeholder="Поиск рецензии">
+                            <input th:unless="${value == null}" th:name="value" class="search-field" type="search" th:value="${value}">
                             <input class="btn btn-primary" type="submit" value="Поиск">
                         </form>
                     </div>
                     <div class="col d-flex justify-content-end">
-                        <button class="sign-in">Вход</button>
+                        <button class="sign-in" onclick="document.location='/login'">Вход</button>
                     </div>
                 </div>
-                <nav class="row mt-2">
+                <nav class="row mt-5">
                     <div class="col text-center"><span class="nav-link">Новости</span></div>
                     <div class="col text-center"><span class="nav-link">Смотреть онлайн</span></div>
                     <div class="col text-center"><span class="nav-link">Афиша</span></div>
@@ -111,7 +109,24 @@
                     </div>
                 </div>
             </a>
-            
+        </div>
+        <div class="pages" th:each="review : ${reviews}" th:fragment="all-m-page">
+            <a th:href="@{/{id}(id=${review.getId()})}">
+                <div class="page">
+                    <div class="row">
+                        <div class="col-3 img-block">
+                            <img th:src="${review.getPoster()}" class="img">
+                        </div>
+                        <div class="col-8 info-block">
+                            <div class="rounded-circle rating text-center">
+                                <p th:text="${ratingService.getOverallRating(review)}"></p>
+                            </div>
+                            <div class="name" th:text="${review.getName()}"></div>
+                            <div class="author" th:text="${review.getUser().getName()}"></div>
+                        </div>
+                    </div>
+                </div>
+            </a>
         </div>
         <footer class="row" th:fragment="footer">
             <div class="container">
@@ -122,5 +137,9 @@
                 <div class="copyright">Copyright &copy; 2014 Two Bytes Consulting. <span class="bold-text">Terms & Policies.</span></div>
             </div>
         </footer>
+        <div th:fragment="scripts">
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+        </div>
     </body>
 </html>

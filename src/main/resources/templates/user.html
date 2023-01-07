@@ -3,52 +3,35 @@
     <head th:insert="parts/layouts :: head">
     </head>
     <body>
-        <!--<style th:inline="css">
-            .{
-
-            }
-        </style> -->
         <div class="wrapper" style="background-color: #c6c6c6;">
             <header th:insert="parts/layouts :: header"></header>
             <div class="container">
                 <div class="user-page">
                     <div class="header-page">
                         <div class="photo">
+                            <img class="" th:if="${user.getPhoto()} != null" th:src="@{/image/} + ${user.getPhoto()}" width="200px" height="200px">
+                            <img th:unless="${user.getPhoto()} != null" src="/image/avatar.jpeg" width="200px" height="200px">
                             <div class="select-photo">
                                 Выбрать фото
                             </div>
                         </div>
-                        <div class="name-section">
-                            <div class="name-line username" th:text="${user.getName()}"></div>
-                            <div class="name-line id-user" th:text="'#' + ${user.getId()}"></div>
+                        <div class="user-info-section">
+                            <div class="name-section">
+                                <div class="name-line username h1" th:text="${user.getName()}"></div>
+                                <div class="name-line id-user h2" th:text="'#' + ${user.getId()}"></div>
+                            </div>
+                            <div th:if="${isAdmin}" class="admin-section">Да я админ, базару нет, но подписчики-то вы, без вас этот группа ничто</div>
+                            <div th:text="'Колличество рецензий: ' + ${reviews.size()}"></div>
+                            <div th:unless="${isAdmin}" class="delete-user-block">
+                                <a class="delete-user">Удалить пользователя</a>
+                            </div>
                         </div>
-                        <div th:if="${isAdmin}" class="admin-section">Админ сайта</div>
-                        <div th:text="'Колличество рецензий: ' + ${reviews.size()}"></div>
-                        <a class="delete-user">Удалить пользователя</a>
                         <div class="line"></div>
                     </div>
                     <div class="reviews-user">
                         <h1>Рецензии</h1>
                         <div class="mini-line"></div>
-                        <div class="pages" th:each="review : ${reviews}">
-                            <a th:href="@{/{id}(id=${review.getId()})}">
-                                <div class="page">
-                                    <div class="row">
-                                        <div class="col-3 img-block">
-                                            <img th:src="${review.getPoster()}" class="img">
-                                        </div>
-                                        <div class="col-8 info-block">
-                                            <div class="rounded-circle rating text-center">
-                                                <p th:text="${ratingService.getOverallRating(review)}"></p>
-                                            </div>
-                                            <div class="name" th:text="${review.getName()}"></div>
-                                            <div class="author" th:text="${review.getUser().getName()}"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            
-                        </div>
+                        <div th:insert="parts/layouts :: all-m-page"></div>
                     </div>
                 </div>
             </div>

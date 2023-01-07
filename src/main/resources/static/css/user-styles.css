@@ -1,0 +1,89 @@
+:root{
+    --orange: #fc7d7b;
+    --purple: #8e77fe;
+    --link-color: #8300ff;
+    --grey: #222222;
+    --light-grey: #c6c6c6;
+}
+
+.user-page{
+    border-radius: 12px;
+    background-color: #fff;
+    padding: 20px;
+}
+.header-page{
+    display: flex;
+    margin-bottom: 40px;
+}
+.photo{
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
+    background-color: red;
+    overflow: hidden;
+}
+.photo img{
+    z-index: 2;
+}
+.select-photo{
+    border-radius: 200px;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    padding-top: 150px;
+    color: var(--light-grey);
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    bottom: 200px;
+    z-index: 1;
+    
+}
+.user-page{
+    margin-top: 100px;
+}
+.photo:hover .select-photo{
+    display: block;
+    cursor: pointer;
+}
+.user-info-section{
+     margin-left: 50px;
+     width: 80%;
+}
+.name-section{
+    color: var(--grey);
+}
+.name-line{
+    display: inline-block;
+}
+.username{
+    font-weight: 700;
+}
+.id-user{
+    color: #7D7D7D;
+    margin-left: 30px;
+}
+.admin-section{
+    color: red;
+}
+.delete-user-block{
+    text-align: right;
+}
+.delete-user{
+    color: red;
+    position: relative;
+    bottom: 80px;
+    cursor: pointer;
+}
+.delete-user:hover{
+    color: red;
+    text-decoration: none;
+}
+.admin-section{
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.delete-acc-admin{
+    bottom: 150px;
+}

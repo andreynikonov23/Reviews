@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+    <head th:insert="parts/layouts :: head">
+    </head>
+    <body>
+        <div class="wrapper">
+            <header th:insert="parts/layouts :: header"></header>
+            <div class="container">
+                <h1 class="search-head">Резельтат поиска: <span class="search-value">"</span><span class="search-value" th:text="${value}"></span><span class="search-value">"</span></h1>
+                <div th:insert="parts/layouts :: all-m-page"></div>
+            </div>
+            <footer th:insert="parts/layouts :: footer"></footer>
+        </div>
+    </body>
+</html>

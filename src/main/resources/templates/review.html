@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
     <head th:insert="parts/layouts :: head">
-
     </head>
     <body>
         <div class="wrapper"  style="background-color: #c6c6c6;">
@@ -17,7 +16,6 @@
                     <div class="poster">
                         <img th:src="${review.getPoster()}" class="img">
                     </div>
-
                     <div class="rating-section">
                         <div class="rating-block rating-set">
                             <div class="rating-body">
@@ -43,6 +41,7 @@
                 <div class="movie-right col-8">
                     <div class="film-name"><h1 th:text="${review.getFilmName()}"></h1></div>
                     <div class="info">
+                        <div class="info-col">Автор рецензии: <a th:href="@{/user(id=${review.getUser().getId()})}" th:text="${review.getUser().getName()}"></a></div>
                         <div class="info-col">Год: <span th:text="${review.getYear()}"></span></div>
                         <div class="info-col">Режисер: <span th:text="${review.getDirector()}"></span></div>
                         <div class="info-col">Страна: <span th:text="${review.getCountry()}"></span></div>

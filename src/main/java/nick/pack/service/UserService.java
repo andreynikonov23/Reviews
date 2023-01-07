@@ -33,6 +33,9 @@ public class UserService implements UserDetailsService {
     public void delete(User user){
         repository.delete(user);
     }
+    public User findUserById(int id){
+        return repository.findUserById(id);
+    }
 
 
     @Override

@@ -18,11 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -58,12 +54,27 @@ public class ViewController {
 
     @GetMapping("/user")
     public String user(@RequestParam(name = "id") int id, Model model){
-        User user = repository.findUserById(id);
+        User user = userService.findUserById(id);
         boolean admin = user.getRole().getRoleName().equals(RoleEnum.ADMIN);
         model.addAttribute("user", user);
         model.addAttribute("isAdmin", admin);
         model.addAttribute("reviews", reviewService.findReviewsByUser(user));
         model.addAttribute("ratingService", ratingService);
         return "user";
+    }
+    @GetMapping("/search")
+    public String search(@RequestParam(name="value", required = false) String value, Model model){
+        if (value.isEmpty()){
+            return "redirect:/";
+        }
+        List<Review> result = reviewService.findByAll().stream().filter(x -> x.getName().toLowerCase().contains(value.toLowerCase()) || x.getFilmName().toLowerCase().contains(value.toLowerCase())).toList();
+        model.addAttribute("reviews", result);
+        model.addAttribute("ratingService", ratingService);
+        model.addAttribute("value", value);
+        return "search";
+    }
+    @GetMapping("/login")
+    public String login(){
+        return "login";
     }
 }
