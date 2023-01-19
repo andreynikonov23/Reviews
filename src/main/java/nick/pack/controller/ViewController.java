@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -22,6 +23,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Controller
+@RequestMapping("/view")
 public class ViewController {
     @Autowired
     private ReviewService reviewService;
@@ -72,9 +74,5 @@ public class ViewController {
         model.addAttribute("ratingService", ratingService);
         model.addAttribute("value", value);
         return "search";
-    }
-    @GetMapping("/login")
-    public String login(){
-        return "login";
     }
 }
