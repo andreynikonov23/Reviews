@@ -20,7 +20,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //Service
     private final UserService service;
@@ -49,19 +49,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.
              csrf().disable().
                 authorizeRequests().
-                antMatchers(HttpMethod.GET,"/view/**").permitAll().
-                anyRequest().authenticated().
+                    antMatchers(HttpMethod.GET, "/view/**").permitAll().
+                    antMatchers(HttpMethod.GET, "/api/**").hasAnyRole(RoleEnum.USER.name(), RoleEnum.ADMIN.name()).
+                    anyRequest().authenticated().
                 and().
-                    formLogin().
-                    loginPage("/login").
-                    defaultSuccessUrl("/api/test").
-                and().
-                    logout().
-                        logoutRequestMatcher(new AntPathRequestMatcher("/logout", "POST")).
-                        invalidateHttpSession(true).
-                        clearAuthentication(true).
-                        deleteCookies("JSESSIONID").
-                        logoutSuccessUrl("/view/");
+                    formLogin();
+//                    loginPage("/login").
+//                    defaultSuccessUrl("/api/test").
+//                and().
+//                    logout().
+//                        logoutRequestMatcher(new AntPathRequestMatcher("/logout", "POST")).
+//                        invalidateHttpSession(true).
+//                        clearAuthentication(true).
+//                        deleteCookies("JSESSIONID").
+//                        logoutSuccessUrl("/view/");
     }
 
 

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ApiViewController {
 
     @GetMapping("/test")
-    @PreAuthorize("hasAuthority('crud')")
+//    @PreAuthorize("hasAuthority('crud')")
     public String test(){
         return "test";
     }
