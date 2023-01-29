@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" href="/css/review-styles.css">
         <link rel="stylesheet" href="/css/user-styles.css">
-        <link rel="stylesheet" href="/css/auth.css">
+        <link rel="stylesheet" href="/css/login.css">
         <style>
             .selector-for-some-widget {
                 box-sizing: content-box;
@@ -24,17 +24,17 @@
             <div class="container">
                 <div class="row">
                     <div class="col text-uppercase h3">
-                        <span class="reviews" onclick="document.location='/'">REVIEWS</span>
+                        <span class="reviews" onclick="document.location='/view/'">REVIEWS</span>
                     </div>
                     <div class="col">
-                        <form method="get" action="/search">
+                        <form method="get" action="/view/search">
                             <input th:if="${value == null}" th:name="value" class="search-field" type="search" placeholder="Поиск рецензии">
                             <input th:unless="${value == null}" th:name="value" class="search-field" type="search" th:value="${value}">
                             <input class="btn btn-primary" type="submit" value="Поиск">
                         </form>
                     </div>
                     <div class="col d-flex justify-content-end">
-                        <button class="sign-in" onclick="document.location='/api/index'">Вход</button>
+                        <button class="sign-in" onclick="document.location='/login'">Вход</button>
                     </div>
                 </div>
                 <nav class="row mt-5">

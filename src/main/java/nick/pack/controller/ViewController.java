@@ -67,7 +67,7 @@ public class ViewController {
     @GetMapping("/search")
     public String search(@RequestParam(name="value", required = false) String value, Model model){
         if (value.isEmpty()){
-            return "redirect:/";
+            return "redirect:/view/";
         }
         List<Review> result = reviewService.findByAll().stream().filter(x -> x.getName().toLowerCase().contains(value.toLowerCase()) || x.getFilmName().toLowerCase().contains(value.toLowerCase())).toList();
         model.addAttribute("reviews", result);

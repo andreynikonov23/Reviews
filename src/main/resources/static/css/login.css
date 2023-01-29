@@ -1,0 +1,50 @@
+:root{
+    --orange: #fc7d7b;
+    --purple: #8e77fe;
+    --link-color: #8300ff;
+    --grey: #222222;
+    --light-grey: #c6c6c6;
+}
+
+.auth-container{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+}
+.login-wrapper{
+    background-color: var(--grey);
+    height: 100vh;
+}
+.form-block{
+    width: 350px;
+    height: 450px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.field-auth{
+    padding-left: 40px;
+}
+.input-icon{
+    position: relative;
+    top: 30px;
+    left: 5px;
+}
+.form-login{
+    display: block;
+    padding: 5px;
+}
+.button-block{
+    margin-top: 40px;
+}
+.button-auth{
+    width: 100%;
+}
+.reg-btn{
+    margin-top: 20px;
+}

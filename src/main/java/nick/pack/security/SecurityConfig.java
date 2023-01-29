@@ -24,7 +24,6 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //Service
     private final UserService service;
-
     @Autowired
     public SecurityConfig(UserService service) {
         this.service = service;
@@ -32,11 +31,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     //Security configuration
-
-
     @Override
     public void configure(WebSecurity web) throws Exception {
-
+        web.ignoring().
+                antMatchers("/css/**").
+                antMatchers("/image/**").
+                antMatchers("/script/**");
     }
 
     @Override
@@ -53,15 +53,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 anyRequest().authenticated().
                 and().
                     formLogin().
-                    loginPage("/login").
-                    defaultSuccessUrl("/api/test").
+                        loginPage("/login").permitAll().
+                        defaultSuccessUrl("/api/test").
                 and().
                     logout().
                         logoutRequestMatcher(new AntPathRequestMatcher("/logout", "POST")).
                         invalidateHttpSession(true).
-                        clearAuthentication(true).
                         deleteCookies("JSESSIONID").
-                        logoutSuccessUrl("/view/");
+                        clearAuthentication(true).
+                        logoutSuccessUrl("/login");
     }
 
 
