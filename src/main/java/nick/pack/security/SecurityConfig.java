@@ -50,6 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 csrf().disable().
                 authorizeRequests().
                 antMatchers(HttpMethod.GET,"/view/**").permitAll().
+                antMatchers(HttpMethod.GET, "/signup").permitAll().
                 anyRequest().authenticated().
                 and().
                 formLogin().
@@ -57,10 +58,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 defaultSuccessUrl("/api/test").
                 and().
                 logout().
-                logoutRequestMatcher(new AntPathRequestMatcher("/logout", "POST")).
                 invalidateHttpSession(true).
-                deleteCookies("JSESSIONID").
                 clearAuthentication(true).
+                deleteCookies("JSESSIONID").
                 logoutSuccessUrl("/login");
     }
 

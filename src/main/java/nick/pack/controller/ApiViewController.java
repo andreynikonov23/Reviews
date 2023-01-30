@@ -18,5 +18,4 @@ public class ApiViewController {
         model.addAttribute("user", login);
         return "test";
     }
-
 }
