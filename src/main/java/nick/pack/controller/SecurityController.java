@@ -1,10 +1,11 @@
 package nick.pack.controller;
 
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class SecurityController {
@@ -13,8 +14,14 @@ public class SecurityController {
         return "login";
     }
 
-    @GetMapping("/signup")
-    public String signUp(Model model){
+    @GetMapping("/registration")
+    public String registration(Model model){
         return "registration";
+    }
+
+    @PostMapping("/signup")
+    public String signUp(@RequestParam("file") MultipartFile file, Model model){
+
+        return "redirect:/login";
     }
 }

@@ -22,7 +22,7 @@
     width: 350px;
     height: 450px;
     background-color: white;
-    border: 1px solid black;
+    outline: 5px solid black;
     border-radius: 20px;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -47,4 +47,13 @@
 }
 .reg-btn{
     margin-top: 20px;
+}
+.reg-block{
+    width: 650px;
+    height: 500px;
+    background-color: white;
+    outline: 5px solid black;
+    border-radius: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }

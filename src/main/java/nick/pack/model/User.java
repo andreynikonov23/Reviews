@@ -38,6 +38,13 @@ public class User {
     @OneToMany(mappedBy = "user")
     Set<Rating> ratingSet;
 
+    public User(String login, String password, String name, String photo) {
+        this.login = login;
+        this.password = password;
+        this.name = name;
+        this.photo = photo;
+    }
+
     public User(String login, String password, String name, String photo, Role role, Status status) {
         this.login = login;
         this.password = password;
