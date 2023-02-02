@@ -8,17 +8,16 @@
                 <div class="reg-block">
                     <div class="h1 text-center form-head">Регистрация</div>
                     <div class="line"></div>
-                    <form>
                         <div class="user-info-page">
                             <div class="select-image-wrapper">
                                 <form method="post" enctype="multipart/form-data" action="/signup">
-                                    <input type="file" accept="image/*">
+                                    <input id="file" class="input-file" name="file" type="file" accept="image/*">
+                                    <label for="file" class="select-avatar">Выбрать фото</label>
+                                    <img src="/image/avatar2.jpg" width="100px" height="100px" class="selected-avatar">
                                     <input type="submit" value="Ok">
                                 </form>
-                                
                             </div>
                         </div>
-                    </form>
                 </div>
             </div>
         </div>

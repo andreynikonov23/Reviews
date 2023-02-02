@@ -57,3 +57,32 @@
     padding-top: 30px;
     padding-bottom: 30px;
 }
+.input-file{
+    position: absolute;
+    width: 0.1px;
+    height: 0.1px;
+    overflow: hidden;
+    opacity: 0;
+    z-index: -1;
+}
+.select-avatar{
+    color: white;
+    font-size: 12px;
+    opacity: 0;
+    position: absolute;
+    display: block;
+    width: 100px;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    line-height: 100px;
+    z-index: 2;
+    cursor: pointer;
+}
+.select-avatar:hover{
+    opacity: 1;
+}
+.selected-avatar{
+    position: absolute;
+    z-index: 1;
+}

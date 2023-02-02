@@ -1,6 +1,5 @@
 package nick.pack.controller;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,29 +7,35 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.IOException;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.UUID;
 
 @Controller
 public class SecurityController {
-    @Value("${upload.path}")
-    String iconFolder;
     @GetMapping ("/login")
     public String login(){
         return "login";
     }
 
     @GetMapping("/registration")
-    public String registration(Model model){
+    public String registration(){
         return "registration";
     }
 
     @PostMapping("/signup")
     public String signUp(@RequestParam("file") MultipartFile file, Model model){
-        String fileName = UUID.randomUUID().toString() + " " + file.getOriginalFilename();
+        String fileName = UUID.randomUUID().toString() + "-" + file.getOriginalFilename();
         try {
-            file.transferTo(new File(iconFolder + fileName));
+            Path path = Path.of("C:/Users/Андрей/IdeaProjects/reviews/src/main/resources/static/image/users/" + fileName);
+            Files.createFile(path);
+            byte[] bytes = file.getBytes();
+            ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+            BufferedImage bufferedImage = ImageIO.read(bais);
+            ImageIO.write(bufferedImage, "jpg", new File(String.valueOf(path)));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
