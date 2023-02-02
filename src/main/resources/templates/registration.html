@@ -11,7 +11,11 @@
                     <form>
                         <div class="user-info-page">
                             <div class="select-image-wrapper">
-                                <input type="file" accept="image/*">
+                                <form method="post" enctype="multipart/form-data" action="/signup">
+                                    <input type="file" accept="image/*">
+                                    <input type="submit" value="Ok">
+                                </form>
+                                
                             </div>
                         </div>
                     </form>

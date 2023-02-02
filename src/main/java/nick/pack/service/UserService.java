@@ -2,7 +2,7 @@ package nick.pack.service;
 
 import nick.pack.model.User;
 import nick.pack.repository.UserRepository;
-import nick.pack.security.SecurityUser;
+import nick.pack.config.SecurityUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,7 +1,5 @@
-package nick.pack.security;
+package nick.pack.config;
 
-import nick.pack.model.Role;
-import nick.pack.model.RoleEnum;
 import nick.pack.model.StatusEnum;
 import nick.pack.model.User;
 import org.springframework.security.core.GrantedAuthority;
