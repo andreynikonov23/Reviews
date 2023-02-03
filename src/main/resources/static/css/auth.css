@@ -57,6 +57,10 @@
     padding-top: 30px;
     padding-bottom: 30px;
 }
+.avatar-name-b{
+    display: flex;
+    justify-content: space-between;
+}
 .input-file{
     position: absolute;
     width: 0.1px;
@@ -85,4 +89,17 @@
 .selected-avatar{
     position: absolute;
     z-index: 1;
+}
+.user-info-page{
+    height: 100%;
+    padding: 20px;
+}
+.name-field{
+    width: 60%;
+}
+.field{
+    height: 50px;
+}
+.user-data{
+    margin-top: 100px;
 }

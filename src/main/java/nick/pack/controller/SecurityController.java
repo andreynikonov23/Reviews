@@ -30,7 +30,7 @@ public class SecurityController {
     public String signUp(@RequestParam("file") MultipartFile file, Model model){
         String fileName = UUID.randomUUID().toString() + "-" + file.getOriginalFilename();
         try {
-            Path path = Path.of("C:/Users/Андрей/IdeaProjects/reviews/src/main/resources/static/image/users/" + fileName);
+            Path path = Path.of(getClass().getResource("/script/image/users/")  + fileName);
             Files.createFile(path);
             byte[] bytes = file.getBytes();
             ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
