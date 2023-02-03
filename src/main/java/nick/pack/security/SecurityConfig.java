@@ -1,4 +1,4 @@
-package nick.pack.config;
+package nick.pack.security;
 
 import nick.pack.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

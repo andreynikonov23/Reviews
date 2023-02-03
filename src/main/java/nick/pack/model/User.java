@@ -4,6 +4,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 import java.util.Set;
 
@@ -16,10 +18,15 @@ public class User {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
     @Column (name = "login")
+    @Size(max = 25, message = "*Логин содержит больше 25 символов")
+    @NotEmpty(message = "*Пустое поле")
     private String login;
     @Column (name = "password")
+    @NotEmpty(message = "*Пустое поле")
     private String password;
     @Column (name = "name")
+    @Size(max = 25, message = "*Имя не должно быть больше 25 символов")
+    @NotEmpty(message = "*Пустое поле")
     private String name;
     @Column (name = "photo")
     private String photo;

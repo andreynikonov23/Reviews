@@ -2,7 +2,7 @@ package nick.pack.service;
 
 import nick.pack.model.User;
 import nick.pack.repository.UserRepository;
-import nick.pack.config.SecurityUser;
+import nick.pack.security.SecurityUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -36,7 +36,9 @@ public class UserService implements UserDetailsService {
     public User findUserById(int id){
         return repository.findUserById(id);
     }
-
+    public boolean userExists(User user){
+        return repository.findByLogin(user.getLogin()).isPresent();
+    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

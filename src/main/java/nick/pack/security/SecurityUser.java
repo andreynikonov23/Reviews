@@ -1,4 +1,4 @@
-package nick.pack.config;
+package nick.pack.security;
 
 import nick.pack.model.StatusEnum;
 import nick.pack.model.User;

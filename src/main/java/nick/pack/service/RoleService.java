@@ -27,4 +27,11 @@ public class RoleService implements Find<Role, Integer> {
     public Role findById(Integer integer) {
         return repository.findRoleById(integer);
     }
+
+    public Role setUserRole(){
+        return repository.findRoleById(1);
+    }
+    public Role setAdminRole(){
+        return repository.findRoleById(2);
+    }
 }
