@@ -74,6 +74,7 @@ public class SecurityController {
                 throw new RuntimeException(e);
             }
         }
+        user.setActivationCode(UUID.randomUUID().toString());
         userService.saveAndFlush(user);
         return "redirect:/login";
     }

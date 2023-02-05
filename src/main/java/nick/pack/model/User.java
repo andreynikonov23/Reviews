@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.Objects;
@@ -17,23 +18,35 @@ public class User {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
+
     @Column (name = "login")
     @Size(max = 25, message = "*Логин содержит больше 25 символов")
     @NotEmpty(message = "*Пустое поле")
     private String login;
+
     @Column (name = "password")
     @NotEmpty(message = "*Пустое поле")
     private String password;
+
     @Column (name = "name")
     @Size(max = 25, message = "*Имя не должно быть больше 25 символов")
     @NotEmpty(message = "*Пустое поле")
     private String name;
+
+    @Column (name = "email")
+    @Email(message = "Недопустимый Email")
+    @NotEmpty(message = "*Пустое поле")
+    private String email;
+
+    private String activationCode;
+
     @Column (name = "photo")
     private String photo;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id")
     private Role role;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "status_id")
     private Status status;
@@ -45,17 +58,19 @@ public class User {
     @OneToMany(mappedBy = "user")
     Set<Rating> ratingSet;
 
-    public User(String login, String password, String name, String photo) {
+    public User(String login, String password, String name, String email, String photo) {
         this.login = login;
         this.password = password;
         this.name = name;
+        this.email = email;
         this.photo = photo;
     }
 
-    public User(String login, String password, String name, String photo, Role role, Status status) {
+    public User(String login, String password, String name, String email, String photo, Role role, Status status) {
         this.login = login;
         this.password = password;
         this.name = name;
+        this.email = email;
         this.photo = photo;
         this.role = role;
         this.status = status;
@@ -63,12 +78,12 @@ public class User {
 
     @Override
     public String toString(){
-        return String.format("User: [%d, %s, %s, %s, %s, %s, %s]", id, login, password, name, photo, role, status);
+        return String.format("User: [%d, %s, %s, %s, %s, %s, %s, %s]", id, login, password, name, email, photo, role, status);
     }
 
     @Override
     public int hashCode(){
-        return Objects.hash(id, login, password, name, photo, role, status);
+        return Objects.hash(id, login, password, name, email, photo, role, status);
     }
     @Override
     public boolean equals(Object obj){
