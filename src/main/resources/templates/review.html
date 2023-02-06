@@ -41,7 +41,7 @@
                 <div class="movie-right col-8">
                     <div class="film-name"><h1 th:text="${review.getFilmName()}"></h1></div>
                     <div class="info">
-                        <div class="info-col">Автор рецензии: <a th:href="@{/view/user(id=${review.getUser().getId()})}" th:text="${review.getUser().getName()}"></a></div>
+                        <div class="info-col">Автор рецензии: <a th:href="@{/user(id=${review.getUser().getId()})}" th:text="${review.getUser().getName()}"></a></div>
                         <div class="info-col">Год: <span th:text="${review.getYear()}"></span></div>
                         <div class="info-col">Режисер: <span th:text="${review.getDirector()}"></span></div>
                         <div class="info-col">Страна: <span th:text="${review.getCountry()}"></span></div>
@@ -63,7 +63,7 @@
                 <div class="mini-line"></div>
                 <div>
                     <div class="comment-item mb-2" th:each="comment : ${comments}" th:attr="id=${comment.getId()}">
-                        <a th:href="@{/view/user(id=${comment.getUser().getId()})}">
+                        <a th:href="@{/user(id=${comment.getUser().getId()})}">
                             <div class="icon">
                                 <img th:if="${comment.getUser().getPhoto()} != null" th:src="@{/image/users/} + ${comment.getUser().getPhoto()}" width="100px" height="100px">
                                 <img th:unless="${comment.getUser().getPhoto()} != null" src="/image/avatar.jpeg" width="100px" height="100px">
@@ -71,7 +71,7 @@
                         </a>
                         <div class="comment-block">
                             <div class="author-date">
-                                <div class="com-user"><a th:href="@{/view/user(id=${comment.getUser().getId()})}" th:text="${comment.getUser().getName()}"></a></div>
+                                <div class="com-user"><a th:href="@{/user(id=${comment.getUser().getId()})}" th:text="${comment.getUser().getName()}"></a></div>
                                 <div class="author date" th:text="${comment.getDate()}"></div>
                             </div>
                             <div >

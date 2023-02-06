@@ -17,7 +17,7 @@
                         </div>
                         <div class="user-info-section">
                             <div class="name-section">
-                                <div class="name-line username h1" th:text="${user.getName()}"></div>
+                                <div class="name-line username h1" th:text="${user.getNameUser()}"></div>
                                 <div class="name-line id-user h2" th:text="'#' + ${user.getId()}"></div>
                             </div>
                             <div th:if="${isAdmin}" class="admin-section">Да я админ, базару нет, но подписчики-то вы, без вас этот группа ничто</div>

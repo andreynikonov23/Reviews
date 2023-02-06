@@ -46,13 +46,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.
                 csrf().disable().
                 authorizeRequests().
-                    antMatchers(HttpMethod.GET,"/view/**", "/registration").permitAll().
+                    antMatchers(HttpMethod.GET,"/**").permitAll().
                     antMatchers(HttpMethod.POST, "/signup").permitAll().
                     anyRequest().authenticated().
                 and().
                     formLogin().
                         loginPage("/login").permitAll().
-                        defaultSuccessUrl("/api/test").
+                        defaultSuccessUrl("/").
                 and().
                     logout().
                         invalidateHttpSession(true).

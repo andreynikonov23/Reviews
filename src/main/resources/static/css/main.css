@@ -219,3 +219,13 @@ footer{
     font-size: 80%;
     color: #9A9A9A;
 }
+
+.user-on-panel{
+    width: 160px;
+    height: 100px;
+    border-radius: 15px;
+    outline: 8px solid var(--orange);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}

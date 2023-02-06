@@ -76,6 +76,14 @@ public class User {
         this.status = status;
     }
 
+    public String getName() {
+        return login;
+    }
+
+    public String getNameUser() {
+        return name;
+    }
+
     @Override
     public String toString(){
         return String.format("User: [%d, %s, %s, %s, %s, %s, %s, %s]", id, login, password, name, email, photo, role, status);
