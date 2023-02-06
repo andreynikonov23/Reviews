@@ -14,7 +14,7 @@ public class ApiViewController {
     @GetMapping("/test")
     @PreAuthorize("hasAuthority('crud')")
     public String test(Model model){
-        String login = SecurityContextHolder.getContext().getAuthentication().getName();
+        Object login = SecurityContextHolder.getContext().getAuthentication().getDetails();
         model.addAttribute("user", login);
         return "test";
     }

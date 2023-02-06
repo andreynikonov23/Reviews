@@ -36,10 +36,15 @@ public class UserService implements UserDetailsService {
     public User findUserById(int id){
         return repository.findUserById(id);
     }
-    public boolean userExists(User user){
+    public User findUserByEmail(String email){
+        return repository.findUserByEmail(email);
+    }
+    public boolean loginExists(User user){
         return repository.findByLogin(user.getLogin()).isPresent();
     }
-
+    public boolean emailExists(User user){
+        return repository.findUserByEmail(user.getEmail()) != null;
+    }
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = repository.findByLogin(username).orElseThrow(() ->

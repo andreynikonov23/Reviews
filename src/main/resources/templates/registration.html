@@ -47,7 +47,10 @@
                                     
                                 </div>
                                 <div class="error-block">
-                                    <div th:if="${error}" class="error-message" style="color: #FF514B">*Пользователь с данным логином уже существует</div>
+                                    <div th:if="${loginExist}" class="error-message" style="color: #FF514B">*Пользователь с данным логином уже существует</div>
+                                </div>
+                                <div class="error-block">
+                                    <div th:if="${emailExist}" class="error-message" style="color: #FF514B">*Пользователь с данным email уже существует</div>
                                 </div>
                                 <div class="button-block reg-btns">
                                     <button type="submit" class="btn btn-danger">Зарегистрироваться</button>
