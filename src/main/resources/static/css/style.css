@@ -220,12 +220,34 @@ footer{
     color: #9A9A9A;
 }
 
-.user-on-panel{
-    width: 160px;
-    height: 100px;
+.user-panel{
+    width: 200px;
+    height: 60px;
     border-radius: 15px;
     outline: 8px solid var(--orange);
     padding: 10px;
     display: flex;
     justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.avatar-border{
+    width: 55px;
+    height: 55px;
+    background-color: var(--purple);
+    border-radius: 55px;
+}
+.avatar-icon{
+    display: block;
+    border-radius: 50px;
+    position: relative;
+    top: 3px;
+    left: 2.5px;
+}
+.username-on-panel{
+    width: 100%;
+    height: 100%;
+    line-height: 40px;
+    padding-left: 20px;
 }

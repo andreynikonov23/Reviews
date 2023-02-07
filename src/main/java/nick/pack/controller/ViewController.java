@@ -36,7 +36,7 @@ public class ViewController {
 
     @GetMapping("/")
     public String index(Model model){
-        getAuthorizedUser(model);
+        setAuthorizedUserAsModel(model);
 
         List<Review> reviews = reviewService.findByAll();
         Collections.reverse(reviews);
@@ -48,7 +48,7 @@ public class ViewController {
 
     @GetMapping("/{id}")
     public String review(@PathVariable("id") int id, Model model){
-        getAuthorizedUser(model);
+        setAuthorizedUserAsModel(model);
 
         Review review = reviewService.findById(id);
         model.addAttribute("review", review);
@@ -60,7 +60,7 @@ public class ViewController {
 
     @GetMapping("/user")
     public String user(@RequestParam(name = "id") int id, Model model){
-        getAuthorizedUser(model);
+        setAuthorizedUserAsModel(model);
 
         User user = userService.findUserById(id);
         boolean admin = user.getRole().getRoleName().equals(RoleEnum.ADMIN);
@@ -73,7 +73,7 @@ public class ViewController {
     }
     @GetMapping("/search")
     public String search(@RequestParam(name="value", required = false) String value, Model model){
-        getAuthorizedUser(model);
+        setAuthorizedUserAsModel(model);
 
         if (value.isEmpty()){
             return "redirect:/";
@@ -86,7 +86,7 @@ public class ViewController {
         return "search";
     }
 
-    public void getAuthorizedUser(Model model){
+    public void setAuthorizedUserAsModel(Model model){
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.findUserByLogin(login);
         model.addAttribute("authorityUser", user);
