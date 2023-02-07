@@ -9,7 +9,7 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import java.util.Properties;
 
 @Configuration
-public class MainConfig {
+public class MailConfig {
 
     @Value("${spring.mail.host}")
     private String host;
@@ -43,6 +43,10 @@ public class MainConfig {
         Properties properties = javaMailSender.getJavaMailProperties();
         properties.setProperty("mail.transport.protocol", protocol);
         properties.setProperty("mail.debug", debug);
+        properties.setProperty("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.auth", "true");
+        properties.setProperty("mail.smtp.ssl.enable", "true");
+        properties.put("mail.smtp.ssl.trust", "smtp.gmail.com");
 
         return javaMailSender;
     }

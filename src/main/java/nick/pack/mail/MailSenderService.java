@@ -7,13 +7,17 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MailSender {
-    @Autowired
-    private JavaMailSender mailSender;
+public class MailSenderService {
+
+    private final JavaMailSender javaMailSender;
 
     @Value("${spring.mail.username}")
     private String username;
 
+    @Autowired
+    public MailSenderService(JavaMailSender javaMailSender) {
+        this.javaMailSender = javaMailSender;
+    }
 
     public void send(String emailTo, String subject, String text){
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
@@ -23,6 +27,6 @@ public class MailSender {
         simpleMailMessage.setSubject(subject);
         simpleMailMessage.setText(text);
 
-        mailSender.send(simpleMailMessage);
+        javaMailSender.send(simpleMailMessage);
     }
 }

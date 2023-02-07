@@ -38,8 +38,6 @@ public class User {
     @NotEmpty(message = "*Пустое поле")
     private String email;
 
-    private String activationCode;
-
     @Column (name = "photo")
     private String photo;
 

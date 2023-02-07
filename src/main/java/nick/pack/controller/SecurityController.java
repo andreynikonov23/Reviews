@@ -1,20 +1,16 @@
 package nick.pack.controller;
 
-import nick.pack.mail.MailSender;
+import nick.pack.mail.MailSenderService;
 import nick.pack.model.User;
 import nick.pack.service.RoleService;
 import nick.pack.service.StatusService;
 import nick.pack.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
@@ -36,7 +32,7 @@ public class SecurityController {
     @Autowired
     protected PasswordEncoder passwordEncoder;
     @Autowired
-    private MailSender mailSender;
+    private MailSenderService mailSender;
 
 
     @GetMapping ("/login")
@@ -95,10 +91,16 @@ public class SecurityController {
         user.setPassword(encodePassword);
         user.setRole(roleService.setUserRole());
         user.setStatus(statusService.setActiveStatus());
-        user.setActivationCode(UUID.randomUUID().toString());
         //Тест отправки письма на почту
-        mailSender.send(user.getEmail(), "Activation Code", user.toString());
+        String text = "Чтобы активировать аккаунт " + user.getLogin() + ", перейдите по следующей ссылки - http://localhost/activation?user=" + user;
+        mailSender.send(user.getEmail(), "Activation Account", text);
 
+        return "message";
+    }
+
+    @GetMapping("/activation")
+    public String activation (@PathVariable("user") User user){
+        userService.saveAndFlush(user);
         return "redirect:/login";
     }
 }
