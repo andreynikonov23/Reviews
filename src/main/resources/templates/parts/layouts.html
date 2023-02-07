@@ -35,12 +35,23 @@
                     </div>
                     <div th:unless="${authorityUser == null}" class="col d-flex justify-content-end">
                         <div class="user-panel">
-                            <div class="username-on-panel">
-                                <p th:text="${authorityUser.getNameUser()}"></p>
+                            <div class="grid-user">
+                                <div class="username-on-panel">
+                                    <p th:text="${authorityUser.getNameUser()}"></p>
+                                </div>
+                                <div class="avatar-block-on-panel">
+                                    <div class="avatar-border">
+                                        <img th:if="${authorityUser.getPhoto() != null}" class="avatar-icon" th:src="'/image/users/' + ${authorityUser.getPhoto()}" width="50px" height="50px"></img>
+                                        <img th:if="${authorityUser.getPhoto() == null}" class="avatar-icon" src="/image/avatar.jpeg" width="50px" height="50px"></img>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="avatar-block-on-panel">
-                                <div class="avatar-border">
-                                    <img class="avatar-icon" th:src="'/image/users/' + ${authorityUser.getPhoto()}" width="50px" height="50px"></img>
+                            <div class="hover-panel">
+                                <div class="account-block">
+                                    <a th:href="@{/user(id=${authorityUser.getId()})}">Личный кабинет</a>
+                                </div>
+                                <div class="logout-block">
+                                    <button class="logout-btn" onclick="document.location='/logout'">Выход</button>
                                 </div>
                             </div>
                         </div>

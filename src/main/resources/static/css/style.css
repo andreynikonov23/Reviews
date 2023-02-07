@@ -225,12 +225,17 @@ footer{
     height: 60px;
     border-radius: 15px;
     outline: 8px solid var(--orange);
+    cursor: pointer;
+    z-index: 1;
+}
+.grid-user{
+    width: 100%;
+    height: 100%;
     padding: 10px;
     display: flex;
     justify-content: space-between;
     align-content: center;
     align-items: center;
-    cursor: pointer;
 }
 .avatar-border{
     width: 55px;
@@ -250,4 +255,47 @@ footer{
     height: 100%;
     line-height: 40px;
     padding-left: 20px;
+
+}
+.hover-panel{
+    display: none;
+    width: 200px;
+    height: 125px;
+    position: relative;
+    background-color: var(--grey);
+    border: 5px solid var(--orange);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    z-index: 2;
+    text-align: center;
+    padding-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+.user-panel:hover .hover-panel{
+    display: block;
+}
+.account-block{
+    margin-bottom: 20px;
+}
+.hover-panel a{
+    text-decoration: none;
+    color: white;
+}
+.hover-panel a:hover{
+    color: var(--link-color);
+}
+.logout-btn{
+    background-color: var(--orange);
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    color: var(--grey);
+    border-radius: 8px;
+    border: none;
+}
+.logout-btn:hover{
+    background-color: var(--purple);
+    color: white;
 }
