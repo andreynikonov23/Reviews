@@ -25,6 +25,7 @@
                             <div th:unless="${isAdmin}" class="delete-user-block">
                                 <a class="delete-user">Удалить пользователя</a>
                             </div>
+                            <p th:if="${authorityUser.getLogin() == user.getLogin()}">Это моя страница</p>
                         </div>
                         <div class="line"></div>
                     </div>

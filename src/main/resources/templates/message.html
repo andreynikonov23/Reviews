@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-  <p>На почту было вышлено письмо с активацией</p>
-</body>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+    <head th:insert="parts/layouts :: head">
+    </head>
+    <body>
+        <div class="login-wrapper">
+            <div class="container auth-container">
+                <div class="form-block center-block message">
+                  <div class="h1 text-center form-head">Регистрация</div>
+                  <div class="line"></div>
+                    <p class="mail-message">На почту было отправлено письмо для активации аккаунта</p>
+                    <div class="form-login">
+                        <button class="btn btn-danger button-auth reg-btn" onclick="document.location='/login'">Вход</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div th:insert="parts/layouts :: scripts"></div>
+    </body>
 </html>
