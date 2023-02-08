@@ -22,10 +22,12 @@
                             </div>
                             <div th:if="${isAdmin}" class="admin-section">Да я админ, базару нет, но подписчики-то вы, без вас этот группа ничто</div>
                             <div th:text="'Колличество рецензий: ' + ${reviews.size()}"></div>
-                            <div th:unless="${isAdmin}" class="delete-user-block">
+                            <div th:if="${authorityUser.getRole().getRoleName().equals(RoleEnum.ADMIN)}" class="delete-user-block">
                                 <a class="delete-user">Удалить пользователя</a>
                             </div>
-                            <p th:if="${authorityUser.getLogin() == user.getLogin()}">Это моя страница</p>
+                            <div th:if="${authorityUser.getLogin() == user.getLogin()}">
+                                <a class="delete-user">Удалить страницу</a>
+                            </div>
                         </div>
                         <div class="line"></div>
                     </div>

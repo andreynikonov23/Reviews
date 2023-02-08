@@ -85,9 +85,10 @@ public class ViewController {
         return "search";
     }
 
-    public void setAuthorizedUserAsModel(Model model){
+    public User setAuthorizedUserAsModel(Model model){
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.findUserByLogin(login);
         model.addAttribute("authorityUser", user);
+        return user;
     }
 }
