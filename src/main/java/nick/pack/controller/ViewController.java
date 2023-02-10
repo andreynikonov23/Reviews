@@ -88,6 +88,9 @@ public class ViewController {
     public User setAuthorizedUserAsModel(Model model){
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.findUserByLogin(login);
+        if (user != null){
+            model.addAttribute("authorityUserIsAdmin", user.getRole().getRoleName().equals(RoleEnum.ADMIN));
+        }
         model.addAttribute("authorityUser", user);
         return user;
     }

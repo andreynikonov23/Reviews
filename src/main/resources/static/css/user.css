@@ -76,6 +76,9 @@
     bottom: 80px;
     cursor: pointer;
 }
+.my{
+    bottom: 120px;
+}
 .delete-user:hover{
     color: red;
     text-decoration: none;
@@ -86,4 +89,19 @@
 }
 .delete-acc-admin{
     bottom: 150px;
+}
+.name-info{
+    color: #7D7D7D;
+}
+.add-review{
+    font-size: 16px;
+    border: none;
+    border-radius: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    color: white;
+    background-color: var(--purple);
 }

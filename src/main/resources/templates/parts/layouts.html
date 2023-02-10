@@ -9,7 +9,7 @@
         <title>Reviews</title>
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/css/review-styles.css">
-        <link rel="stylesheet" href="/css/user-styles.css">
+        <link rel="stylesheet" href="/css/user.css">
         <link rel="stylesheet" href="/css/auth.css">
         <style>
             .selector-for-some-widget {
@@ -130,6 +130,10 @@
                             </div>
                             <div class="name" th:text="${review.getName()}"></div>
                             <div class="author" th:text="${review.getUser().getName()}"></div>
+                            <div th:if="${authorityUser != null}">
+                                <div th:if="${authorityUser.getLogin() == review.getUser().getLogin()}">Удалить</div>
+                                <div th:if="${authorityUser.getLogin() == review.getUser().getLogin()}">Изменить</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -148,6 +152,10 @@
                             </div>
                             <div class="name" th:text="${review.getName()}"></div>
                             <div class="author" th:text="${review.getUser().getName()}"></div>
+                            <div th:if="${authorityUser != null}">
+                                <div th:if="${authorityUser.getLogin() == review.getUser().getLogin()}">Удалить</div>
+                                <div th:if="${authorityUser.getLogin() == review.getUser().getLogin()}">Изменить</div>
+                            </div>
                         </div>
                     </div>
                 </div>
