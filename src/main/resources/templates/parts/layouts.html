@@ -37,7 +37,7 @@
                         <div class="user-panel">
                             <div class="grid-user">
                                 <div class="username-on-panel">
-                                    <p th:text="${authorityUser.getNameUser()}"></p>
+                                    <p th:text="${authorityUser.getNick()}"></p>
                                 </div>
                                 <div class="avatar-block-on-panel">
                                     <div class="avatar-border">
@@ -82,7 +82,7 @@
                                 <p th:text="${ratingService.getOverallRating(reviews.get(0))}"></p>
                             </div>
                             <div class="name" th:text="${reviews.get(0).getName()}"></div><br/>
-                            <div class="author" th:text="${reviews.get(0).getUser().getName()}"></div>
+                            <div class="author" th:text="${reviews.get(0).getUser().getNick()}"></div>
                         </div>
                     </div>
                 </a>
@@ -93,7 +93,7 @@
                         </div>
                         <div class="info-item">
                             <div class="name" th:text="${reviews.get(1).getName()}"></div>
-                            <div class="author" th:text="${reviews.get(1).getUser().getName()}"></div>
+                            <div class="author" th:text="${reviews.get(1).getUser().getNick()}"></div>
                             <div class="rounded-circle rating test text-center">
                                 <p th:text="${ratingService.getOverallRating(reviews.get(1))}"></p>
                             </div>
@@ -107,7 +107,7 @@
                         </div>
                         <div class="info-item">
                             <div class="name" th:text="${review.getName()}"></div>
-                            <div class="author" th:text="${review.getUser().getName()}"></div>
+                            <div class="author" th:text="${review.getUser().getNick()}"></div>
                             <div class="rounded-circle rating test text-center">
                                 <p th:text="${ratingService.getOverallRating(review)}"></p>
                             </div>
@@ -129,7 +129,7 @@
                                 <p th:text="${ratingService.getOverallRating(review)}"></p>
                             </div>
                             <div class="name" th:text="${review.getName()}"></div>
-                            <div class="author" th:text="${review.getUser().getName()}"></div>
+                            <div class="author" th:text="${review.getUser().getNick()}"></div>
                             <div th:if="${authorityUser != null}">
                                 <div th:if="${authorityUser.getLogin() == review.getUser().getLogin()}">Удалить</div>
                                 <div th:if="${authorityUser.getLogin() == review.getUser().getLogin()}">Изменить</div>
@@ -151,7 +151,7 @@
                                 <p th:text="${ratingService.getOverallRating(review)}"></p>
                             </div>
                             <div class="name" th:text="${review.getName()}"></div>
-                            <div class="author" th:text="${review.getUser().getName()}"></div>
+                            <div class="author" th:text="${review.getUser().getNick()}"></div>
                             <div th:if="${authorityUser != null}">
                                 <div th:if="${authorityUser.getLogin() == review.getUser().getLogin()}">Удалить</div>
                                 <div th:if="${authorityUser.getLogin() == review.getUser().getLogin()}">Изменить</div>

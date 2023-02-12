@@ -17,6 +17,8 @@ public class StatusService implements Find<Status, Integer> {
         this.repository = repository;
     }
 
+
+
     @Override
     public List<Status> findByAll() {
         return repository.findAll();

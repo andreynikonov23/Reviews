@@ -41,7 +41,7 @@
                 <div class="movie-right col-8">
                     <div class="film-name"><h1 th:text="${review.getFilmName()}"></h1></div>
                     <div class="info">
-                        <div class="info-col">Автор рецензии: <a th:href="@{/user(id=${review.getUser().getId()})}" th:text="${review.getUser().getName()}"></a></div>
+                        <div class="info-col">Автор рецензии: <a th:href="@{/user(id=${review.getUser().getId()})}" th:text="${review.getUser().getNick()}"></a></div>
                         <div class="info-col">Год: <span th:text="${review.getYear()}"></span></div>
                         <div class="info-col">Режисер: <span th:text="${review.getDirector()}"></span></div>
                         <div class="info-col">Страна: <span th:text="${review.getCountry()}"></span></div>
@@ -71,12 +71,12 @@
                         </a>
                         <div class="comment-block">
                             <div class="author-date">
-                                <div class="com-user"><a th:href="@{/user(id=${comment.getUser().getId()})}" th:text="${comment.getUser().getName()}"></a></div>
+                                <div class="com-user"><a th:href="@{/user(id=${comment.getUser().getId()})}" th:text="${comment.getUser().getNick()}"></a></div>
                                 <div class="author date" th:text="${comment.getDate()}"></div>
                             </div>
                             <div >
                                 <span th:if="${comment.getAnswer() != null}">
-                                    <a th:href="@{#} + ${comment.getAnswer().getId()}" th:text="${comment.getAnswer().getUser().getName()}"></a>,
+                                    <a th:href="@{#} + ${comment.getAnswer().getId()}" th:text="${comment.getAnswer().getUser().getNick()}"></a>,
                                 </span>
                                 <span class="comment" th:text="${comment.getComment()}"></span>
                                 <div class="answer-block">

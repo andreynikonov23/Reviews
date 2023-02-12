@@ -17,22 +17,30 @@
                         </div>
                         <div class="user-info-section">
                             <div class="name-section">
-                                <div th:if="${authorityUser.getLogin() == user.getLogin()}">
-                                    <div class="name-line name-info h2">Login: </div>
-                                    <div class="name-line username h1" th:text="${user.getLogin()}"></div>
+                                <div th:unless="${authorityUser == null}">
+                                    <div th:if="${authorityUser.getLogin() == user.getLogin()}">
+                                        <div class="name-line name-info h2">Login: </div>
+                                        <div class="name-line username h1" th:text="${user.getLogin()}"></div>
+                                    </div>
                                 </div>
+
                                 <div class="name-line name-info h2">Nickname: </div>
-                                <div class="name-line username h1" th:text="${user.getNameUser()}"></div>
+                                <div class="name-line username h1" th:text="${user.getNick()}"></div>
                                 <div class="name-line id-user h2" th:text="'#' + ${user.getId()}"></div>
                             </div>
                             <div th:if="${isAdmin}" class="admin-section">Да я админ, базару нет, но подписчики-то вы, без вас этот группа ничто</div>
                             <div th:text="'Колличество рецензий: ' + ${reviews.size()}"></div>
-                            <div th:if="${authorityUserIsAdmin}" th:unless="${isAdmin}" class="delete-user-block">
-                                <a class="delete-user delete-my">Удалить пользователя</a>
+                            <div th:unless="${authorityUser == null}">
+                                <div th:if="${authorityUserIsAdmin}" th:unless="${isAdmin}" class="delete-user-block">
+                                    <a class="delete-user delete-my">Удалить пользователя</a>
+                                </div>
                             </div>
-                            <div th:if="${authorityUser.getLogin() == user.getLogin()}" th:unless="${isAdmin}" class="delete-user-block">
-                                <a class="delete-user my">Удалить страницу</a>
+                            <div th:unless="${authorityUser == null}">
+                                <div th:if="${authorityUser.getLogin() == user.getLogin()}" th:unless="${isAdmin}" class="delete-user-block">
+                                    <a class="delete-user my">Удалить страницу</a>
+                                </div>
                             </div>
+
                         </div>
                         <div class="line"></div>
                     </div>

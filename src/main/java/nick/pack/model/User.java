@@ -1,8 +1,5 @@
 package nick.pack.model;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -10,8 +7,6 @@ import javax.validation.constraints.Size;
 import java.util.Objects;
 import java.util.Set;
 
-@Data
-@NoArgsConstructor
 @Entity
 @Table (name = "users")
 public class User {
@@ -21,25 +16,28 @@ public class User {
 
     @Column (name = "login")
     @Size(max = 25, message = "*Логин содержит больше 25 символов")
-    @NotEmpty(message = "*Пустое поле")
+    @NotEmpty(message = "*Пустое поле - Логин")
     private String login;
 
     @Column (name = "password")
-    @NotEmpty(message = "*Пустое поле")
+    @NotEmpty(message = "*Пустое поле - Пароль")
     private String password;
 
-    @Column (name = "name")
+    @Column (name = "nickname")
     @Size(max = 25, message = "*Имя не должно быть больше 25 символов")
-    @NotEmpty(message = "*Пустое поле")
-    private String name;
+    @NotEmpty(message = "*Пустое поле Имя")
+    private String nick;
 
     @Column (name = "email")
     @Email(message = "Недопустимый Email")
-    @NotEmpty(message = "*Пустое поле")
+    @NotEmpty(message = "*Пустое поле Email")
     private String email;
 
     @Column (name = "photo")
     private String photo;
+
+    @Column (name = "activation_code")
+    private int activationCode;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id")
@@ -49,6 +47,11 @@ public class User {
     @JoinColumn(name = "status_id")
     private Status status;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "confirm_user")
+    private ConfirmUser confirmUser;
+
+
     @OneToMany(mappedBy = "user")
     Set<Review> reviewSet;
     @OneToMany(mappedBy = "user")
@@ -56,40 +59,130 @@ public class User {
     @OneToMany(mappedBy = "user")
     Set<Rating> ratingSet;
 
-    public User(String login, String password, String name, String email, String photo) {
+
+    public User(){}
+
+    public User(int id, String login, String password, String nick, String email, String photo, int activationCode, Role role, Status status, ConfirmUser confirmUser) {
+        this.id = id;
         this.login = login;
         this.password = password;
-        this.name = name;
+        this.nick = nick;
+        this.email = email;
+        this.photo = photo;
+        this.activationCode = activationCode;
+        this.role = role;
+        this.status = status;
+        this.confirmUser = confirmUser;
+    }
+
+    public User(String login, String password, String nick, String email, String photo) {
+        this.login = login;
+        this.password = password;
+        this.nick = nick;
         this.email = email;
         this.photo = photo;
     }
 
-    public User(String login, String password, String name, String email, String photo, Role role, Status status) {
+    public User(String login, String password, String nick, String email, String photo, Role role, Status status, int activationCode, ConfirmUser confirmUser) {
         this.login = login;
         this.password = password;
-        this.name = name;
+        this.nick = nick;
         this.email = email;
         this.photo = photo;
         this.role = role;
         this.status = status;
+        this.activationCode = activationCode;
+        this.confirmUser = confirmUser;
     }
 
-    public String getName() {
+    public String getNick() {
+        return nick;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getLogin() {
         return login;
     }
 
-    public String getNameUser() {
-        return name;
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setNick(String nick) {
+        this.nick = nick;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public int getActivationCode() {
+        return activationCode;
+    }
+
+    public void setActivationCode(int activationCode) {
+        this.activationCode = activationCode;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public ConfirmUser getConfirmUser() {
+        return confirmUser;
+    }
+
+    public void setConfirmUser(ConfirmUser confirmUser) {
+        this.confirmUser = confirmUser;
     }
 
     @Override
     public String toString(){
-        return String.format("User: [%d, %s, %s, %s, %s, %s, %s, %s]", id, login, password, name, email, photo, role, status);
+        return String.format("User: [%d, %s, %s, %s, %s, %s, %s, %s]", id, login, password, nick, email, photo, role, status);
     }
 
     @Override
     public int hashCode(){
-        return Objects.hash(id, login, password, name, email, photo, role, status);
+        return Objects.hash(id, login, password, nick, email, photo, role, status);
     }
     @Override
     public boolean equals(Object obj){

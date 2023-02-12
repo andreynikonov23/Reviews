@@ -2,6 +2,7 @@ package nick.pack.controller;
 
 import nick.pack.mail.MailSenderService;
 import nick.pack.model.User;
+import nick.pack.service.ConfirmUserService;
 import nick.pack.service.RoleService;
 import nick.pack.service.StatusService;
 import nick.pack.service.UserService;
@@ -19,6 +20,7 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.security.SecureRandom;
 import java.util.UUID;
 
 @Controller
@@ -29,6 +31,8 @@ public class SecurityController {
     private RoleService roleService;
     @Autowired
     private StatusService statusService;
+    @Autowired
+    private ConfirmUserService confirmUserService;
     @Autowired
     protected PasswordEncoder passwordEncoder;
     @Autowired
@@ -70,7 +74,7 @@ public class SecurityController {
             String fileName = UUID.randomUUID().toString() + "-" + file.getOriginalFilename();
             try {
                 //url куда будет сохраняться картинка
-                Path path = Path.of("/home/andrey/IdeaProjects/Reviews/src/main/resources/static/image/users" + fileName);
+                Path path = Path.of("C:/Users/Андрей/IdeaProjects/reviews/src/main/resources/static/image/users/" + fileName);
                 //Создать файл с данным url
                 Files.createFile(path);
                 //Получение массива байт из полученного от клиента изображением
@@ -91,16 +95,44 @@ public class SecurityController {
         user.setPassword(encodePassword);
         user.setRole(roleService.setUserRole());
         user.setStatus(statusService.setActiveStatus());
+        //Пользователь не подтвержден
+        user.setConfirmUser(confirmUserService.setNotConfirmedStatus());
+        //Генерация кода активации
+        int activationCode = generateCode();
+        user.setActivationCode(activationCode);
+        //Добавление в базу данных
+        userService.saveAndFlush(user);
         //Тест отправки письма на почту
-        String text = "Чтобы активировать аккаунт " + user.getLogin() + ", перейдите по следующей ссылки - http://localhost/activation?user=" + user;
+        String text = "Чтобы активировать аккаунт " + user.getLogin() +
+                    ", перейдите по следующей ссылки - http://localhost:8080/activation?id=" + user.getId() + "&code=" + activationCode;
         mailSender.send(user.getEmail(), "Activation Account", text);
 
         return "message";
     }
 
     @GetMapping("/activation")
-    public String activation (@PathVariable("user") User user){
-        userService.saveAndFlush(user);
-        return "redirect:/login";
+    public String activation (@PathVariable("id") int id, @PathVariable("code") int activationCode){
+        User user = userService.findUserById(id);
+
+        if (user.getActivationCode() == activationCode){
+            user.setConfirmUser(confirmUserService.setConfirmedStatus());
+            userService.saveAndFlush(user);
+            return "redirect:/login";
+        }
+        return null;
+    }
+
+    public int generateCode(){
+        String chars = "0123456789";
+
+        SecureRandom random = new SecureRandom();
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (int i = 0; i < 4; i++){
+            int index = random.nextInt(chars.length());
+            stringBuilder.append(chars.charAt(index));
+        }
+
+        return Integer.parseInt(stringBuilder.toString());
     }
 }

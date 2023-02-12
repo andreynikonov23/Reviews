@@ -1,6 +1,6 @@
 package nick.pack.service;
 
-import nick.pack.model.User;
+import nick.pack.model.*;
 import nick.pack.repository.UserRepository;
 import nick.pack.security.SecurityUser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,11 +42,22 @@ public class UserService implements UserDetailsService {
     public User findUserByEmail(String email){
         return repository.findUserByEmail(email);
     }
+
+
     public boolean loginExists(User user){
-        return repository.findByLogin(user.getLogin()).isPresent();
+        User userSql = repository.returnUserObjByLogin(user.getLogin());
+        if (userSql == null){
+            return false;
+        }
+        return userSql.getConfirmUser().getIsConfirm().equals(ConfirmUserEnum.YES);
     }
     public boolean emailExists(User user){
-        return repository.findUserByEmail(user.getEmail()) != null;
+        User userSql = repository.findUserByEmail(user.getEmail());
+
+        if (userSql == null){
+            return false;
+        }
+        return userSql.getConfirmUser().getIsConfirm().equals(ConfirmUserEnum.YES);
     }
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
