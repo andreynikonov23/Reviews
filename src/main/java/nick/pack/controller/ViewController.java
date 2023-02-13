@@ -90,12 +90,6 @@ public class ViewController {
 
     public User setAuthorizedUserAsModel(Model model){
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
-        try(FileOutputStream stream = new FileOutputStream("C:/test/file.txt")){
-            byte[] bytes = login.getBytes();
-            stream.write(bytes);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
         User user = userService.findUserByLogin(login);
 
         if (user != null){
