@@ -300,10 +300,26 @@ footer{
     background-color: var(--purple);
     color: white;
 }
-.review_btns{
+.review-btns{
     text-align: right;
-    height: 100px;
 }
 .review-btn{
-
+    display: inline-block;
+    width: fit-content;
+    cursor: pointer;
+    position: relative;
+    bottom: 165px;
+}
+.fa-pen{
+    color: #3D76AC;
+    margin-right: 30px;
+}
+.fa-pen:hover{
+    color: #284f74;
+}
+.fa-trash{
+    color: #FF2C2C;
+}
+.fa-trash:hover{
+    color: #b12f2f;
 }
