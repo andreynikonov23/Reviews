@@ -32,7 +32,7 @@
                             <div th:text="'Колличество рецензий: ' + ${reviews.size()}"></div>
                             <div th:unless="${authorityUser == null}">
                                 <div th:if="${authorityUserIsAdmin}" th:unless="${isAdmin}" class="delete-user-block">
-                                    <a class="delete-user delete-my">Удалить пользователя</a>
+                                    <a class="delete-user delete-my">Заблокировать пользователя</a>
                                 </div>
                             </div>
                             <div th:unless="${authorityUser == null}">

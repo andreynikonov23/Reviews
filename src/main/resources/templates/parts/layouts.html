@@ -118,7 +118,7 @@
             </div>
         </div>
         <div class="pages" th:each="review, state : ${reviews}" th:fragment="m-page">
-            <a th:if="${state.index > 6}" th:href="@{/{id}(id=${review.getId()})}">
+            <div th:if="${state.index > 6}">
                 <div class="page">
                     <div class="row">
                         <div class="col-3 img-block">
@@ -128,8 +128,16 @@
                             <div class="rounded-circle rating text-center">
                                 <p th:text="${ratingService.getOverallRating(review)}"></p>
                             </div>
-                            <div class="name" th:text="${review.getName()}"></div>
+                            <a th:href="@{/{id}(id=${review.getId()})}">
+                                <div class="name" th:text="${review.getName()}"></div>
+                            </a>
                             <div class="author" th:text="${review.getUser().getNick()}"></div>
+                            <div th:if="${authorityUser != null}">
+                                <div class="review-btns" th:if="${authorityUserIsAdmin}">
+                                    <span class="fa fa-trash fa-lg review-btn">
+                                    </span>
+                                </div>
+                            </div>
                             <div th:if="${authorityUser != null}">
                                 <div class="review-btns" th:if="${authorityUser.getLogin() == review.getUser().getLogin()}">
                                     <span class="fa fa-pen fa-lg review-btn">
@@ -141,7 +149,7 @@
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
         </div>
         <div class="pages" th:each="review : ${reviews}" th:fragment="all-m-page">
             <a th:href="@{/{id}(id=${review.getId()})}">

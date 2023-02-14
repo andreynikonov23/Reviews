@@ -36,9 +36,6 @@ public class User {
     @Column (name = "photo")
     private String photo;
 
-    @Column (name = "activation_code")
-    private int activationCode;
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id")
     private Role role;
@@ -46,10 +43,6 @@ public class User {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "status_id")
     private Status status;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "confirm_user")
-    private ConfirmUser confirmUser;
 
 
     @OneToMany(mappedBy = "user")
@@ -62,17 +55,15 @@ public class User {
 
     public User(){}
 
-    public User(int id, String login, String password, String nick, String email, String photo, int activationCode, Role role, Status status, ConfirmUser confirmUser) {
+    public User(int id, String login, String password, String nick, String email, String photo, Role role, Status status) {
         this.id = id;
         this.login = login;
         this.password = password;
         this.nick = nick;
         this.email = email;
         this.photo = photo;
-        this.activationCode = activationCode;
         this.role = role;
         this.status = status;
-        this.confirmUser = confirmUser;
     }
 
     public User(String login, String password, String nick, String email, String photo) {
@@ -83,7 +74,7 @@ public class User {
         this.photo = photo;
     }
 
-    public User(String login, String password, String nick, String email, String photo, Role role, Status status, int activationCode, ConfirmUser confirmUser) {
+    public User(String login, String password, String nick, String email, String photo, Role role, Status status) {
         this.login = login;
         this.password = password;
         this.nick = nick;
@@ -91,8 +82,6 @@ public class User {
         this.photo = photo;
         this.role = role;
         this.status = status;
-        this.activationCode = activationCode;
-        this.confirmUser = confirmUser;
     }
 
     public String getNick() {
@@ -143,14 +132,6 @@ public class User {
         this.photo = photo;
     }
 
-    public int getActivationCode() {
-        return activationCode;
-    }
-
-    public void setActivationCode(int activationCode) {
-        this.activationCode = activationCode;
-    }
-
     public Role getRole() {
         return role;
     }
@@ -165,14 +146,6 @@ public class User {
 
     public void setStatus(Status status) {
         this.status = status;
-    }
-
-    public ConfirmUser getConfirmUser() {
-        return confirmUser;
-    }
-
-    public void setConfirmUser(ConfirmUser confirmUser) {
-        this.confirmUser = confirmUser;
     }
 
     @Override

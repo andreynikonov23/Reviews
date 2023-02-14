@@ -126,6 +126,7 @@
     font-size: 24px;
     color: var(--grey);
     font-weight: 700;
+    margin-bottom: 40px;
 }
 .save-session-block{
     margin-top: 10px;

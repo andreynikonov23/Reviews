@@ -8,10 +8,12 @@
                 <div class="form-block center-block message">
                   <div class="h1 text-center form-head">Регистрация</div>
                   <div class="line"></div>
-                    <p class="mail-message">На почту было отправлено письмо для активации аккаунта</p>
-                    <div class="form-login">
-                        <button class="btn btn-danger button-auth reg-btn" onclick="document.location='/login'">Вход</button>
-                    </div>
+                    <p class="mail-message">Введите код активации, который был выслан вам на почту</p>
+                    <form class="form-login" method="post" action="/activate" th:object="${activationData}">
+                        <input class="field-auth form-control" type="text" th:name="*{code}" id="code" placeholder="Код">
+                        <p th:text="${activationData.getUsername()}"></p>
+                        <input class="btn btn-primary button-auth" type="submit" value="Подтвердить">
+                    </form>
                 </div>
             </div>
         </div>

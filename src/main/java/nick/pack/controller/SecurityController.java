@@ -2,10 +2,10 @@ package nick.pack.controller;
 
 import nick.pack.mail.MailSenderService;
 import nick.pack.model.User;
-import nick.pack.service.ConfirmUserService;
 import nick.pack.service.RoleService;
 import nick.pack.service.StatusService;
 import nick.pack.service.UserService;
+import nick.pack.utils.ActivationCodeHashKeyDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -21,6 +21,8 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.SecureRandom;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 @Controller
@@ -32,11 +34,11 @@ public class SecurityController {
     @Autowired
     private StatusService statusService;
     @Autowired
-    private ConfirmUserService confirmUserService;
-    @Autowired
     protected PasswordEncoder passwordEncoder;
     @Autowired
     private MailSenderService mailSender;
+
+    private final HashMap<String, User> unconfirmedUsers = new HashMap<>();
 
 
     @GetMapping ("/login")
@@ -95,34 +97,38 @@ public class SecurityController {
         user.setPassword(encodePassword);
         user.setRole(roleService.setUserRole());
         user.setStatus(statusService.setActiveStatus());
-        //Пользователь не подтвержден
-        user.setConfirmUser(confirmUserService.setNotConfirmedStatus());
         //Генерация кода активации
-        int activationCode = generateCode();
-        user.setActivationCode(activationCode);
-        //Добавление в базу данных
-        userService.saveAndFlush(user);
+        String activationCode = generateCode();
+        //Добавление в хэш-таблицу
+        ActivationCodeHashKeyDTO hashKeyDTO = new ActivationCodeHashKeyDTO(user.getLogin(), activationCode);
+        unconfirmedUsers.put(hashKeyDTO.getHashKey(), user);
+        //Создание аттрибутов для ввода кода активации пользователем на отдельной страницу
+        ActivationCodeHashKeyDTO userInputHashKey = new ActivationCodeHashKeyDTO(user.getLogin(), "");
+        model.addAttribute("activationData", userInputHashKey);
         //Тест отправки письма на почту
-        String text = "Чтобы активировать аккаунт " + user.getLogin() +
-                    ", перейдите по следующей ссылки - http://localhost:8080/activation?id=" + user.getId() + "&code=" + activationCode;
+        String text = "Вы регистрируйтесь на сайте <a href=\"http://localhost:8080/\">Reviews.com</a>, осталось совсем чуть-чуть, введите ваш код активации на сайте\n" + activationCode;
         mailSender.send(user.getEmail(), "Activation Account", text);
 
         return "message";
     }
 
-    @GetMapping("/activation")
-    public String activation (@PathVariable("id") int id, @PathVariable("code") int activationCode){
-        User user = userService.findUserById(id);
+    @PostMapping("/activate")
+    public String activateAccount(@ModelAttribute("activationData") ActivationCodeHashKeyDTO activationData, Model model){
+        User user = unconfirmedUsers.get(activationData.getHashKey());
 
-        if (user.getActivationCode() == activationCode){
-            user.setConfirmUser(confirmUserService.setConfirmedStatus());
-            userService.saveAndFlush(user);
-            return "redirect:/login";
+        System.out.println("for /activate ===" + activationData.getCode() + " " + activationData.getUsername() + " ; result == " + activationData.getHashKey());
+
+        if (user == null){
+            model.addAttribute("codeIsNotCorrect");
+            return "message";
         }
-        return null;
+
+        userService.saveAndFlush(user);
+
+        return "redirect:/login";
     }
 
-    public int generateCode(){
+    public String generateCode(){
         String chars = "0123456789";
 
         SecureRandom random = new SecureRandom();
@@ -133,6 +139,6 @@ public class SecurityController {
             stringBuilder.append(chars.charAt(index));
         }
 
-        return Integer.parseInt(stringBuilder.toString());
+        return stringBuilder.toString();
     }
 }

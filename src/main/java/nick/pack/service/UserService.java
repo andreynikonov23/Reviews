@@ -45,19 +45,12 @@ public class UserService implements UserDetailsService {
 
 
     public boolean loginExists(User user){
-        User userSql = repository.returnUserObjByLogin(user.getLogin());
-        if (userSql == null){
-            return false;
-        }
-        return userSql.getConfirmUser().getIsConfirm().equals(ConfirmUserEnum.YES);
+        User userDB = repository.returnUserObjByLogin(user.getLogin());
+        return userDB != null;
     }
     public boolean emailExists(User user){
         User userSql = repository.findUserByEmail(user.getEmail());
-
-        if (userSql == null){
-            return false;
-        }
-        return userSql.getConfirmUser().getIsConfirm().equals(ConfirmUserEnum.YES);
+        return userSql != null;
     }
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
