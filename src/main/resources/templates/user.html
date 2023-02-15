@@ -47,8 +47,10 @@
                     <div class="reviews-user">
                         <h1>Рецензии</h1>
                         <div class="mini-line"></div>
-                        <div class="text-center mb-4">
-                            <button class="add-review" onclick="document.location='/add-review'">Добавить</button>
+                        <div th:unless="${authorityUser == null}">
+                            <div th:if="${authorityUser.getLogin() == user.getLogin()}" class="text-center mb-4">
+                                <button class="add-review" onclick="document.location='/add-review'">Добавить</button>
+                            </div>
                         </div>
                         <div th:insert="parts/layouts :: all-m-page"></div>
                     </div>

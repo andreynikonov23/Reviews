@@ -88,6 +88,12 @@ public class ViewController {
         return "search";
     }
 
+    @GetMapping("/add-review")
+    public String addReview(Model model){
+        Review review = new Review();
+        return "addReview";
+    }
+
     public User setAuthorizedUserAsModel(Model model){
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.findUserByLogin(login);
@@ -95,6 +101,7 @@ public class ViewController {
         if (user != null){
             model.addAttribute("authorityUserIsAdmin", user.getRole().getRoleName().equals(RoleEnum.ADMIN));
         }
+        System.out.println(user);
         model.addAttribute("authorityUser", user);
         return user;
     }

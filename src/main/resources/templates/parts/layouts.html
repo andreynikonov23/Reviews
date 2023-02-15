@@ -165,6 +165,11 @@
                             <div class="name" th:text="${review.getName()}"></div>
                             <div class="author" th:text="${review.getUser().getNick()}"></div>
                             <div th:if="${authorityUser != null}">
+                                <div class="review-btns" th:if="${authorityUserIsAdmin}">
+                                    <span class="fa fa-trash fa-lg review-btn"></span>
+                                </div>
+                            </div>
+                            <div th:if="${authorityUser != null}">
                                 <div class="review-btns" th:if="${authorityUser.getLogin() == review.getUser().getLogin()}">
                                     <span class="fa fa-pen fa-lg review-btn"></span>
                                     <span class="fa fa-trash fa-lg review-btn"></span>
