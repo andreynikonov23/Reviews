@@ -9,6 +9,7 @@ import nick.pack.service.RatingService;
 import nick.pack.service.ReviewService;
 import nick.pack.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -87,10 +88,15 @@ public class ViewController {
 
         return "search";
     }
-
     @GetMapping("/add-review")
+    @PreAuthorize("hasAuthority('crud')")
     public String addReview(Model model){
+        setAuthorizedUserAsModel(model);
+
+        User authorityUser = (User) model.getAttribute("authorityUser");
+        System.out.println(authorityUser.getId());
         Review review = new Review();
+        model.addAttribute("newReview", review);
         return "addReview";
     }
 

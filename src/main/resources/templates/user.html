@@ -9,7 +9,7 @@
                 <div class="user-page">
                     <div class="header-page">
                         <div class="photo">
-                            <img class="" th:if="${user.getPhoto()} != null" th:src="@{/image/users/} + ${user.getPhoto()}" width="200px" height="200px">
+                            <img class="selected-avatar" th:if="${user.getPhoto()} != null" th:src="@{/image/users/} + ${user.getPhoto()}" width="200px" height="200px">
                             <img th:unless="${user.getPhoto()} != null" src="/image/avatar.jpeg" width="200px" height="200px">
                             <div class="select-photo">
                                 Выбрать фото
