@@ -10,8 +10,8 @@
                   <div class="line"></div>
                     <p class="mail-message">Введите код активации, который был выслан вам на почту</p>
                     <form class="form-login" method="post" action="/activate" th:object="${activationData}">
-                        <input class="field-auth form-control" type="text" th:name="*{code}" id="code" placeholder="Код">
-                        <p th:text="${activationData.getUsername()}"></p>
+                        <input class="field-auth" type="text" th:field="*{code}" id="code" placeholder="Код">
+                        <input th:value="*{username}" type="hidden" th:field="*{username}" id="username">
                         <input class="btn btn-primary button-auth" type="submit" value="Подтвердить">
                     </form>
                 </div>

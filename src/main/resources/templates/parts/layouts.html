@@ -75,7 +75,7 @@
                  <a class="link-item-big" th:href="@{/{id}(id=${reviews.get(0).getId()})}">
                     <div class="item item-big">
                         <div class="image-block">
-                            <img class="img" th:src="${reviews.get(0).getPoster()}" width="100px" height="100px">
+                            <img class="poster" th:src="${reviews.get(0).getPoster()}">
                         </div>
                         <div class="info-block">
                             <div class="rounded-circle rating text-center">
@@ -122,7 +122,7 @@
                 <div class="page">
                     <div class="row">
                         <div class="col-3 img-block">
-                            <img th:src="${review.getPoster()}" class="img">
+                            <img th:src="${review.getPoster()}" class="poster">
                         </div>
                         <div class="col-8 info-block">
                             <div class="rounded-circle rating text-center">
@@ -156,7 +156,7 @@
                 <div class="page">
                     <div class="row">
                         <div class="col-3 img-block">
-                            <img th:src="${review.getPoster()}" class="img">
+                            <img th:src="${review.getPoster()}" class="poster">
                         </div>
                         <div class="col-8 info-block">
                             <div class="rounded-circle rating text-center">

@@ -14,9 +14,11 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.session.jdbc.config.annotation.web.http.EnableJdbcHttpSession;
 
 @Configuration
 @EnableWebSecurity
+@EnableJdbcHttpSession
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //Service
@@ -49,6 +51,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     antMatchers(HttpMethod.GET,"/**").permitAll().
                     antMatchers(HttpMethod.POST, "/signup", "/activate").permitAll().
                     anyRequest().authenticated().
+                and().
+                    rememberMe().
                 and().
                     formLogin().
                         loginPage("/login").permitAll().
