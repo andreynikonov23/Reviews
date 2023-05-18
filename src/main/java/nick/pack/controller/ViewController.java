@@ -4,10 +4,7 @@ import nick.pack.model.Review;
 import nick.pack.model.RoleEnum;
 import nick.pack.model.User;
 import nick.pack.repository.UserRepository;
-import nick.pack.service.CommentService;
-import nick.pack.service.RatingService;
-import nick.pack.service.ReviewService;
-import nick.pack.service.UserService;
+import nick.pack.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -36,6 +33,12 @@ public class ViewController {
     private CommentService commentService;
     @Autowired
     private UserRepository repository;
+    @Autowired
+    private CountryService countryService;
+    @Autowired
+    private RoleService roleService;
+    @Autowired
+    private StatusService statusService;
 
     @GetMapping("/")
     public String index(Model model){
@@ -100,6 +103,12 @@ public class ViewController {
         return "addReview";
     }
 
+    @GetMapping("/new")
+    public String createReview(Model model){
+        Review review = new Review();
+        model.addAttribute("newReview", review);
+        return "createReview";
+    }
     public User setAuthorizedUserAsModel(Model model){
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.findUserByLogin(login);

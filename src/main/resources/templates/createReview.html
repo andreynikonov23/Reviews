@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+    <head th:insert="parts/layouts :: head"></head>
+    <body>
+        <div class="wrapper" style="background-color: #c6c6c6;">
+            <header th:insert="parts/layouts :: header"></header>
+            <div class="container" style="color: #ffffff">
+                <div id="player">
+                    <video width="100%" height="440px" controls="controls" poster="">
+                        <source>
+                    </video>
+                </div>
+            </div>
+            <footer th:insert="parts/layouts :: footer"></footer>
+        </div>
+        <div th:insert="parts/layouts :: scripts"></div>
+    </body>
+</html>

@@ -52,6 +52,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     anyRequest().authenticated().
                 and().
                     rememberMe().
+                        key("secretKey").
+                        userDetailsService(service).
                 and().
                     formLogin().
                         loginPage("/login").permitAll().

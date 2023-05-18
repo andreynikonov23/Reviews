@@ -300,8 +300,9 @@ footer{
     background-color: var(--purple);
     color: white;
 }
-.review-btns{
+.review-btns {
     text-align: right;
+    color: red;
 }
 .review-btn{
     display: inline-block;
@@ -309,6 +310,9 @@ footer{
     cursor: pointer;
     position: relative;
     bottom: 165px;
+}
+.admin-delete{
+    top: 25px;
 }
 .fa-pen{
     color: #3D76AC;
