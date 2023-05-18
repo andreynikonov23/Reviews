@@ -7,7 +7,7 @@ INSERT INTO reviews (user_id, name, trailer_url, poster, film_name, year, direct
             1976,
             'Мартин Скорсезе',
             1, 'Роберт де Ниро',
-            'Ну там коче это... ну там красного много, это ну типа да? В общем... Короче идите нахуй'
+            'Ну там коче это... ну там красного много, это ну типа да? В общем... Короче ладно'
            );
 INSERT INTO reviews (user_id, name, trailer_url, poster, film_name, year, director, country_id, cast_names, text)
     VALUES (
