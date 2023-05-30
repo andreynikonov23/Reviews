@@ -90,6 +90,9 @@ aside{
     font-weight: 600;
     color: var(--grey);
     margin-bottom: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
 }
 .author{
     font-size: 14px;
@@ -149,6 +152,9 @@ aside{
 .min-item .name{
     margin: 0;
     font-size: 14px;
+    height: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .min-item .author{
     margin: 0;
@@ -304,6 +310,17 @@ footer{
     text-align: right;
     color: red;
 }
+.item-big .review-btn{
+    right: 50px;
+}
+.item-big .fa-pen{
+    margin-right: 30px;
+}
+.name-rev-block{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 15px;
+}
 .review-btn{
     display: inline-block;
     width: fit-content;
@@ -311,10 +328,17 @@ footer{
     position: relative;
     bottom: 165px;
 }
+.review-btn-on-small-b{
+    display: inline-block;
+    width: fit-content;
+    cursor: pointer;
+    position: relative;
+    font-size: 14px;
+}
 .admin-delete{
     top: 25px;
 }
-.fa-pen{
+.review-btns .fa-pen{
     color: #3D76AC;
     margin-right: 30px;
 }
@@ -326,4 +350,5 @@ footer{
 }
 .fa-trash:hover{
     color: #b12f2f;
+}
 }

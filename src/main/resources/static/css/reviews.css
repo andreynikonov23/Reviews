@@ -176,6 +176,89 @@
 .select-poster:hover{
     opacity: 1;
 }
-.img{
-    
+.set-trailer-url{
+    padding: 20px 20px 30px 50px;
+}
+.set-trailer-label{
+    font-size: 22px;
+    color: #878787;
+    margin-right: 20px;
+    font-weight: 700;
+}
+.crud-reviews input{
+    border-radius: 10px;
+    border-color: #878787;
+    font-family: 'Arial', sans-serif;
+    color: black;
+}
+.crud-reviews input::placeholder{
+    color: #9a9a9a;
+}
+.set-trailer-url input{
+    width: 50%;
+    padding-left: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.film-name label{
+    margin-right: 10px;
+}
+.crud-reviews .info label{
+    display: inline-block;
+    width: 70px;
+}
+.movie-info input{
+    width: 30%;
+    padding-left: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+#country{
+    width: 30%;
+    padding-left: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 10px;
+    border-color: #878787;
+    font-family: 'Arial', sans-serif;
+    color: black;
+}
+#filmName{
+    position: relative;
+    bottom: 7px;
+}
+#name{
+    width: 40%;
+    height: 100px;
+    text-align: center;
+    font-size: 30px;
+    color: #212529;
+    font-weight: 500;
+}
+#text{
+    width: 100%;
+    height: 600px;
+    margin-bottom: 40px;
+    padding: 20px;
+    font-family: 'Georgia', sans-serif;
+    font-size: 18px;
+    color: #212529;
+}
+.set-poster-url{
+    margin-top: 30px;
+}
+.set-poster-url label{
+    color: #878787;
+}
+.set-poster-url input{
+    width: 47%;
+}
+.search-poster-btn{
+    font-size: 13px;
+    border: none;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px 10px;
+    color: white;
+    background-color: var(--purple);
 }

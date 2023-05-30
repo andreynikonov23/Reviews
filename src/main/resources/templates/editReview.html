@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head th:insert="parts/layouts :: head">
+</head>
+<body>
+<div class="wrapper" style="background-color: #c6c6c6;">
+    <header th:insert="parts/layouts :: header"></header>
+
+    <div class="container"  style="background-color: #fff;">
+        <form method="post" action="/edit" th:object="${review}" class="crud-reviews">
+            <div class="set-trailer-url">
+                <label for="trailerUrl" class="set-trailer-label">Трейлер</label>
+                <input type="text" placeholder="URL" id="trailerUrl" name="trailerUrl" th:field="*{trailerUrl}">
+            </div>
+            <div class="movie-info row">
+                <div class="movie-left col-3">
+                    <div class="poster">
+                        <img th:src="${review.getPoster()}" width="260px" height="340px" class="selected-avatar">
+                    </div>
+                    <div class="set-poster-url">
+                        <label for="poster">Постер: </label> <input id="poster" th:field="*{poster}" placeholder="url">
+                        <button class="search-poster-btn" type="button" onclick="searchImage()">Найти</button>
+                        <div class="invalid-url-message">Постер не найден</div>
+                    </div>
+                </div>
+                <div class="movie-right col-8">
+                    <div class="film-name"><label class="h1" for="filmName">Фильм: </label><input id="filmName" th:field="*{filmName}" placeholder="Фильма"></div>
+                    <div class="info">
+                        <div class="info-col">Автор рецензии: <a th:href="@{/user(id=${authorityUser.getId()})}" th:text="${authorityUser.getNick}"></a></div>
+                        <div class="info-col"><label for="year">Год: </label> <input th:field="*{year}" id="year" type="number" min=1895></div>
+                        <div class="info-col"><label for="director">Режисер: </label> <input id="director" th:field="*{director}" placeholder="Режисер" ></div>
+                        <div class="info-col"><label for="country">Страна: </label>
+                            <select id="country" th:field="*{country}">
+                                <option th:each="index : ${countries}" th:value="${index.getId()}" th:text="${index.getCountryName()}"></option>
+                            </select>
+                        </div>
+                        <div class="info-col"><label for="cast">В ролях: </label> <input id="cast" th:field="*{cast}" placeholder="Каст"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="review">
+                <div class="review-head"><label for="name"></label><input id="name" th:field="*{name}" placeholder="Название"></div>
+                <div class="line"></div>
+                <div class="container">
+                    <div class="text mt-5 mb-6">
+                        <label for="text"></label>
+                        <textarea id="text" th:field="*{text}" placeholder="Текст рецензии" >
+                        </textarea>
+                    </div>
+                    <div class="button-block">
+                        <input type="submit" class="add-review" value="Изменить">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <footer th:insert="parts/layouts :: footer"></footer>
+    <div th:insert="parts/layouts :: scripts"></div>
+</body>
+</html>

@@ -7,10 +7,10 @@
               integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <title>Reviews</title>
-        <link rel="stylesheet" href="/css/all-styles.css">
-        <link rel="stylesheet" href="/css/style-reviews.css">
+        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/css/reviews.css">
         <link rel="stylesheet" href="/css/user.css">
-        <link rel="stylesheet" href="/css/auth.css">
+        <link rel="stylesheet" href="/css/authorize.css">
         <style>
             .selector-for-some-widget {
                 box-sizing: content-box;
@@ -41,8 +41,8 @@
                                 </div>
                                 <div class="avatar-block-on-panel">
                                     <div class="avatar-border">
-                                        <img th:if="${authorityUser.getPhoto() != null}" class="avatar-icon" th:src="'/image/users/' + ${authorityUser.getPhoto()}" width="50px" height="50px"></img>
-                                        <img th:if="${authorityUser.getPhoto() == null}" class="avatar-icon" src="/image/avatar.jpeg" width="50px" height="50px"></img>
+                                        <img th:if="${authorityUser.getPhoto() != null}" class="avatar-icon" th:src="'/image/users/' + ${authorityUser.getPhoto()}" width="50px" height="50px">
+                                        <img th:if="${authorityUser.getPhoto() == null}" class="avatar-icon" src="/image/avatar.jpeg" width="50px" height="50px">
                                     </div>
                                 </div>
                             </div>
@@ -72,48 +72,74 @@
         </header>
         <div class="page-block" th:fragment="page-block">
             <div class="grid-block">
-                 <a class="link-item-big" th:href="@{/{id}(id=${reviews.get(0).getId()})}">
+                 <div class="link-item-big">
                     <div class="item item-big">
-                        <div class="image-block">
+                        <a class="image-block d-block" th:href="@{/{id}(id=${reviews.get(0).getId()})}">
                             <img class="poster" th:src="${reviews.get(0).getPoster()}">
-                        </div>
+                        </a>
                         <div class="info-block">
                             <div class="rounded-circle rating text-center">
                                 <p th:text="${ratingService.getOverallRating(reviews.get(0))}"></p>
                             </div>
-                            <div class="name" th:text="${reviews.get(0).getName()}"></div><br/>
+                            <a class="name d-block" th:href="@{/{id}(id=${reviews.get(0).getId()})}" th:text="${reviews.get(0).getName()}"></a><br/>
                             <div class="author" th:text="${reviews.get(0).getUser().getNick()}"></div>
+                            <div th:if="${authorityUser != null}">
+                                <div class="review-btns">
+                                    <a class="fa fa-pen fa-lg review-btn" th:if="${authorityUser.getLogin() == reviews.get(0).getUser().getLogin()}" th:href="@{/edit-review(id=${reviews.get(0).getId()})}">
+                                    </a>
+                                    <span class="fa fa-trash fa-lg review-btn" th:if="${authorityUser.getLogin() == reviews.get(0).getUser().getLogin() || authorityUserIsAdmin}">
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </a>
-                <a th:href="@{{id}(id=${reviews.get(1).getId()})}">
+                </div>
+                <div>
                     <div class="item right-item min-item">
                         <div>
-                            <img th:src="${reviews.get(1).getPoster()}">
+                            <a th:href="@{{id}(id=${reviews.get(1).getId()})}">
+                                <img th:src="${reviews.get(1).getPoster()}">
+                            </a>
                         </div>
                         <div class="info-item">
-                            <div class="name" th:text="${reviews.get(1).getName()}"></div>
+                            <div class="name-rev-block">
+                                <a class="name col-7" th:href="@{{id}(id=${reviews.get(1).getId()})}" th:text="${reviews.get(1).getName()}"></a>
+                                <div class="review-btns-on-small-b" th:if="${authorityUser != null}">
+                                    <a class="fa fa-pen fa-lg review-btn-on-small-b" th:if="${authorityUser.getLogin() == reviews.get(0).getUser().getLogin()}" th:href="@{/edit-review(id=${reviews.get(1).getId()})}">
+                                    </a>
+                                    <span class="fa fa-trash fa-lg review-btn-on-small-b" th:if="${authorityUser.getLogin() == reviews.get(0).getUser().getLogin() || authorityUserIsAdmin}">
+                                    </span>
+                                </div>
+                            </div>
                             <div class="author" th:text="${reviews.get(1).getUser().getNick()}"></div>
                             <div class="rounded-circle rating test text-center">
                                 <p th:text="${ratingService.getOverallRating(reviews.get(1))}"></p>
                             </div>
                         </div>
                     </div>
-                </a>
-                <a th:each="review, state : ${reviews}" th:if="${state.index > 1 && state.index < 7}" th:href="@{/{id}(id=${review.getId()})}">
+                </div>
+                <div th:each="review, state : ${reviews}" th:if="${state.index > 1 && state.index < 7}">
                     <div class="item upper-item min-item" >
-                        <div>
+                        <a class="d-block" th:href="@{/{id}(id=${review.getId()})}">
                             <img th:src="${review.getPoster()}" width="100px" height="100px">
-                        </div>
+                        </a>
                         <div class="info-item">
-                            <div class="name" th:text="${review.getName()}"></div>
+                            <div class="name-rev-block">
+                                <a class="name col-7" th:href="@{{id}(id=${review.getId()})}" th:text="${review.getName()}"></a>
+                                <div class="review-btns-on-small-b" th:if="${authorityUser != null}">
+                                    <a class="fa fa-pen fa-lg review-btn-on-small-b" th:if="${authorityUser.getLogin() == review.getUser().getLogin()}" th:href="@{/edit-review(id=${review.getId()})}">
+                                    </a>
+                                    <span class="fa fa-trash fa-lg review-btn-on-small-b" th:if="${authorityUser.getLogin() == review.getUser().getLogin() || authorityUserIsAdmin}">
+                                    </span>
+                                </div>
+                            </div>
                             <div class="author" th:text="${review.getUser().getNick()}"></div>
                             <div class="rounded-circle rating test text-center">
                                 <p th:text="${ratingService.getOverallRating(review)}"></p>
                             </div>
                         </div>
                     </div>
-                </a>
+                </div>
 
             </div>
         </div>
@@ -121,9 +147,9 @@
             <div th:if="${state.index > 6}">
                 <div class="page">
                     <div class="row">
-                        <div class="col-3 img-block">
+                        <a class="col-3 img-block d-block" th:href="@{/{id}(id=${review.getId()})}">
                             <img th:src="${review.getPoster()}" class="poster">
-                        </div>
+                        </a>
                         <div class="col-8 info-block">
                             <div class="rounded-circle rating text-center">
                                 <p th:text="${ratingService.getOverallRating(review)}"></p>
@@ -134,8 +160,8 @@
                             <div class="author" th:text="${review.getUser().getNick()}"></div>
                             <div th:if="${authorityUser != null}">
                                 <div class="review-btns">
-                                    <span class="fa fa-pen fa-lg review-btn" th:if="${authorityUser.getLogin() == review.getUser().getLogin()}">
-                                    </span>
+                                    <a class="fa fa-pen fa-lg review-btn" th:if="${authorityUser.getLogin() == review.getUser().getLogin()}" th:href="@{/edit-review(id=${review.getId()})}">
+                                    </a>
                                     <span class="fa fa-trash fa-lg review-btn" th:if="${authorityUser.getLogin() == review.getUser().getLogin() || authorityUserIsAdmin}">
                                     </span>
                                 </div>
@@ -146,28 +172,28 @@
             </div>
         </div>
         <div class="pages" th:each="review : ${reviews}" th:fragment="all-m-page">
-            <a th:href="@{/{id}(id=${review.getId()})}">
+            <div >
                 <div class="page">
                     <div class="row">
-                        <div class="col-3 img-block">
+                        <a class="col-3 img-block" th:href="@{/{id}(id=${review.getId()})}">
                             <img th:src="${review.getPoster()}" class="poster">
-                        </div>
+                        </a>
                         <div class="col-8 info-block">
                             <div class="rounded-circle rating text-center">
                                 <p th:text="${ratingService.getOverallRating(review)}"></p>
                             </div>
-                            <div class="name" th:text="${review.getName()}"></div>
+                            <a class="name d-block" th:href="@{/{id}(id=${review.getId()})}" th:text="${review.getName()}"></a>
                             <div class="author" th:text="${review.getUser().getNick()}"></div>
                             <div th:if="${authorityUser != null}">
                                 <div class="review-btns">
-                                    <span class="fa fa-pen fa-lg review-btn" th:if="${authorityUser.getLogin() == review.getUser().getLogin()}"></span>
+                                    <a class="fa fa-pen fa-lg review-btn" th:if="${authorityUser.getLogin() == review.getUser().getLogin()}" th:href="@{/edit-review(id=${review.getId()})}"></a>
                                     <span class="fa fa-trash fa-lg review-btn" th:if="${authorityUser.getLogin() == review.getUser().getLogin() || authorityUserIsAdmin}"></span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
         </div>
         <footer class="row" th:fragment="footer">
             <div class="container">

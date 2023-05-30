@@ -1,5 +1,6 @@
 package nick.pack.controller;
 
+import nick.pack.model.Country;
 import nick.pack.model.Review;
 import nick.pack.model.RoleEnum;
 import nick.pack.model.User;
@@ -10,16 +11,20 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 public class ViewController {
@@ -93,22 +98,51 @@ public class ViewController {
     }
     @GetMapping("/add-review")
     @PreAuthorize("hasAuthority('crud')")
-    public String addReview(Model model){
+    public String addReviewForm(Model model){
         setAuthorizedUserAsModel(model);
 
-        User authorityUser = (User) model.getAttribute("authorityUser");
-        System.out.println(authorityUser.getId());
         Review review = new Review();
-        model.addAttribute("newReview", review);
-        return "addReview";
-    }
-
-    @GetMapping("/new")
-    public String createReview(Model model){
-        Review review = new Review();
-        model.addAttribute("newReview", review);
+        List<Country> countries = countryService.findByAll();
+        model.addAttribute("review", review);
+        model.addAttribute("countries", countries);
         return "createReview";
     }
+
+    @PostMapping("/add")
+    @PreAuthorize("hasAuthority('crud')")
+    public String addReview(@ModelAttribute("review") Review review, Model model){
+        User user = setAuthorizedUserAsModel(model);
+
+        review.setUser(user);
+        reviewService.saveAndFlush(review);
+        return "redirect:/user?id=" + user.getId();
+    }
+
+    @GetMapping("/edit-review")
+    @PreAuthorize("hasAuthority('crud')")
+    public String editReview(@RequestParam("id") int id, Model model){
+        setAuthorizedUserAsModel(model);
+
+        Review review = reviewService.findById(id);
+        List<Country> countries = countryService.findByAll();
+
+        model.addAttribute("review", review);
+        model.addAttribute("countries", countries);
+
+        return "editReview";
+    }
+
+    @PostMapping("/edit")
+    @PreAuthorize("hasAuthority('crud')")
+    public String edit(@ModelAttribute("review") Review review, Model model){
+        User user = setAuthorizedUserAsModel(model);
+
+        System.out.println("---------------------------------------------------------" + review);
+        review.setUser(user);
+        reviewService.saveAndFlush(review);
+        return "redirect:/user?id=" + user.getId();
+    }
+
     public User setAuthorizedUserAsModel(Model model){
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.findUserByLogin(login);

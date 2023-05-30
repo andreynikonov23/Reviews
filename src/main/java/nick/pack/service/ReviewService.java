@@ -6,6 +6,7 @@ import nick.pack.repository.ReviewRepository;
 import nick.pack.service.dao.DAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -36,6 +37,10 @@ public class ReviewService implements DAO<Review, Integer> {
         repository.saveAndFlush(review);
     }
 
+//    @Transactional
+//    public void update (Review review){
+//        repository.update(review.getId(), review.getName(), review.getTrailerUrl(), review.getPoster(), review.getFilmName(), review.getYear(), review.getDirector(), review.getCast(), review.getText(), review.getUser(), review.getCountry());
+//    }
     @Override
     public void delete(Review review) {
         repository.delete(review);

@@ -11,3 +11,9 @@ function load(input){
         image.src = reader.result;
     }
 }
+
+function searchImage(){
+    let url = document.getElementById('poster').value;
+    console.log(url);
+    image.src = url;
+}
