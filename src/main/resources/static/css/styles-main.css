@@ -92,7 +92,6 @@ aside{
     margin-bottom: 30px;
     overflow: hidden;
     text-overflow: ellipsis;
-
 }
 .author{
     font-size: 14px;
@@ -168,6 +167,7 @@ aside{
     position: relative;
     bottom: 270px;
     right: 10px;
+    z-index: 0;
 }
 .right-item .test{
     bottom: 320px;
@@ -184,6 +184,7 @@ aside{
     border-radius: 4px;
     height: 38px;
     width: 340px;
+    z-index: 0;
 }
 .search-field::placeholder{
     font-size: 12px;
@@ -351,4 +352,49 @@ footer{
 .fa-trash:hover{
     color: #b12f2f;
 }
+.delete-popup{
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    z-index: 1;
+}
+.delete-popup-content{
+    width: 400px;
+    height: 160px;
+    background-color: white;
+    border-radius: 15px;
+    border: 5px var(--grey) solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 10px;
+}
+.question{
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    color: var(--grey);
+    margin-bottom: 25px;
+}
+.answer-options{
+    display: flex;
+    justify-content: center;
+}
+.popup-btn{
+    width: 45px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: var(--purple);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#yes{
+    margin-right: 15px;
 }

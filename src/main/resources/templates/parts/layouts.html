@@ -7,7 +7,7 @@
               integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <title>Reviews</title>
-        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/css/styles-main.css">
         <link rel="stylesheet" href="/css/reviews.css">
         <link rel="stylesheet" href="/css/user.css">
         <link rel="stylesheet" href="/css/authorize.css">
@@ -70,6 +70,18 @@
             </div>
             <div class="line"></div>
         </header>
+        <div class="delete-popup" th:fragment="delete-popup">
+            <div class="delete-popup-content">
+                <div class="popup-container">
+                    <div class="question">Вы действительно хотите удалить эту заметку?</div>
+                    <form method="post" action="/delete" th:object="${id}" class="answer-options">
+                        <input type="hidden" id="id" name="id">
+                        <input class="popup-btn" id="no" type="submit" value="Да">
+                        <button type="button" class="popup-btn" onclick="closePopUp()">Нет</button>
+                    </form>
+                </div>
+            </div>
+        </div>
         <div class="page-block" th:fragment="page-block">
             <div class="grid-block">
                  <div class="link-item-big">
@@ -85,9 +97,9 @@
                             <div class="author" th:text="${reviews.get(0).getUser().getNick()}"></div>
                             <div th:if="${authorityUser != null}">
                                 <div class="review-btns">
-                                    <a class="fa fa-pen fa-lg review-btn" th:if="${authorityUser.getLogin() == reviews.get(0).getUser().getLogin()}" th:href="@{/edit-review(id=${reviews.get(0).getId()})}">
-                                    </a>
-                                    <span class="fa fa-trash fa-lg review-btn" th:if="${authorityUser.getLogin() == reviews.get(0).getUser().getLogin() || authorityUserIsAdmin}">
+                                    <a class="fa fa-pen fa-lg review-btn" th:if="${authorityUser.getLogin() == reviews.get(0).getUser().getLogin()}" th:href="@{/edit-review(id=${reviews.get(0).getId()})}"></a>
+                                    <input type="hidden" th:value="${reviews.get(0).getId()}">
+                                    <span class="fa fa-trash fa-lg review-btn" th:if="${authorityUser.getLogin() == reviews.get(0).getUser().getLogin() || authorityUserIsAdmin}" onclick="openPopUp(this)">
                                     </span>
                                 </div>
                             </div>
@@ -107,7 +119,8 @@
                                 <div class="review-btns-on-small-b" th:if="${authorityUser != null}">
                                     <a class="fa fa-pen fa-lg review-btn-on-small-b" th:if="${authorityUser.getLogin() == reviews.get(0).getUser().getLogin()}" th:href="@{/edit-review(id=${reviews.get(1).getId()})}">
                                     </a>
-                                    <span class="fa fa-trash fa-lg review-btn-on-small-b" th:if="${authorityUser.getLogin() == reviews.get(0).getUser().getLogin() || authorityUserIsAdmin}">
+                                    <input type="hidden" th:value="${reviews.get(1).getId()}">
+                                    <span class="fa fa-trash fa-lg review-btn-on-small-b" th:if="${authorityUser.getLogin() == reviews.get(0).getUser().getLogin() || authorityUserIsAdmin}" onclick="openPopUp(this)">
                                     </span>
                                 </div>
                             </div>
@@ -127,9 +140,9 @@
                             <div class="name-rev-block">
                                 <a class="name col-7" th:href="@{{id}(id=${review.getId()})}" th:text="${review.getName()}"></a>
                                 <div class="review-btns-on-small-b" th:if="${authorityUser != null}">
-                                    <a class="fa fa-pen fa-lg review-btn-on-small-b" th:if="${authorityUser.getLogin() == review.getUser().getLogin()}" th:href="@{/edit-review(id=${review.getId()})}">
-                                    </a>
-                                    <span class="fa fa-trash fa-lg review-btn-on-small-b" th:if="${authorityUser.getLogin() == review.getUser().getLogin() || authorityUserIsAdmin}">
+                                    <a class="fa fa-pen fa-lg review-btn-on-small-b" th:if="${authorityUser.getLogin() == review.getUser().getLogin()}" th:href="@{/edit-review(id=${review.getId()})}"></a>
+                                    <input type="hidden" th:value="${review.getId()}">
+                                    <span class="fa fa-trash fa-lg review-btn-on-small-b" th:if="${authorityUser.getLogin() == review.getUser().getLogin() || authorityUserIsAdmin}" onclick="openPopUp(this)">
                                     </span>
                                 </div>
                             </div>
@@ -160,9 +173,9 @@
                             <div class="author" th:text="${review.getUser().getNick()}"></div>
                             <div th:if="${authorityUser != null}">
                                 <div class="review-btns">
-                                    <a class="fa fa-pen fa-lg review-btn" th:if="${authorityUser.getLogin() == review.getUser().getLogin()}" th:href="@{/edit-review(id=${review.getId()})}">
-                                    </a>
-                                    <span class="fa fa-trash fa-lg review-btn" th:if="${authorityUser.getLogin() == review.getUser().getLogin() || authorityUserIsAdmin}">
+                                    <a class="fa fa-pen fa-lg review-btn" th:if="${authorityUser.getLogin() == review.getUser().getLogin()}" th:href="@{/edit-review(id=${review.getId()})}"></a>
+                                    <input type="hidden" th:value="${review.getId()}">
+                                    <span class="fa fa-trash fa-lg review-btn" th:if="${authorityUser.getLogin() == review.getUser().getLogin() || authorityUserIsAdmin}" onclick="openPopUp(this)">
                                     </span>
                                 </div>
                             </div>
@@ -187,7 +200,8 @@
                             <div th:if="${authorityUser != null}">
                                 <div class="review-btns">
                                     <a class="fa fa-pen fa-lg review-btn" th:if="${authorityUser.getLogin() == review.getUser().getLogin()}" th:href="@{/edit-review(id=${review.getId()})}"></a>
-                                    <span class="fa fa-trash fa-lg review-btn" th:if="${authorityUser.getLogin() == review.getUser().getLogin() || authorityUserIsAdmin}"></span>
+                                    <input type="hidden" th:value="${review.getId()}">
+                                    <span class="fa fa-trash fa-lg review-btn" th:if="${authorityUser.getLogin() == review.getUser().getLogin() || authorityUserIsAdmin}" onclick="openPopUp(this)"></span>
                                 </div>
                             </div>
                         </div>
@@ -208,6 +222,7 @@
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
             <script type="text/javascript" src="/script/selectImage.js"></script>
+            <script type="text/javascript" src="/script/popUp.js"></script>
         </div>
     </body>
 </html>

@@ -7,11 +7,12 @@
     <header th:insert="parts/layouts :: header"></header>
 
     <div class="container"  style="background-color: #fff;">
-        <form method="post" action="/edit" th:object="${review}" class="crud-reviews">
+        <form method="post" action="/save" th:object="${review}" class="crud-reviews">
             <div class="set-trailer-url">
                 <label for="trailerUrl" class="set-trailer-label">Трейлер</label>
                 <input type="text" placeholder="URL" id="trailerUrl" name="trailerUrl" th:field="*{trailerUrl}">
             </div>
+            <input th:if="${review.getId() != 0}" type="hidden" th:field="*{id}">
             <div class="movie-info row">
                 <div class="movie-left col-3">
                     <div class="poster">

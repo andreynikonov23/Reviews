@@ -65,7 +65,7 @@ public class Review {
 
     @Override
     public String toString(){
-        return String.format("Review: %d, %s, %s, %s", id, name, filmName, user);
+        return String.format("Review: %d, %s, %s, %s, %s, %s, [%s]", id, name, filmName, user, trailerUrl, poster, user);
     }
     @Override
     public boolean equals(Object o) {

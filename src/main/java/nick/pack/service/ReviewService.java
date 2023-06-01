@@ -16,8 +16,6 @@ public class ReviewService implements DAO<Review, Integer> {
     private final ReviewRepository repository;
 
     @Autowired
-    private RatingService ratingService;
-    @Autowired
     public ReviewService(ReviewRepository repository) {
         this.repository = repository;
     }
@@ -37,10 +35,6 @@ public class ReviewService implements DAO<Review, Integer> {
         repository.saveAndFlush(review);
     }
 
-//    @Transactional
-//    public void update (Review review){
-//        repository.update(review.getId(), review.getName(), review.getTrailerUrl(), review.getPoster(), review.getFilmName(), review.getYear(), review.getDirector(), review.getCast(), review.getText(), review.getUser(), review.getCountry());
-//    }
     @Override
     public void delete(Review review) {
         repository.delete(review);

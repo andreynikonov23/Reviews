@@ -12,19 +12,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Collections;
 import java.util.List;
-import java.util.UUID;
 
 @Controller
 public class ViewController {
@@ -51,6 +42,8 @@ public class ViewController {
 
         List<Review> reviews = reviewService.findByAll();
         Collections.reverse(reviews);
+        Integer id = 0;
+        model.addAttribute("idDeleteReview", id);
         model.addAttribute("reviews", reviews);
         model.addAttribute("ratingService", ratingService);
 
@@ -103,19 +96,11 @@ public class ViewController {
 
         Review review = new Review();
         List<Country> countries = countryService.findByAll();
+
         model.addAttribute("review", review);
         model.addAttribute("countries", countries);
-        return "createReview";
-    }
 
-    @PostMapping("/add")
-    @PreAuthorize("hasAuthority('crud')")
-    public String addReview(@ModelAttribute("review") Review review, Model model){
-        User user = setAuthorizedUserAsModel(model);
-
-        review.setUser(user);
-        reviewService.saveAndFlush(review);
-        return "redirect:/user?id=" + user.getId();
+        return "postReview";
     }
 
     @GetMapping("/edit-review")
@@ -129,19 +114,32 @@ public class ViewController {
         model.addAttribute("review", review);
         model.addAttribute("countries", countries);
 
-        return "editReview";
+        return "postReview";
     }
 
-    @PostMapping("/edit")
+    @PostMapping("/save")
     @PreAuthorize("hasAuthority('crud')")
-    public String edit(@ModelAttribute("review") Review review, Model model){
+    public String saveReview(@ModelAttribute("review") Review review, Model model){
         User user = setAuthorizedUserAsModel(model);
 
-        System.out.println("---------------------------------------------------------" + review);
-        review.setUser(user);
+        if (review.getUser() == null){
+            review.setUser(user);
+        }
+
         reviewService.saveAndFlush(review);
+
         return "redirect:/user?id=" + user.getId();
     }
+
+    @PostMapping("/delete")
+    @PreAuthorize("hasAuthority('crud')")
+    public String deleteReview(@ModelAttribute("id") Integer id){
+        Review review = reviewService.findById(id);
+        reviewService.delete(review);
+
+        return "redirect:/";
+    }
+
 
     public User setAuthorizedUserAsModel(Model model){
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
