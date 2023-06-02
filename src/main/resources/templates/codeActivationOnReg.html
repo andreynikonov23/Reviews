@@ -12,6 +12,7 @@
                     <form class="form-login" method="post" action="/activate" th:object="${activationData}">
                         <input class="field-auth" type="text" th:field="*{code}" id="code" placeholder="Код">
                         <input th:value="*{username}" type="hidden" th:field="*{username}" id="username">
+                        <div class="error-block" th:if="codeIsNotCorrect">Код активации неверный</div>
                         <input class="btn btn-primary button-auth" type="submit" value="Подтвердить">
                     </form>
                 </div>

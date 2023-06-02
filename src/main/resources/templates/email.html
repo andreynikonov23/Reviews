@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head th:insert="parts/layouts :: head">
+</head>
+<body>
+<div class="login-wrapper">
+  <div class="container auth-container">
+    <div class="form-block center-block email-pr">
+      <div class="h1 text-center form-head">Восстановление доступа</div>
+      <div class="line"></div>
+      <p class="mail-message">Введите ваш email</p>
+      <form class="form-login" method="post" action="/mail-send" th:object="${email}">
+        <input class="field-auth lonely-field" type="text" name="email" id="email" placeholder="email">
+        <div class="error-block" th:if="${emailNotExist}">Пользователь с данным email не зарегистрирован</div>
+        <input class="btn btn-primary button-auth" type="submit" value="Подтвердить">
+        <a href="/login">Назад</a>
+      </form>
+    </div>
+  </div>
+</div>
+<div th:insert="parts/layouts :: scripts"></div>
+</body>
+</html>

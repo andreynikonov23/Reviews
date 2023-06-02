@@ -7,6 +7,7 @@ import nick.pack.service.StatusService;
 import nick.pack.service.UserService;
 import nick.pack.utils.ActivationCodeHashKeyDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +23,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.SecureRandom;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
 import java.util.UUID;
 
 @Controller
@@ -109,7 +110,7 @@ public class SecurityController {
         String text = "Вы регистрируйтесь на сайте <a href=\"http://localhost:8080/\">Reviews.com</a>, осталось совсем чуть-чуть, введите ваш код активации на сайте\n" + activationCode;
         mailSender.send(user.getEmail(), "Activation Account", text);
 
-        return "message";
+        return "codeActivationOnReg";
     }
 
     @PostMapping("/activate")
@@ -119,11 +120,56 @@ public class SecurityController {
         System.out.println("for /activate ===" + activationData.getCode() + " " + activationData.getUsername() + " ; result == " + activationData.getHashKey());
 
         if (user == null){
-            model.addAttribute("codeIsNotCorrect");
-            return "message";
+            model.addAttribute("codeIsNotCorrect", true);
+            return "email";
         }
 
         userService.saveAndFlush(user);
+
+        return "redirect:/login";
+    }
+
+    @GetMapping("/recover")
+    public String recoverAccess(Model model){
+        model.addAttribute("email", "");
+
+        return "email";
+    }
+
+    @PostMapping("/mail-send")
+    public String mailSend(@ModelAttribute("email") String email, Model model){
+        User user = userService.findUserByEmail(email);
+        boolean emailNotExist = false;
+        if (user == null){
+            emailNotExist = true;
+            model.addAttribute("emailNotExist", emailNotExist);
+            return "email";
+        }
+        String activationCode = generateCode();
+        ActivationCodeHashKeyDTO hashKeyDTO = new ActivationCodeHashKeyDTO(user.getLogin(), activationCode);
+        unconfirmedUsers.put(hashKeyDTO.getHashKey(), user);
+        ActivationCodeHashKeyDTO userInputHashKey = new ActivationCodeHashKeyDTO(user.getLogin(), "");
+        model.addAttribute("activationData", userInputHashKey);
+
+        mailSender.send(email, "ActivationCode", "Ваш код активации:\n" + activationCode);
+        return "codeActivationOnRecover";
+    }
+
+    @PostMapping("/recover-request")
+    public String recoverRequest(@ModelAttribute("hashKey") ActivationCodeHashKeyDTO hashKeyDTO, Model model){
+        User user = unconfirmedUsers.get(hashKeyDTO.getHashKey());
+
+        if(user == null){
+            model.addAttribute("codeIsNotCorrect", true);
+            return "codeActivationOnRecover";
+        }
+        model.addAttribute("password", "");
+        return "editPassword";
+    }
+
+    @PostMapping("/editPassword")
+    public String editPassword(@ModelAttribute("password") String password, Model model){
+
 
         return "redirect:/login";
     }
