@@ -1,13 +1,15 @@
 package nick.pack.controller;
 
 import nick.pack.mail.MailSenderService;
+import nick.pack.model.RoleEnum;
 import nick.pack.model.User;
 import nick.pack.service.RoleService;
 import nick.pack.service.StatusService;
 import nick.pack.service.UserService;
 import nick.pack.utils.ActivationCodeHashKeyDTO;
+import nick.pack.utils.PasswordEditorDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +25,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.SecureRandom;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.UUID;
 
 @Controller
@@ -73,24 +74,7 @@ public class SecurityController {
         }
         //Если пользователь выбрал фотографию профиля
         if(file.getSize() != 0){
-            //Задать уникальное имя для файла
-            String fileName = UUID.randomUUID().toString() + "-" + file.getOriginalFilename();
-            try {
-                //url куда будет сохраняться картинка
-                Path path = Path.of("C:/Users/Андрей/IdeaProjects/reviews/src/main/resources/static/image/users/" + fileName);
-                //Создать файл с данным url
-                Files.createFile(path);
-                //Получение массива байт из полученного от клиента изображением
-                byte[] bytes = file.getBytes();
-                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
-                //Запись массива байт в созданный файл
-                BufferedImage bufferedImage = ImageIO.read(bais);
-                ImageIO.write(bufferedImage, "jpg", new File(String.valueOf(path)));
-                //Задать обьекту фото
-                user.setPhoto(fileName);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            setProfilePhoto(file, user);
         }
         //Кодировка полученного пароля
         String encodePassword = passwordEncoder.encode(user.getPassword());
@@ -156,22 +140,54 @@ public class SecurityController {
     }
 
     @PostMapping("/recover-request")
-    public String recoverRequest(@ModelAttribute("hashKey") ActivationCodeHashKeyDTO hashKeyDTO, Model model){
+    public String recoverRequest(@ModelAttribute("activationData") ActivationCodeHashKeyDTO hashKeyDTO, Model model){
         User user = unconfirmedUsers.get(hashKeyDTO.getHashKey());
+        System.out.println("rec--------------------" + user);
+
 
         if(user == null){
             model.addAttribute("codeIsNotCorrect", true);
             return "codeActivationOnRecover";
         }
-        model.addAttribute("password", "");
+        PasswordEditorDTO passwordEditorDTO = new PasswordEditorDTO(user, "");
+        model.addAttribute("password", passwordEditorDTO);
         return "editPassword";
     }
 
-    @PostMapping("/editPassword")
-    public String editPassword(@ModelAttribute("password") String password, Model model){
-
+    @PostMapping("/edit-password")
+    public String editPassword(@ModelAttribute("password") PasswordEditorDTO passwordEditorDTO, Model model){
+        System.out.println("----------------------------------------------------------------");
+        String encodedPassword = passwordEncoder.encode(passwordEditorDTO.getPassword());
+        User user = passwordEditorDTO.getUser();
+        user.setPassword(encodedPassword);
+        System.out.println(user + "-------- old password");
+        userService.saveAndFlush(user);
 
         return "redirect:/login";
+    }
+
+    @GetMapping("/edit-profile")
+    public String editUserForm(Model model){
+        String login = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userService.findUserByLogin(login);
+
+        if (user != null){
+            model.addAttribute("authorityUserIsAdmin", user.getRole().getRoleName().equals(RoleEnum.ADMIN));
+        }
+        System.out.println(user);
+        model.addAttribute("user", user);
+
+        return "editUser";
+    }
+
+    @PostMapping("/edit-user")
+    public String editUser(@RequestParam("file") MultipartFile file, @ModelAttribute("authorityUser") User user, Model model){
+        if (file.getSize() > 0){
+            setProfilePhoto(file, user);
+        }
+        userService.saveAndFlush(user);
+
+        return "redirect:/";
     }
 
     public String generateCode(){
@@ -186,5 +202,26 @@ public class SecurityController {
         }
 
         return stringBuilder.toString();
+    }
+
+    public void setProfilePhoto(MultipartFile file, User user){
+        //Задать уникальное имя для файла
+        String fileName = UUID.randomUUID().toString() + "-" + file.getOriginalFilename();
+        try {
+            //url куда будет сохраняться картинка
+            Path path = Path.of("C:/Users/Андрей/IdeaProjects/reviews/src/main/resources/static/image/users/" + fileName);
+            //Создать файл с данным url
+            Files.createFile(path);
+            //Получение массива байт из полученного от клиента изображением
+            byte[] bytes = file.getBytes();
+            ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+            //Запись массива байт в созданный файл
+            BufferedImage bufferedImage = ImageIO.read(bais);
+            ImageIO.write(bufferedImage, "jpg", new File(String.valueOf(path)));
+            //Задать обьекту фото
+            user.setPhoto(fileName);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

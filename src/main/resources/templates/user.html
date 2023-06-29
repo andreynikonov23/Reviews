@@ -39,6 +39,7 @@
                             </div>
                             <div th:unless="${authorityUser == null}">
                                 <div th:if="${authorityUser.getLogin() == user.getLogin()}" th:unless="${isAdmin}" class="delete-user-block">
+                                    <a href="/edit-profile" class="edit-user my">Изменить страницу</a><br/>
                                     <a class="delete-user my">Удалить страницу</a>
                                 </div>
                             </div>
