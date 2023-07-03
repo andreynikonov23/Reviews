@@ -12,10 +12,7 @@ import javax.validation.constraints.NotEmpty;
 @NoArgsConstructor
 public class UserProfileEditorDTO {
     private String login;
-
-    @NotEmpty(message = "*Пустое поле")
     private String nick;
-
     private String photo;
 
 }

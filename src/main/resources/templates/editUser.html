@@ -21,14 +21,14 @@
                         <div class="name-field">
                             <div class="input-group input-group-sm mb-3 field">
                                 <span class="input-group-text" id="inputGroup-sizing-sm">Имя</span>
-                                <input type="text" th:field="*{nick}" id="nick" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                <input type="text" th:field="*{nick}" id="nick" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onkeyup="profileValidator()">
                             </div>
-                            <div class="error-message" th:if="${#fields.hasErrors('nick')}" th:errors="*{nick}" style="color: #FF514B">Name</div>
+                            <div class="error-block hidden">*Пустое поле</div>
                         </div>
                     </div>
                     <div class="user-data">
                     <div class="button-block reg-btns">
-                        <button type="submit" class="btn btn-danger" style="width: 100%">Изменить</button>
+                        <button type="submit" id="edit-btn" class="btn btn-danger" style="width: 100%">Изменить</button>
                         <button type="button" class="btn btn-secondary" style="width: 100%" onclick="document.location='/'">Выход</button>
                     </div>
                 </form>

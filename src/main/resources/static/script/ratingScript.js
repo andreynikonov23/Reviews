@@ -32,6 +32,7 @@ function initRating(rating){
             ratingItem.addEventListener("click", function(e){
                 ratingValue.innerHTML = i + 1;
                 setRatingActiveWidth();
+
             });
         }
     }

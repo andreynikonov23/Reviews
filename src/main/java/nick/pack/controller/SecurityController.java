@@ -180,11 +180,8 @@ public class SecurityController {
     }
 
     @PostMapping("/edit-user")
-    public String editUser(@RequestParam("file") MultipartFile file, @ModelAttribute("user") @Valid UserProfileEditorDTO userEditor, BindingResult bindingResult){
+    public String editUser(@RequestParam("file") MultipartFile file, @ModelAttribute("user") @Valid UserProfileEditorDTO userEditor, Model model){
         System.out.println(userEditor);
-        if (bindingResult.hasErrors()){
-            return "editUser";
-        }
         User user = userService.findUserByLogin(userEditor.getLogin());
         user.setNick(userEditor.getNick());
 
@@ -221,7 +218,8 @@ public class SecurityController {
             System.out.println(str);
 
             //url куда будет сохраняться картинка
-            Path path = Paths.get(str + fileName);
+            //Path path = Paths.get(str + fileName);
+            Path path = Paths.get("C:\\Users\\Андрей\\IdeaProjects\\reviews\\src\\main\\resources\\static\\image\\users\\" + fileName);
             //Создать файл с данным url
             Files.createFile(path);
             //Получение массива байт из полученного от клиента изображением
