@@ -8,6 +8,7 @@ import nick.pack.service.StatusService;
 import nick.pack.service.UserService;
 import nick.pack.utils.ActivationCodeHashKeyDTO;
 import nick.pack.utils.PasswordEditorDTO;
+import nick.pack.utils.UserProfileEditorDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,6 +24,7 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.security.SecureRandom;
 import java.util.HashMap;
 import java.util.UUID;
@@ -171,22 +173,26 @@ public class SecurityController {
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.findUserByLogin(login);
 
-        if (user != null){
-            model.addAttribute("authorityUserIsAdmin", user.getRole().getRoleName().equals(RoleEnum.ADMIN));
-        }
-        System.out.println(user);
-        model.addAttribute("user", user);
+        UserProfileEditorDTO userProfileEditorDTO = new UserProfileEditorDTO(user.getLogin(), user.getNick(), user.getPhoto());
+        model.addAttribute("userEditor", userProfileEditorDTO);
 
         return "editUser";
     }
 
     @PostMapping("/edit-user")
-    public String editUser(@RequestParam("file") MultipartFile file, @ModelAttribute("authorityUser") User user, Model model){
-        if (file.getSize() > 0){
+    public String editUser(@RequestParam("file") MultipartFile file, @ModelAttribute("user") @Valid UserProfileEditorDTO userEditor, BindingResult bindingResult){
+        System.out.println(userEditor);
+        if (bindingResult.hasErrors()){
+            return "editUser";
+        }
+        User user = userService.findUserByLogin(userEditor.getLogin());
+        user.setNick(userEditor.getNick());
+
+        if(file.getSize() != 0){
             setProfilePhoto(file, user);
         }
-        userService.saveAndFlush(user);
 
+        userService.saveAndFlush(user);
         return "redirect:/";
     }
 
@@ -208,8 +214,14 @@ public class SecurityController {
         //Задать уникальное имя для файла
         String fileName = UUID.randomUUID().toString() + "-" + file.getOriginalFilename();
         try {
+            String str = getClass().getResource("/static/image/users/").toString().substring(6);
+            str = str.replace(":", ":");
+            str = str.replace("/", "\\");
+
+            System.out.println(str);
+
             //url куда будет сохраняться картинка
-            Path path = Path.of("C:/Users/Андрей/IdeaProjects/reviews/src/main/resources/static/image/users/" + fileName);
+            Path path = Paths.get(str + fileName);
             //Создать файл с данным url
             Files.createFile(path);
             //Получение массива байт из полученного от клиента изображением

@@ -9,15 +9,14 @@
             <div class="h1 text-center form-head">Регистрация</div>
             <div class="line"></div>
             <div class="user-info-page">
-                <form method="post" enctype="multipart/form-data" action="/signup" th:object="${user}">
+                <form method="post" enctype="multipart/form-data" action="/edit-user" th:object="${userEditor}">
                     <input type="hidden" th:field="*{login}">
-                    <input type="hidden" th:field="*{password}">
-                    <input type="hidden" th:field="*{email}">
                     <div class="avatar-name-b">
                         <div class="select-image-block">
                             <input id="file" class="input-file" name="file" type="file" accept="image/*" onchange="load(this)">
                             <label for="file" class="select-avatar">Выбрать фото</label>
-                            <img src="/image/avatar2.jpg" width="150px" height="150px" class="selected-avatar">
+                            <img th:if="${userEditor.getPhoto() == null}" src="/image/avatar2.jpg" width="150px" height="150px" class="selected-avatar">
+                            <img th:unless="${userEditor.getPhoto() == null}" th:src="@{/image/users/} + ${userEditor.getPhoto()}" width="150px" height="150px" class="selected-avatar">
                         </div>
                         <div class="name-field">
                             <div class="input-group input-group-sm mb-3 field">
