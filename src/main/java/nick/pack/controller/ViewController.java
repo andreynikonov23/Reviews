@@ -1,9 +1,6 @@
 package nick.pack.controller;
 
-import nick.pack.model.Country;
-import nick.pack.model.Review;
-import nick.pack.model.RoleEnum;
-import nick.pack.model.User;
+import nick.pack.model.*;
 import nick.pack.repository.UserRepository;
 import nick.pack.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -58,6 +56,7 @@ public class ViewController {
         model.addAttribute("review", review);
         model.addAttribute("ratingService", ratingService);
         model.addAttribute("comments", commentService.findCommentsReview(review));
+        Comment comment = commentService.findById(1);
 
         return "review";
     }
@@ -68,8 +67,10 @@ public class ViewController {
 
         User user = userService.findUserById(id);
         boolean admin = user.getRole().getRoleName().equals(RoleEnum.ADMIN);
+
         model.addAttribute("user", user);
         model.addAttribute("isAdmin", admin);
+        model.addAttribute("isActive", user.isActive());
         model.addAttribute("reviews", reviewService.findReviewsByUser(user));
         model.addAttribute("ratingService", ratingService);
 
@@ -140,13 +141,28 @@ public class ViewController {
         return "redirect:/";
     }
 
+    @GetMapping("/users")
+    @PreAuthorize("hasAuthority('viewuser')")
+    public String users(Model model){
+        List<User> users = new ArrayList<>(userService.selectAll());
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).isAdmin()){
+                users.remove(i);
+            }
+        }
+        model.addAttribute("users", users);
+
+        return "usersList";
+    }
+
+
 
     public User setAuthorizedUserAsModel(Model model){
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.findUserByLogin(login);
 
         if (user != null){
-            model.addAttribute("authorityUserIsAdmin", user.getRole().getRoleName().equals(RoleEnum.ADMIN));
+            model.addAttribute("authorityUserIsAdmin", user.isAdmin());
         }
         System.out.println(user);
         model.addAttribute("authorityUser", user);

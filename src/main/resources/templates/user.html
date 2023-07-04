@@ -10,12 +10,12 @@
             <div class="container">
                 <div class="user-page">
                     <div class="header-page">
-                        <div class="photo">
+                        <div class="photo" th:if="${isActive}">
                             <img class="selected-avatar" th:if="${user.getPhoto()} != null" th:src="@{/image/users/} + ${user.getPhoto()}" width="200px" height="200px">
                             <img th:unless="${user.getPhoto()} != null" src="/image/avatar.jpeg" width="200px" height="200px">
-                            <div class="select-photo">
-                                Выбрать фото
-                            </div>
+                        </div>
+                        <div class="photo" th:unless="${isActive}">
+                            <img src="/image/banned.jpg" width="200px" height="200px">
                         </div>
                         <div class="user-info-section">
                             <div class="name-section">
@@ -31,16 +31,18 @@
                                 <div class="name-line id-user h2" th:text="'#' + ${user.getId()}"></div>
                             </div>
                             <div th:if="${isAdmin}" class="admin-section">Да я админ, базару нет, но подписчики-то вы, без вас этот группа ничто</div>
+                            <div th:unless="${isActive}" class="admin-section">Этот пользователь заблокирован</div>
                             <div th:text="'Колличество рецензий: ' + ${reviews.size()}"></div>
                             <div th:unless="${authorityUser == null}">
                                 <div th:if="${authorityUserIsAdmin}" th:unless="${isAdmin}" class="delete-user-block">
-                                    <a class="delete-user delete-my">Заблокировать пользователя</a>
+                                    <a th:if="${isActive}" th:href="@{/block(id=${user.getId()})}" class="delete-user delete-my">Заблокировать пользователя</a>
+                                    <a th:unless="${isActive}" th:href="@{/block(id=${user.getId()})}" class="delete-user delete-my">Разблокировать пользователя</a>
                                 </div>
                             </div>
                             <div th:unless="${authorityUser == null}">
                                 <div th:if="${authorityUser.getLogin() == user.getLogin()}" th:unless="${isAdmin}" class="delete-user-block">
                                     <a href="/edit-profile" class="edit-user my">Изменить страницу</a><br/>
-                                    <a class="delete-user my">Удалить страницу</a>
+                                    <a href="/delete-profile" class="delete-user my">Удалить страницу</a>
                                 </div>
                             </div>
 

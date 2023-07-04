@@ -64,9 +64,12 @@
                 <div>
                     <div class="comment-item mb-2" th:each="comment : ${comments}" th:attr="id=${comment.getId()}">
                         <a th:href="@{/user(id=${comment.getUser().getId()})}">
-                            <div class="icon">
+                            <div class="icon" th:if="${comment.getUser().isActive()}">
                                 <img th:if="${comment.getUser().getPhoto()} != null" th:src="@{/image/users/} + ${comment.getUser().getPhoto()}" width="100px" height="100px">
                                 <img th:unless="${comment.getUser().getPhoto()} != null" src="/image/avatar.jpeg" width="100px" height="100px">
+                            </div>
+                            <div class="icon" th:unless="${comment.getUser().isActive}">
+                                <img src="/image/banned.jpg" width="100px" height="100px">
                             </div>
                         </a>
                         <div class="comment-block">

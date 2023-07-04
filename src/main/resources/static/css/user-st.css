@@ -111,3 +111,26 @@
     color: white;
     background-color: var(--purple);
 }
+.form-block-delete-user{
+    width: 350px;
+    height: 365px;
+    background-color: white;
+    outline: 5px solid black;
+    border-radius: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.delete-profile{
+    height: 365px;
+    text-align: center;
+}
+.user-block{
+    display: flex;
+}
+.log-block{
+    display: flex;
+    justify-content: space-between;
+}
+.user-info{
+    width: 100%;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head th:insert="parts/layouts :: head">
+</head>
+<body>
+<div class="login-wrapper">
+  <div class="container auth-container">
+    <div class="form-block-delete-user center-block delete-profile">
+      <div class="h1 text-center form-head">Удаление профиля</div>
+      <div class="line"></div>
+      <p class="mail-message">Вы действительно хотите удалить профиль?</p>
+      <form class="form-login" method="post" action="/delete-user" th:object="${password}">
+        <input class="field-auth" type="password" id="password" name="password" placeholder="Пароль" onkeyup="passwordValidator()">
+        <div th:if="${passwordInvalid}" class="error-block">Не верный пароль</div>
+        <div class="button-block" style="margin-top: 30px">
+          <input class="popup-btn yes" type="submit" value="Да">
+          <a href="/">
+            <button class="popup-btn" type="button">Нет</button>
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div th:insert="parts/layouts :: scripts"></div>
+</body>
+</html>

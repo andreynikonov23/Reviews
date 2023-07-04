@@ -10,7 +10,7 @@
             <div class="line"></div>
             <div class="user-info-page">
                 <form method="post" enctype="multipart/form-data" action="/edit-user" th:object="${userEditor}">
-                    <input type="hidden" th:field="*{login}">
+                    <input type="hidden" th:field="*{user}">
                     <div class="avatar-name-b">
                         <div class="select-image-block">
                             <input id="file" class="input-file" name="file" type="file" accept="image/*" onchange="load(this)">

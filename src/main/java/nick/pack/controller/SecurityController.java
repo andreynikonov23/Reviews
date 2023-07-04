@@ -1,15 +1,16 @@
 package nick.pack.controller;
 
 import nick.pack.mail.MailSenderService;
-import nick.pack.model.RoleEnum;
+import nick.pack.model.Status;
+import nick.pack.model.StatusEnum;
 import nick.pack.model.User;
 import nick.pack.service.RoleService;
 import nick.pack.service.StatusService;
 import nick.pack.service.UserService;
 import nick.pack.utils.ActivationCodeHashKeyDTO;
-import nick.pack.utils.PasswordEditorDTO;
-import nick.pack.utils.UserProfileEditorDTO;
+import nick.pack.utils.UserEditorDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.awt.image.BufferedImage;
 import java.io.*;
@@ -151,16 +153,16 @@ public class SecurityController {
             model.addAttribute("codeIsNotCorrect", true);
             return "codeActivationOnRecover";
         }
-        PasswordEditorDTO passwordEditorDTO = new PasswordEditorDTO(user, "");
-        model.addAttribute("password", passwordEditorDTO);
+        UserEditorDTO userEditorDTO = new UserEditorDTO(user, "");
+        model.addAttribute("userEditor", userEditorDTO);
         return "editPassword";
     }
 
     @PostMapping("/edit-password")
-    public String editPassword(@ModelAttribute("password") PasswordEditorDTO passwordEditorDTO, Model model){
+    public String editPassword(@ModelAttribute("password") UserEditorDTO userEditorDTO, Model model){
         System.out.println("----------------------------------------------------------------");
-        String encodedPassword = passwordEncoder.encode(passwordEditorDTO.getPassword());
-        User user = passwordEditorDTO.getUser();
+        String encodedPassword = passwordEncoder.encode(userEditorDTO.getPassword());
+        User user = userEditorDTO.getUser();
         user.setPassword(encodedPassword);
         System.out.println(user + "-------- old password");
         userService.saveAndFlush(user);
@@ -173,16 +175,16 @@ public class SecurityController {
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.findUserByLogin(login);
 
-        UserProfileEditorDTO userProfileEditorDTO = new UserProfileEditorDTO(user.getLogin(), user.getNick(), user.getPhoto());
+        UserEditorDTO userProfileEditorDTO = new UserEditorDTO(user, user.getNick(), user.getPhoto());
         model.addAttribute("userEditor", userProfileEditorDTO);
 
         return "editUser";
     }
 
     @PostMapping("/edit-user")
-    public String editUser(@RequestParam("file") MultipartFile file, @ModelAttribute("user") @Valid UserProfileEditorDTO userEditor, Model model){
+    public String editUser(@RequestParam("file") MultipartFile file, @ModelAttribute("user") UserEditorDTO userEditor, Model model){
         System.out.println(userEditor);
-        User user = userService.findUserByLogin(userEditor.getLogin());
+        User user = userEditor.getUser();
         user.setNick(userEditor.getNick());
 
         if(file.getSize() != 0){
@@ -192,6 +194,61 @@ public class SecurityController {
         userService.saveAndFlush(user);
         return "redirect:/";
     }
+
+    @GetMapping("/delete-profile")
+    @PreAuthorize("hasAuthority('crud')")
+    public String deleteProfile(Model model){
+        String password = "";
+        model.addAttribute("password", password);
+        model.addAttribute("passwordInvalid", false);
+
+        return "deleteProfile";
+    }
+
+    @PostMapping("/delete-user")
+    public String deleteUser(@ModelAttribute("password") String password, Model model){
+        String login = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userService.findUserByLogin(login);
+
+        if (passwordEncoder.matches(password, user.getPassword())){
+            userService.delete(user);
+        } else {
+            model.addAttribute("passwordInvalid", true);
+            return "deleteProfile";
+        }
+
+        return "redirect:/";
+    }
+
+    @GetMapping ("/block")
+    @PreAuthorize("hasAuthority('blocking')")
+    public String blockUser(@RequestParam("id") int id, Model model, HttpServletRequest request){
+
+        User user = userService.findUserById(id);
+
+        if(user.isActive()){
+            user.setStatus(statusService.setBannedStatus());
+            userService.saveAndFlush(user);
+        } else {
+            user.setStatus(statusService.setActiveStatus());
+            userService.saveAndFlush(user);
+        }
+
+        String referer = request.getHeader("Referer");
+        return "redirect:" + referer;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     public String generateCode(){
         String chars = "0123456789";

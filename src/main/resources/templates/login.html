@@ -9,7 +9,7 @@
                   <div class="h1 text-center form-head">Вход</div>
                   <div class="line"></div>
                   <div class="error-block text-center">
-                    <div th:if="${param.error}" style="color: #FF514B;">Неверный логин или пароль</div>
+                    <div th:if="${param.error}" style="color: #FF514B;">Неверный логин или пароль, либо пользователь заблокирован</div>
                   </div>
                   <form class="form-login" method="POST" action="/login">
                      <i class="input-icon fa fa-user fa-lg"></i>

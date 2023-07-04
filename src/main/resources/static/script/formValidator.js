@@ -6,13 +6,13 @@ function passwordValidator(){
 
     console.log(password.value);
     console.log(repeatPassword.value);
-    if(password.value === repeatPassword.value && password.value != '' && repeatPassword.value != ''){
+    if(password.value === repeatPassword.value && password.value !== '' && repeatPassword.value !== ''){
         button.disabled = false;
     } else{
         button.disabled = true;
     }
-    if (password.value != '' && repeatPassword.value != ''){
-        if (repeatPassword.value != password.value){
+    if (password.value !== '' && repeatPassword.value !== ''){
+        if (repeatPassword.value !== password.value){
             repeatPassword.style.marginBottom = "10px";
             errorBlock.style.display="block";
         } else {
@@ -30,13 +30,25 @@ function profileValidator(){
 
     console.log(nick.value);
 
-    if (nick.value == ''){
+    if (nick.value === ''){
         errorBlock.style.display = 'block';
         nick.style.borderColor = 'red';
         button.disabled = true;
     } else {
         errorBlock.style.display = 'none';
         nick.style.borderColor = 'black';
+        button.disabled = false;
+
+    }
+}
+
+function deleteProfileValidator(){
+    let button = document.querySelector('.yes');
+    let password = document.getElementById("password");
+
+    if(password.value === ''){
+        button.disabled = true;
+    } else {
         button.disabled = false;
     }
 }

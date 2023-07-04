@@ -9,7 +9,7 @@
         <title>Reviews</title>
         <link rel="stylesheet" href="/css/styles-main.css">
         <link rel="stylesheet" href="/css/reviews.css">
-        <link rel="stylesheet" href="/css/user-styles.css">
+        <link rel="stylesheet" href="/css/user-st.css">
         <link rel="stylesheet" href="/css/auth-style.css">
         <style>
             .selector-for-some-widget {
@@ -61,11 +61,11 @@
                     </div>
                 </div>
                 <nav class="row mt-5">
-                    <div class="col text-center"><span class="nav-link">Новости</span></div>
-                    <div class="col text-center"><span class="nav-link">Смотреть онлайн</span></div>
-                    <div class="col text-center"><span class="nav-link">Афиша</span></div>
-                    <div class="col text-center"><span class="nav-link">Что посмотреть</span></div>
-                    <div class="col text-center"><span class="nav-link">Коллекции</span></div>
+                    <div class="col text-center"><a class="nav-link">Новости</a></div>
+                    <div class="col text-center"><a class="nav-link">Смотреть онлайн</a></div>
+                    <div class="col text-center"><a class="nav-link">Афиша</a></div>
+                    <div class="col text-center"><a class="nav-link">Что посмотреть</a></div>
+                    <div class="col text-center" th:if="${authorityUserIsAdmin}"><a href="/users" class="nav-link">Пользователи</a></div>
                 </nav>
             </div>
             <div class="line"></div>
@@ -77,7 +77,7 @@
                     <form method="post" action="/delete" th:object="${id}" class="answer-options">
                         <input type="hidden" id="id" name="id">
                         <input class="popup-btn" id="no" type="submit" value="Да">
-                        <button type="button" class="popup-btn" onclick="closePopUp()">Нет</button>
+                        <button type="button" class="popup-btn" onclick="closeReviewPopUp()">Нет</button>
                     </form>
                 </div>
             </div>
@@ -99,7 +99,7 @@
                                 <div class="review-btns">
                                     <a class="fa fa-pen fa-lg review-btn" th:if="${authorityUser.getLogin() == reviews.get(0).getUser().getLogin()}" th:href="@{/edit-review(id=${reviews.get(0).getId()})}"></a>
                                     <input type="hidden" th:value="${reviews.get(0).getId()}">
-                                    <span class="fa fa-trash fa-lg review-btn" th:if="${authorityUser.getLogin() == reviews.get(0).getUser().getLogin() || authorityUserIsAdmin}" onclick="openDeletePopUp(this)">
+                                    <span class="fa fa-trash fa-lg review-btn" th:if="${authorityUser.getLogin() == reviews.get(0).getUser().getLogin() || authorityUserIsAdmin}" onclick="openDeleteReviewPopUp(this)">
                                     </span>
                                 </div>
                             </div>

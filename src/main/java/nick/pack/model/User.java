@@ -177,4 +177,17 @@ public class User {
         }
         return false;
     }
+
+    public boolean isAdmin(){
+        if (this.role.getRoleName().equals(RoleEnum.ADMIN)){
+            return true;
+        }
+        return false;
+    }
+    public boolean isActive(){
+        if (this.status.getStatusEnum().equals(StatusEnum.ACTIVE)){
+            return true;
+        }
+        return false;
+    }
 }

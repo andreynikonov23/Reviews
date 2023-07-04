@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+  <head th:insert="parts/layouts :: head"></head>
+  <body>
+      <header th:insert="parts/layouts :: header"></header>
+      <aside>
+        <div class="container">
+          <div th:each="user : ${users}">
+            <div class="user-block">
+              <div class="icon" th:if="${user.isActive()}">
+                <img th:if="${user.getPhoto()} != null" th:src="@{/image/users/} + ${user.getPhoto()}" width="100px" height="100px">
+                <img th:unless="${user.getPhoto()} != null" src="/image/avatar.jpeg" width="100px" height="100px">
+              </div>
+              <div class="icon" th:unless="${user.isActive()}">
+                  <img src="/image/banned.jpg" width="100px" height="100px">
+              </div>
+              <div class="user-info">
+                  <div class="log-block">
+                      <div>
+                          <span>Login: </span> <a th:text="${user.getLogin()}"></a>
+                      </div>
+                      <a th:if="${user.isActive()}">Заблокировать</a>
+                      <a th:unless="${user.isActive()}">Разблокировать</a>
+                  </div>
+                  <div>
+                      <span>Nickname: </span> <span th:text="${user.getNick()}"></span>
+                  </div>
+                  <div>
+                      <span>Email: </span> <span th:text="${user.getEmail()}"></span>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <footer th:insert="parts/layouts :: footer"></footer>
+      <div th:insert="parts/layouts :: scripts"></div>
+  </body>
+</html>
