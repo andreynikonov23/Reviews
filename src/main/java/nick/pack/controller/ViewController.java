@@ -144,6 +144,7 @@ public class ViewController {
     @GetMapping("/users")
     @PreAuthorize("hasAuthority('viewuser')")
     public String users(Model model){
+        setAuthorizedUserAsModel(model);
         List<User> users = new ArrayList<>(userService.selectAll());
         for (int i = 0; i < users.size(); i++) {
             if (users.get(i).isAdmin()){
