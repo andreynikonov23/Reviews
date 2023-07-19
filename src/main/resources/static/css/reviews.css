@@ -262,3 +262,6 @@
     color: white;
     background-color: var(--purple);
 }
+.rating-sending{
+    opacity: 0.3;
+}
