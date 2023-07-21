@@ -90,6 +90,7 @@ public class ViewController {
 
         return "search";
     }
+
     @GetMapping("/add-review")
     @PreAuthorize("hasAuthority('crud')")
     public String addReviewForm(Model model){
@@ -155,15 +156,6 @@ public class ViewController {
 
         return "usersList";
     }
-
-    @PostMapping("/set-rating")
-    @PreAuthorize("hasAuthority('crud')")
-    public String setRating(){
-
-        return "";
-    }
-
-
 
     public User setAuthorizedUserAsModel(Model model){
         String login = SecurityContextHolder.getContext().getAuthentication().getName();

@@ -1,7 +1,35 @@
-const rating = document.querySelector('.rating-block');
+console.log("RatingScript start");
 
+const rating = document.querySelector('.rating-block');
+let user = getUser().then();
+let review = getReview().then();
 initRating(rating);
 
+async function getUser(){
+    const userId = document.querySelector("#userId").value;
+    let response = await fetch("/get-user-json", {
+        method: "GET",
+        headers: {
+            "content-type": "application/json"
+        }
+    });
+    const result = await response.json();
+    return result;
+}
+async function getReview(){
+    const reviewId = document.querySelector("#reviewId").value;
+    let response = await fetch("/get-review-json",{
+        method: "POST",
+        body: JSON.stringify({
+            id: reviewId
+        }),
+        headers: {
+            "content-type": "application/json"
+        }
+    });
+    const result = await response.json();
+    return result;
+}
 
 function initRating(rating){
     let ratingActive = rating.querySelector('.rating-active');
@@ -45,17 +73,18 @@ function initRating(rating){
 
             //Отправка данных на форму
             let response = await fetch("/set-rating", {
-                method: "GET",
+                method: "POST",
 
                 body: JSON.stringify({
-                    user: id,
-                    rating: value
+                    rating: value,
+                    user: user,
+                    review: review
                 }),
                 headers: {
                     'content-type': 'application/json'
                 }
             });
-
+            console.log(response.json().then());
             if (response.ok){
                 const result = await response.json();
 
