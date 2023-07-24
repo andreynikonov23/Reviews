@@ -7,7 +7,6 @@ import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
 
-@Data
 @NoArgsConstructor
 @Entity
 @Table (name = "country")
@@ -22,6 +21,23 @@ public class Country {
     Set<Review> reviewSet;
 
     public Country(String countryName) {
+        this.countryName = countryName;
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getCountryName() {
+        return countryName;
+    }
+
+    public void setCountryName(String countryName) {
         this.countryName = countryName;
     }
 

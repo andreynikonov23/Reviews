@@ -1,8 +1,9 @@
 console.log("RatingScript start");
 
 const rating = document.querySelector('.rating-block');
-let user = getUser().then();
-let review = getReview().then();
+let user = getUser();
+let review = getReview();
+console.log(user.id);
 initRating(rating);
 
 async function getUser(){
@@ -17,12 +18,10 @@ async function getUser(){
     return result;
 }
 async function getReview(){
-    const reviewId = document.querySelector("#reviewId").value;
-    let response = await fetch("/get-review-json",{
-        method: "POST",
-        body: JSON.stringify({
-            id: reviewId
-        }),
+    let index = window.location.href.lastIndexOf("/") + 1;
+    const reviewId = window.location.href.substring(index);
+    let response = await fetch("/get-review-json?id=" + reviewId,{
+        method: "GET",
         headers: {
             "content-type": "application/json"
         }
@@ -58,11 +57,11 @@ function initRating(rating){
             });
 
             ratingItem.addEventListener("click", function(e){
+                console.log("value - " + ratingValue.innerHTML);
                 ratingValue.innerHTML = i + 1;
+
                 setRatingActiveWidth();
-
-                setRatingValue(ratingItems.value, rating);
-
+                setRatingValue(ratingValue.innerHTML, rating);
             });
         }
     }
@@ -77,8 +76,29 @@ function initRating(rating){
 
                 body: JSON.stringify({
                     rating: value,
-                    user: user,
-                    review: review
+                    user: {
+                        id : user.id,
+                        login: user.login,
+                        password: user.password,
+                        nick : user.nick,
+                        email : user.email,
+                        photo: user.photo,
+                        role: user.role,
+                        status: user.status,
+                    },
+                    review: {
+                        id : review.id,
+                        name: review.name,
+                        trailerUrl: review.trailerUrl,
+                        poster: review.poster,
+                        filmName: review.filmName,
+                        year: review.year,
+                        director: review.director,
+                        cast: review.cast,
+                        text: review.text,
+                        user: review.user,
+                        country: review.country
+                    }
                 }),
                 headers: {
                     'content-type': 'application/json'

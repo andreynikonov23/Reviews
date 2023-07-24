@@ -24,17 +24,16 @@ public class AjaxController {
         return user;
     }
 
-    @PostMapping("/get-review-json")
-    public Review getReview(@RequestBody String reviewId){
-        int beginIndex = reviewId.indexOf(":") + 2;
-        int endIndex = reviewId.lastIndexOf("\"");
-        StringBuilder builder = new StringBuilder(reviewId);
-        return reviewService.findById(Integer.parseInt(builder.substring(beginIndex, endIndex)));
+    @GetMapping("/get-review-json")
+    public Review getReview(@RequestParam int id){
+        Review review = reviewService.findById(id);
+        System.out.println(review);
+        return review;
     }
 
     @PostMapping("/set-rating")
     @PreAuthorize("hasAuthority('crud')")
     public void setRating(@RequestBody Rating rating){
-        System.out.println(rating);
+        System.out.println("Request ----------- " + rating);
     }
 }
