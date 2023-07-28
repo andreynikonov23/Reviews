@@ -22,7 +22,12 @@ public class RatingService implements DAO<Rating, Integer> {
 
     @Override
     public void saveAndFlush(Rating rating) {
-        repository.saveAndFlush(rating);
+        Rating ratingDB = repository.findRatingByUserAndReview(rating.getUser(), rating.getReview());
+        if (ratingDB != null){
+            ratingDB.setRating(rating.getRating());
+            repository.saveAndFlush(ratingDB);
+        } else
+            repository.saveAndFlush(rating);
     }
 
     @Override
