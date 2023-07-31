@@ -36,7 +36,7 @@ public class ViewController {
 
     @GetMapping("/")
     public String index(Model model){
-        setAuthorizedUserAsModel(model);
+        User user = setAuthorizedUserAsModel(model);
 
         List<Review> reviews = reviewService.findByAll();
         Collections.reverse(reviews);
@@ -44,6 +44,7 @@ public class ViewController {
         model.addAttribute("idDeleteReview", id);
         model.addAttribute("reviews", reviews);
         model.addAttribute("ratingService", ratingService);
+
 
         return "index";
     }

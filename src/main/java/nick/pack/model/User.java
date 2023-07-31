@@ -1,9 +1,12 @@
 package nick.pack.model;
 
+import nick.pack.service.RatingService;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -184,8 +187,8 @@ public class User {
         }
         return false;
     }
-    public boolean isActive(){
-        if (this.status.getStatusEnum().equals(StatusEnum.ACTIVE)){
+    public boolean isActive() {
+        if (this.status.getStatusEnum().equals(StatusEnum.ACTIVE)) {
             return true;
         }
         return false;

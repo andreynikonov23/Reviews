@@ -45,12 +45,24 @@ public class RatingService implements DAO<Rating, Integer> {
         return repository.findRatingById(integer);
     }
 
+    public Rating findRatingByUserAndReview(User user, Review review){
+        return repository.findRatingByUserAndReview(user, review);
+    }
+
     public List<Rating> findRatingsReview(Review review){
         return repository.findRatingByReview(review);
     }
 
     public List<Rating> findRatingsUser(User user){
         return repository.findRatingByUser(user);
+    }
+
+    public int isSetRating(User authorityUser, Review review){
+        Rating rating = findRatingByUserAndReview(authorityUser, review);
+        if (rating != null){
+            return rating.getRating();
+        }
+        return 0;
     }
 
     public double getOverallRating(Review review){

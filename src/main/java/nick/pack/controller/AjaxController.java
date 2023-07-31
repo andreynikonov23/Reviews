@@ -40,4 +40,9 @@ public class AjaxController {
         Rating rating = new Rating(Integer.parseInt(valueStr), user, review);
         ratingService.saveAndFlush(rating);
     }
+    @PostMapping("/send-comment")
+    @PreAuthorize("hasAuthority('crud')")
+    public void sendComment(@RequestParam ("review") int id, @RequestBody String requestBody){
+
+    }
 }

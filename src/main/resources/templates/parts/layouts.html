@@ -37,7 +37,7 @@
                         <div class="user-panel">
                             <div class="grid-user">
                                 <div class="username-on-panel">
-                                    <p th:text="${authorityUser.getNick()}"></p>
+                                    <p class="authority-user-nick" th:text="${authorityUser.getNick()}"></p>
                                 </div>
                                 <div class="avatar-block-on-panel">
                                     <div class="avatar-border">
@@ -48,7 +48,7 @@
                             </div>
                             <div class="hover-panel">
                                 <div class="account-block">
-                                    <a th:href="@{/user(id=${authorityUser.getId()})}">Личный кабинет</a>
+                                    <a class="account-link" th:href="@{/user(id=${authorityUser.getId()})}">Личный кабинет</a>
                                 </div>
                                 <div class="logout-block">
                                     <button class="logout-btn" onclick="document.location='/logout'">Выход</button>
@@ -90,7 +90,10 @@
                             <img class="poster" th:src="${reviews.get(0).getPoster()}">
                         </a>
                         <div class="info-block">
-                            <div class="rounded-circle rating text-center">
+                            <div th:if="${ratingService.isSetRating(authorityUser, reviews.get(0)) != 0}" class="rounded-circle rating text-center" style="background-color: #2DFF42">
+                                <p th:text="${ratingService.isSetRating(authorityUser, reviews.get(0))}"></p>
+                            </div>
+                            <div th:if="${ratingService.isSetRating(authorityUser, reviews.get(0)) == 0}" class="rounded-circle rating text-center">
                                 <p th:text="${ratingService.getOverallRating(reviews.get(0))}"></p>
                             </div>
                             <a class="name d-block" th:href="@{/{id}(id=${reviews.get(0).getId()})}" th:text="${reviews.get(0).getName()}"></a><br/>
@@ -125,7 +128,10 @@
                                 </div>
                             </div>
                             <div class="author" th:text="${reviews.get(1).getUser().getNick()}"></div>
-                            <div class="rounded-circle rating test text-center">
+                            <div th:if="${ratingService.isSetRating(authorityUser, reviews.get(1)) != 0}" class="rounded-circle rating test text-center" style="background-color: #2DFF42">
+                                <p th:text="${ratingService.isSetRating(authorityUser, reviews.get(1))}"></p>
+                            </div>
+                            <div th:if="${ratingService.isSetRating(authorityUser, reviews.get(1)) == 0}" class="rounded-circle rating test text-center">
                                 <p th:text="${ratingService.getOverallRating(reviews.get(1))}"></p>
                             </div>
                         </div>
@@ -147,7 +153,10 @@
                                 </div>
                             </div>
                             <div class="author" th:text="${review.getUser().getNick()}"></div>
-                            <div class="rounded-circle rating test text-center">
+                            <div th:if="${ratingService.isSetRating(authorityUser, review) != 0}" class="rounded-circle rating test text-center" style="background-color: #2DFF42">
+                                <p th:text="${ratingService.isSetRating(authorityUser, review)}"></p>
+                            </div>
+                            <div th:if="${ratingService.isSetRating(authorityUser, review) == 0}" class="rounded-circle rating test text-center">
                                 <p th:text="${ratingService.getOverallRating(review)}"></p>
                             </div>
                         </div>
@@ -164,7 +173,10 @@
                             <img th:src="${review.getPoster()}" class="poster">
                         </a>
                         <div class="col-8 info-block">
-                            <div class="rounded-circle rating text-center">
+                            <div th:if="${ratingService.isSetRating(authorityUser, review) != 0}" class="rounded-circle rating text-center" style="background-color: #2DFF42">
+                                <p th:text="${ratingService.isSetRating(authorityUser, review)}"></p>
+                            </div>
+                            <div th:if="${ratingService.isSetRating(authorityUser, review) == 0}" class="rounded-circle rating text-center">
                                 <p th:text="${ratingService.getOverallRating(review)}"></p>
                             </div>
                             <a th:href="@{/{id}(id=${review.getId()})}">
@@ -192,7 +204,10 @@
                             <img th:src="${review.getPoster()}" class="poster">
                         </a>
                         <div class="col-8 info-block">
-                            <div class="rounded-circle rating text-center">
+                            <div th:if="${ratingService.isSetRating(authorityUser, review) != 0}" class="rounded-circle rating text-center" style="background-color: #2DFF42">
+                                <p th:text="${ratingService.isSetRating(authorityUser, review)}"></p>
+                            </div>
+                            <div th:if="${ratingService.isSetRating(authorityUser, review) == 0}" class="rounded-circle rating text-center">
                                 <p th:text="${ratingService.getOverallRating(review)}"></p>
                             </div>
                             <a class="name d-block" th:href="@{/{id}(id=${review.getId()})}" th:text="${review.getName()}"></a>
