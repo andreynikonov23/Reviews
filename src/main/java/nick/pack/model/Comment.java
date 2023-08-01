@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Data
@@ -18,7 +19,7 @@ public class Comment {
     @Column (name = "comment")
     private String comment;
     @Column (name = "date")
-    private LocalDate date;
+    private LocalDateTime date;
 
     @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn (name = "user_id")
@@ -30,7 +31,7 @@ public class Comment {
     @JoinColumn (name = "review_id")
     private Review review;
 
-    public Comment(String comment, User user, Comment answer, LocalDate date, Review review) {
+    public Comment(String comment, User user, Comment answer, LocalDateTime date, Review review) {
         this.comment = comment;
         this.user = user;
         this.answer = answer;
@@ -38,7 +39,7 @@ public class Comment {
         this.review = review;
     }
 
-    public Comment(String comment, LocalDate date, User user, Review review) {
+    public Comment(String comment, LocalDateTime date, User user, Review review) {
         this.comment = comment;
         this.date = date;
         this.user = user;

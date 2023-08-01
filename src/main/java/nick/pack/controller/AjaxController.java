@@ -8,6 +8,7 @@ import nick.pack.service.CommentService;
 import nick.pack.service.RatingService;
 import nick.pack.service.ReviewService;
 import nick.pack.service.UserService;
+import nick.pack.utils.CommentDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -42,7 +43,7 @@ public class AjaxController {
     }
     @PostMapping("/send-comment")
     @PreAuthorize("hasAuthority('crud')")
-    public void sendComment(@RequestParam ("review") int id, @RequestBody String requestBody){
-
+    public void sendComment(@RequestParam ("review") int id, @RequestBody CommentDTO commentDTO){
+        System.out.println(commentDTO);
     }
 }
