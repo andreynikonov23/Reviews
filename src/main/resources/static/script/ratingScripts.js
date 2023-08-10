@@ -66,6 +66,7 @@ function initRating(rating){
 
                 //Получаем новый рейтинг
                 const newRating = result.newRating;
+                console.log(result.newRating);
                 //Ввод нового среднего результата
                 ratingValue.innerHTML = newRating;
                 //Обновление активных звезд

@@ -41,4 +41,9 @@ public class CommentService implements DAO<Comment, Integer> {
     public List<Comment> findCommentsReview(Review review){
          return repository.findCommentsReview(review);
     }
+
+    public int getCommentId(Comment comment){
+        Comment lastComment = repository.getCommentId(comment.getComment(), comment.getDate(), comment.getUser(), comment.getAnswer(), comment.getReview());
+        return lastComment.getId();
+    }
 }

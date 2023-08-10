@@ -14,6 +14,9 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
 @RestController
 public class AjaxController {
     @Autowired
@@ -30,8 +33,8 @@ public class AjaxController {
     public void setRating(@RequestParam ("id") int id, @RequestBody String requestBody){
         System.out.println("Request ----------- " + id + ":- " + requestBody);
 
-        String login = SecurityContextHolder.getContext().getAuthentication().getName();
-        User user = userService.findUserByLogin(login);
+        User user = getAuthorityUser();
+
         Review review = reviewService.findById(id);
 
         int beginIndex = requestBody.indexOf(":") + 2;
@@ -43,7 +46,27 @@ public class AjaxController {
     }
     @PostMapping("/send-comment")
     @PreAuthorize("hasAuthority('crud')")
-    public void sendComment(@RequestParam ("review") int id, @RequestBody CommentDTO commentDTO){
+    public Comment sendComment(@RequestParam ("review") int id, @RequestBody CommentDTO commentDTO){
         System.out.println(commentDTO);
+        LocalDateTime date = commentDTO.getDate();
+        Review review = reviewService.findById(id);
+        User user = getAuthorityUser();
+
+        Comment comment = new Comment(commentDTO.getComment(), date, user, review);
+
+        Comment answer;
+        if (commentDTO.getAnswer() != 0){
+            answer = commentService.findById(commentDTO.getAnswer());
+            comment.setAnswer(answer);
+        }
+
+        commentService.saveAndFlush(comment);
+
+        return comment;
+    }
+
+    public User getAuthorityUser(){
+        String login = SecurityContextHolder.getContext().getAuthentication().getName();
+        return userService.findUserByLogin(login);
     }
 }
