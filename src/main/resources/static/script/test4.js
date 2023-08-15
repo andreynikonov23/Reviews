@@ -29,7 +29,8 @@ async function sendComment(){
             'content-type': 'application/json'
         }
     });
-    response.then(() => {console.log(id)});
+    const test = await response.json;
+    console.log(test);
     //user info
     let userLink = document.querySelector('.account-link').href;
     let avatarIcon = document.querySelector('.avatar-icon').src;
