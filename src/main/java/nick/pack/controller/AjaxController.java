@@ -9,16 +9,18 @@ import nick.pack.service.RatingService;
 import nick.pack.service.ReviewService;
 import nick.pack.service.UserService;
 import nick.pack.utils.CommentDTO;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
+//Контроллер для обработки ajax-запросов
 @RestController
 public class AjaxController {
+    private static final Logger logger = Logger.getLogger(AjaxController.class);
     @Autowired
     private UserService userService;
     @Autowired
@@ -28,25 +30,40 @@ public class AjaxController {
     @Autowired
     private CommentService commentService;
 
+    //Fetch-запрос для рейтинга
     @PostMapping("/set-rating")
     @PreAuthorize("hasAuthority('crud')")
     public void setRating(@RequestParam ("id") int id, @RequestBody String requestBody){
-        System.out.println("Request ----------- " + id + ":- " + requestBody);
+        try {
+            logger.debug("/set-rating with requestParam: idReview=" + id + "& requestBody: " + requestBody);
 
-        User user = getAuthorityUser();
+            User user = getAuthorityUser();
 
-        Review review = reviewService.findById(id);
+            Review review = reviewService.findById(id);
 
-        int beginIndex = requestBody.indexOf(":") + 2;
-        int endIndex = requestBody.lastIndexOf("\"");
-        String valueStr = requestBody.substring(beginIndex, endIndex);
+            int beginIndex = requestBody.indexOf(":") + 2;
+            int endIndex = requestBody.lastIndexOf("\"");
+            String valueStr = requestBody.substring(beginIndex, endIndex);
 
-        Rating rating = new Rating(Integer.parseInt(valueStr), user, review);
-        ratingService.saveAndFlush(rating);
+            Rating rating = new Rating(Integer.parseInt(valueStr), user, review);
+            ratingService.saveAndFlush(rating);
+        } catch (Exception e){
+            logger.error("/set-rating with requestParam: idReview=" + id + "& requestBody: " + requestBody);
+            System.out.println(e);
+        }
+
     }
+    //Fetch-запрос для комментариев
     @PostMapping("/send-comment")
     @PreAuthorize("hasAuthority('crud')")
     public Comment sendComment(@RequestParam ("review") int id, @RequestBody CommentDTO commentDTO){
+        try{
+            logger.debug("/send-comment with requestParam: idReview=" + id + "& requestBody: " + commentDTO);
+
+        } catch (Exception e){
+            logger.error("/send-comment");
+            System.out.println(e);
+        }
         System.out.println(commentDTO);
         LocalDateTime date = commentDTO.getDate();
         Review review = reviewService.findById(id);

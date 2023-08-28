@@ -19,4 +19,13 @@ public class CommentDTO {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         return LocalDateTime.parse(date, formatter);
     }
+
+    @Override
+    public String toString() {
+        return "CommentDTO{" +
+                "answer=" + answer +
+                ", comment='" + comment + '\'' +
+                ", date='" + date + '\'' +
+                '}';
+    }
 }
