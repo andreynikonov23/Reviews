@@ -29,8 +29,9 @@ async function sendComment(){
             'content-type': 'application/json'
         }
     });
-    const test = await response.json;
-    console.log(test);
+
+    const data = await response.json();
+    console.log(data.id);
     //user info
     let userLink = document.querySelector('.account-link').href;
     let avatarIcon = document.querySelector('.avatar-icon').src;
@@ -41,7 +42,7 @@ async function sendComment(){
     let commentHtml;
     if (answer === ""){
         commentHtml =
-            "<div class='comment-item mb-2'>" +
+            "<div id='" + data.id + "' class='comment-item mb-2'>" +
             "<a href=\"" + userLink + "\">\n" +
             "   <div class=\"icon\">\n" +
             "        <img src=\"" + avatarIcon + "\" width=\"100px\" height=\"100px\">\n" +
@@ -53,18 +54,20 @@ async function sendComment(){
             "          <div class=\"author date\">\n" +
             dateFormatter(date) +
             "          </div>\n" +
-            "<input type=\"hidden\" value='" + id + "' id=\"idComment\">\n" +
             "     </div>\n" +
             "     <div >\n"  +
             "          <span class=\"comment\">" + comment +"</span>\n" +
             "          <div class=\"answer-block\">\n" +
-            "               <span class=\"answer-txt\">Ответить</span>\n" +
+            "          <input type='hidden' class='nickname-user' value='" + nickname + "'>" +
+            "          <input type=\"hidden\" value='" + data.id + "' id='idComment'>\n" +
+            "          <span class=\"answer-txt\" onclick='sendAnswer(this)'>Ответить</span>\n" +
             "          </div>\n" +
             "      </div>\n" +
             "   </div>\n" +
             "<div/>";
     } else {
-        commentHtml = "<div class='comment-item mb-2'>" +
+        commentHtml =
+            "<div id='" + data.id + "' class='comment-item mb-2'>" +
             "<a href=\"" + userLink + "\">\n" +
             "   <div class=\"icon\">\n" +
             "        <img src=\"" + avatarIcon + "\" width=\"100px\" height=\"100px\">\n" +
@@ -82,7 +85,9 @@ async function sendComment(){
             "<a href='#" + answer + "'>" + answerNickname + ", </a>" +
             "          <span class=\"comment\">" + comment +"</span>\n" +
             "          <div class=\"answer-block\">\n" +
-            "               <span class=\"answer-txt\">Ответить</span>\n" +
+            "          <input type=\"hidden\" class='nickname-user' value='" + nickname + "'>" +
+            "          <input type='hidden' id='idComment' value='" + data.id + "'>" +
+            "          <span class=\"answer-txt\" onclick='sendAnswer(this)'>Ответить</span>\n" +
             "          </div>\n" +
             "      </div>\n" +
             "   </div>\n" +
