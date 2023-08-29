@@ -47,6 +47,7 @@ public class AjaxController {
             String valueStr = requestBody.substring(beginIndex, endIndex);
 
             Rating rating = new Rating(Integer.parseInt(valueStr), user, review);
+            logger.debug("save rating: " + rating + " in database");
             ratingService.saveAndFlush(rating);
         } catch (Exception e){
             logger.error("/set-rating with requestParam: idReview=" + id + "& requestBody: " + requestBody);
@@ -65,6 +66,7 @@ public class AjaxController {
         LocalDateTime date = commentDTO.getDate();
         Review review = reviewService.findById(id);
         User user = getAuthorityUser();
+        logger.debug("via " + user);
 
         Comment comment = new Comment(commentDTO.getComment(), date, user, review);
 
@@ -82,7 +84,7 @@ public class AjaxController {
 
     //Возвращает объект авторизованного пользователя
     public User getAuthorityUser(){
-        logger.debug();
+        logger.info("get authority user from database...");
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
         return userService.findUserByLogin(login);
     }

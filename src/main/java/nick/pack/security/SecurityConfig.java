@@ -1,6 +1,7 @@
 package nick.pack.security;
 
 import nick.pack.service.UserService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,16 +16,26 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import javax.annotation.PreDestroy;
+
+//Класс конфигурации
 @Configuration
 @EnableWebSecurity
-//@EnableJdbcHttpSession
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    //Logger
+    private static final Logger logger = Logger.getLogger(SecurityConfig.class);
     //Service
     private final UserService service;
     @Autowired
     public SecurityConfig(UserService service) {
         this.service = service;
+    }
+
+    //destroy-method
+    @PreDestroy
+    public void destroy(){
+        logger.debug("shutting down the server");
     }
 
 
@@ -44,6 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        logger.debug("performing security configuration with parameters (csrf=disable");
         http.
                 csrf().disable().
                 authorizeRequests().

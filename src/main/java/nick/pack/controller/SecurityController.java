@@ -77,10 +77,12 @@ public class SecurityController {
         model.addAttribute("emailExist", false);
         //Проверка на валидность полей
         if (bindingResult.hasErrors()){
+            logger.debug("invalid form registration");
             return "registration";
         }
         //Существует ли пользователь с таким же логином
         if (userService.loginExists(user)){
+            logger.debug("/signup invalid form registration login is exist");
             model.addAttribute("loginExist", true);
             return "registration";
         }

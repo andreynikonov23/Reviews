@@ -1,0 +1,36 @@
+2023-08-29 16:58:43 DEBUG ReviewsApplication:12 - run server program
+Hello World!!!
+2023-08-29 16:58:44.653  INFO 7800 --- [main] nick.pack.ReviewsApplication             : Starting ReviewsApplication using Java 17.0.2 on DESKTOP-20OS981 with PID 7800 (C:\Users\Андрей\IdeaProjects\reviews\target\classes started by Андрей in C:\Users\Андрей\IdeaProjects\reviews)
+2023-08-29 16:58:44.656  INFO 7800 --- [main] nick.pack.ReviewsApplication             : No active profile set, falling back to 1 default profile: "default"
+2023-08-29 16:58:45.497  INFO 7800 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-29 16:58:45.587  INFO 7800 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 80 ms. Found 7 JPA repository interfaces.
+2023-08-29 16:58:46.375  INFO 7800 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-08-29 16:58:46.387  INFO 7800 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-29 16:58:46.387  INFO 7800 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2023-08-29 16:58:46.512  INFO 7800 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-29 16:58:46.513  INFO 7800 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1795 ms
+2023-08-29 16:58:46.651  INFO 7800 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-29 16:58:46.851  INFO 7800 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-29 16:58:46.945  INFO 7800 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-29 16:58:47.007  INFO 7800 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-08-29 16:58:47.209  INFO 7800 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-29 16:58:47.347  INFO 7800 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-08-29 16:58:48.129  INFO 7800 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-29 16:58:48.137  INFO 7800 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-29 16:58:48.935  WARN 7800 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-29 16:58:49.102  WARN 7800 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-08-29 16:58:49.102  INFO 7800 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-08-29 16:58:49.103  WARN 7800 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-08-29 16:58:49.103  INFO 7800 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-08-29 16:58:49.103  WARN 7800 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-08-29 16:58:49.103  INFO 7800 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-08-29 16:58:49.138  INFO 7800 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@638341b0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7962c1d5, org.springframework.security.web.context.SecurityContextPersistenceFilter@1885905b, org.springframework.security.web.header.HeaderWriterFilter@7e741d6b, org.springframework.security.web.authentication.logout.LogoutFilter@6a7ab205, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@14b4d90b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@46507dda, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@304e1e4e, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@22e1a1dc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@56226064, org.springframework.security.web.session.SessionManagementFilter@51097500, org.springframework.security.web.access.ExceptionTranslationFilter@5afba80c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6c537267]
+2023-08-29 16:58:49.330  INFO 7800 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-08-29 16:58:49.548  INFO 7800 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-29 16:58:49.563  INFO 7800 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-08-29 16:58:49.571  INFO 7800 --- [main] nick.pack.ReviewsApplication             : Started ReviewsApplication in 5.385 seconds (JVM running for 5.916)
+2023-08-29 16:58:49 DEBUG ReviewsApplication:14 - the end
+2023-08-29 16:59:19 DEBUG SecurityConfig:35 - shutting down the server
+2023-08-29 16:59:19.651  INFO 7800 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-29 16:59:19.654  INFO 7800 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-08-29 16:59:19.668  INFO 7800 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
