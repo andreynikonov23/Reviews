@@ -30,12 +30,13 @@ public class AjaxController {
     @Autowired
     private CommentService commentService;
 
+
     //Fetch-запрос для рейтинга
     @PostMapping("/set-rating")
     @PreAuthorize("hasAuthority('crud')")
     public void setRating(@RequestParam ("id") int id, @RequestBody String requestBody){
         try {
-            logger.debug("/set-rating with requestParam: idReview=" + id + "& requestBody: " + requestBody);
+            logger.debug("/set-rating [post-mapping] with requestParam: idReview=" + id + "& requestBody: " + requestBody);
 
             User user = getAuthorityUser();
 
@@ -53,18 +54,14 @@ public class AjaxController {
         }
 
     }
+
+
     //Fetch-запрос для комментариев
     @PostMapping("/send-comment")
     @PreAuthorize("hasAuthority('crud')")
     public Comment sendComment(@RequestParam ("review") int id, @RequestBody CommentDTO commentDTO){
-        try{
-            logger.debug("/send-comment with requestParam: idReview=" + id + "& requestBody: " + commentDTO);
+        logger.debug("/send-comment [post-mapping] with requestParam: idReview=" + id + "& requestBody: " + commentDTO);
 
-        } catch (Exception e){
-            logger.error("/send-comment");
-            System.out.println(e);
-        }
-        System.out.println(commentDTO);
         LocalDateTime date = commentDTO.getDate();
         Review review = reviewService.findById(id);
         User user = getAuthorityUser();
@@ -82,7 +79,10 @@ public class AjaxController {
         return comment;
     }
 
+
+    //Возвращает объект авторизованного пользователя
     public User getAuthorityUser(){
+        logger.debug();
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
         return userService.findUserByLogin(login);
     }

@@ -9,6 +9,7 @@ import nick.pack.service.StatusService;
 import nick.pack.service.UserService;
 import nick.pack.utils.ActivationCodeHashKeyDTO;
 import nick.pack.utils.UserEditorDTO;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -33,6 +34,8 @@ import java.util.UUID;
 
 @Controller
 public class SecurityController {
+    private static final Logger logger = Logger.getLogger(SecurityController.class);
+
     @Autowired
     private UserService userService;
     @Autowired
@@ -44,22 +47,32 @@ public class SecurityController {
     @Autowired
     private MailSenderService mailSender;
 
+    //Неподтвержденные аккаунты
     private final HashMap<String, User> unconfirmedUsers = new HashMap<>();
 
 
+                //Servlets
+    //Страница авторизации
     @GetMapping ("/login")
     public String login(){
+        logger.debug("/login [get-mapping]");
         return "login";
     }
 
+
+    //Страница регистрации
     @GetMapping("/registration")
     public String registration(Model model){
+        logger.debug("/registration [get-mapping]");
         model.addAttribute("user", new User());
         return "registration";
     }
 
+
+    //Регистрация
     @PostMapping("/signup")
     public String signUp(@RequestParam("file") MultipartFile file, @ModelAttribute("user") @Valid User user, BindingResult bindingResult, Model model){
+        logger.debug("/signup [post-mapping] with parameters: file=" + file + "; object: user=" + user);
         model.addAttribute("loginExist", false);
         model.addAttribute("emailExist", false);
         //Проверка на валидность полей
@@ -101,6 +114,8 @@ public class SecurityController {
         return "codeActivationOnReg";
     }
 
+
+    //Активация аккаунта
     @PostMapping("/activate")
     public String activateAccount(@ModelAttribute("activationData") ActivationCodeHashKeyDTO activationData, Model model){
         User user = unconfirmedUsers.get(activationData.getHashKey());

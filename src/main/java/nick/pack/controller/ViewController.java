@@ -1,7 +1,6 @@
 package nick.pack.controller;
 
 import nick.pack.model.*;
-import nick.pack.repository.UserRepository;
 import nick.pack.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -26,13 +25,7 @@ public class ViewController {
     @Autowired
     private CommentService commentService;
     @Autowired
-    private UserRepository repository;
-    @Autowired
     private CountryService countryService;
-    @Autowired
-    private RoleService roleService;
-    @Autowired
-    private StatusService statusService;
 
     @GetMapping("/")
     public String index(Model model){
