@@ -51,7 +51,7 @@ public class AjaxController {
             ratingService.saveAndFlush(rating);
         } catch (Exception e){
             logger.error("/set-rating with requestParam: idReview=" + id + "& requestBody: " + requestBody);
-            System.out.println(e);
+            e.printStackTrace();
         }
 
     }
