@@ -1,4 +1,4 @@
-package nick.pack.controller;
+package nick.pack.controllers;
 
 import nick.pack.model.*;
 import nick.pack.service.*;

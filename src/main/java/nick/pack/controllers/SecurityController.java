@@ -1,8 +1,6 @@
-package nick.pack.controller;
+package nick.pack.controllers;
 
 import nick.pack.mail.MailSenderService;
-import nick.pack.model.Status;
-import nick.pack.model.StatusEnum;
 import nick.pack.model.User;
 import nick.pack.service.RoleService;
 import nick.pack.service.StatusService;

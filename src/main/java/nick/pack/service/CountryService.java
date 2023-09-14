@@ -1,9 +1,6 @@
 package nick.pack.service;
 
 import nick.pack.model.Country;
-import nick.pack.model.Rating;
-import nick.pack.model.Review;
-import nick.pack.model.User;
 import nick.pack.repository.CountryRepository;
 import nick.pack.service.dao.DAO;
 import org.springframework.stereotype.Service;
