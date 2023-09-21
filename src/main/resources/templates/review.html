@@ -1,147 +1,145 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
-<head th:insert="parts/layouts :: head">
-</head>
-<body>
-<div class="wrapper"  style="background-color: #c6c6c6;">
-    <header th:insert="parts/layouts :: header"></header>
-    <div class="container"  style="background-color: #fff;">
-        <div id="player" th:if="${review.getTrailerUrl() != null}">
-            <video width="100%" height="440px" controls="controls" autoplay>
-                <source th:src="${review.getTrailerUrl()}">
-            </video>
-        </div>
-        <div class="movie-info row">
-            <div class="movie-left col-3">
-                <div class="poster">
-                    <img th:src="${review.getPoster()}" class="poster">
+    <head th:insert="parts/layouts :: head"></head>
+    <body>
+        <div class="wrapper"  style="background-color: #c6c6c6;">
+            <header th:insert="parts/layouts :: header"></header>
+            <div class="container"  style="background-color: #fff;">
+                <div id="player" th:if="${review.getTrailerUrl() != null}">
+                    <video width="100%" height="440px" controls="controls" autoplay>
+                        <source th:src="${review.getTrailerUrl()}"/>
+                    </video>
                 </div>
-                <div class="rating-section">
-                    <div data-ajax="true" class="rating-block rating-set">
-                        <div class="rating-body">
-                            <div class="rating-active"></div>
-                            <div class="rating-items">
-                                <input type="radio" class="rating-item" value="1" name="rating">
-                                <input type="radio" class="rating-item" value="2" name="rating">
-                                <input type="radio" class="rating-item" value="3" name="rating">
-                                <input type="radio" class="rating-item" value="4" name="rating">
-                                <input type="radio" class="rating-item" value="5" name="rating">
-                                <input type="radio" class="rating-item" value="6" name="rating">
-                                <input type="radio" class="rating-item" value="7" name="rating">
-                                <input type="radio" class="rating-item" value="8" name="rating">
-                                <input type="radio" class="rating-item" value="9" name="rating">
-                                <input type="radio" class="rating-item" value="10" name="rating">
-                            </div>
+                <div class="movie-info row">
+                    <div class="movie-left col-3">
+                        <div class="poster">
+                            <img th:src="${review.getPoster()}" class="poster"/>
                         </div>
-                        <div th:if="${ratingService.isSetRating(authorityUser, review) != 0}" class="rating-value" th:text="${ratingService.isSetRating(authorityUser, review)}"></div>
-                        <div th:if="${ratingService.isSetRating(authorityUser, review) == 0}" class="rating-value" th:text="${ratingService.getOverallRating(review)}"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="movie-right col-8">
-                <div class="film-name"><h1 th:text="${review.getFilmName()}"></h1></div>
-                <div class="info">
-                    <div class="info-col">Автор рецензии: <a th:href="@{/user(id=${review.getUser().getId()})}" th:text="${review.getUser().getNick()}"></a></div>
-                    <div class="info-col">Год: <span th:text="${review.getYear()}"></span></div>
-                    <div class="info-col">Режисер: <span th:text="${review.getDirector()}"></span></div>
-                    <div class="info-col">Страна: <span th:text="${review.getCountry()}"></span></div>
-                    <div class="info-col">В ролях: <span th:text="${review.getCast()}"></span></div>
-                </div>
-            </div>
-        </div>
-        <div class="review">
-            <div class="review-head"><h1 th:text="${review.getName()}"></h1></div>
-            <div class="line"></div>
-            <div class="container">
-                <div class="text mt-5 mb-6" th:text="${review.getText()}"></div>
-            </div>
-        </div>
-    </div>
-    <div class="" th:if="${comments.size() > 0}">
-        <div class="container">
-            <div class="comments-head"><h1>Комментарии</h1></div>
-            <div class="mini-line"></div>
-            <div class="comments">
-                <div class="comment-item mb-2" th:each="comment : ${comments}" th:attr="id=${comment.getId()}">
-                    <a th:href="@{/user(id=${comment.getUser().getId()})}">
-                        <div class="icon" th:if="${comment.getUser().isActive()}">
-                            <img th:if="${comment.getUser().getPhoto()} != null" th:src="@{/image/users/} + ${comment.getUser().getPhoto()}" width="100px" height="100px">
-                            <img th:unless="${comment.getUser().getPhoto()} != null" src="/image/avatar.jpeg" width="100px" height="100px">
-                        </div>
-                        <div class="icon" th:unless="${comment.getUser().isActive}">
-                            <img src="/image/banned.jpg" width="100px" height="100px">
-                        </div>
-                    </a>
-                    <div class="comment-block">
-                        <div class="author-date">
-                            <div class="com-user"><a th:href="@{/user(id=${comment.getUser().getId()})}" th:text="${comment.getUser().getNick()}"></a></div>
-                            <div class="author date" th:text="${comment.getDate()}"></div>
-
-                        </div>
-                        <div >
-                                <span th:if="${comment.getAnswer() != null}">
-                                    <a th:href="@{#} + ${comment.getAnswer().getId()}" th:text="${comment.getAnswer().getUser().getNick()}"></a>,
-                                </span>
-                            <span class="comment" th:text="${comment.getComment()}"></span>
-                            <div class="answer-block">
-                                <input type="hidden" class="nickname-user" th:value="${comment.getUser().getNick()}">
-                                <input type="hidden" id="idComment" th:value="${comment.getId()}">
-                                <span class="answer-txt" onclick="sendAnswer(this)">Ответить</span>
+                        <div class="rating-section">
+                            <div data-ajax="true" class="rating-block rating-set">
+                                <div class="rating-body">
+                                    <div class="rating-active"></div>
+                                    <div class="rating-items">
+                                        <input type="radio" class="rating-item" value="1" name="rating"/>
+                                        <input type="radio" class="rating-item" value="2" name="rating"/>
+                                        <input type="radio" class="rating-item" value="3" name="rating"/>
+                                        <input type="radio" class="rating-item" value="4" name="rating"/>
+                                        <input type="radio" class="rating-item" value="5" name="rating"/>
+                                        <input type="radio" class="rating-item" value="6" name="rating"/>
+                                        <input type="radio" class="rating-item" value="7" name="rating"/>
+                                        <input type="radio" class="rating-item" value="8" name="rating"/>
+                                        <input type="radio" class="rating-item" value="9" name="rating"/>
+                                        <input type="radio" class="rating-item" value="10" name="rating"/>
+                                    </div>
+                                </div>
+                                <div th:if="${ratingService.isSetRating(authorityUser, review) != 0}" class="rating-value" th:text="${ratingService.isSetRating(authorityUser, review)}"></div>
+                                <div th:if="${ratingService.isSetRating(authorityUser, review) == 0}" class="rating-value" th:text="${ratingService.getOverallRating(review)}"></div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="line"></div>
-            <div class="comment-form">
-                <div class="answer-nickname-block d-flex">
-                    <div class="to-answer">Ответить: </div>
-                    <div class="nickname-block" style="width: fit-content">
-                        <span class="nickname"></span>
-                        <div class="delete-answer" onclick="cencelAnswer()">
-                            <span class="pin">&#215;</span>
+
+                    <div class="movie-right col-8">
+                        <div class="film-name"><h1 th:text="${review.getFilmName()}"></h1></div>
+                        <div class="info">
+                            <div class="info-col">Автор рецензии: <a th:href="@{/user(id=${review.getUser().getId()})}" th:text="${review.getUser().getNick()}"></a></div>
+                            <div class="info-col">Год: <span th:text="${review.getYear()}"></span></div>
+                            <div class="info-col">Режисер: <span th:text="${review.getDirector()}"></span></div>
+                            <div class="info-col">Страна: <span th:text="${review.getCountry()}"></span></div>
+                            <div class="info-col">В ролях: <span th:text="${review.getCast()}"></span></div>
                         </div>
                     </div>
                 </div>
-                <div data-ajax="true" class="input-group mb-3">
-                    <input type="hidden" id="nickname-answer" value="">
-                    <input type="hidden" id="idAnswer" value="">
-                    <input id="commentField" type="text" class="form-control" placeholder="Комментировать" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="sendComment()">Отправить</button>
+                <div class="review">
+                    <div class="review-head"><h1 th:text="${review.getName()}"></h1></div>
+                    <div class="line"></div>
+                    <div class="container">
+                        <div class="text mt-5 mb-6" th:text="${review.getText()}"></div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="no-comments" th:unless="${comments.size() > 0}">
-        <div class="container">
-            <div class="comments-head"><h1>Комментарии</h1></div>
-            <div class="mini-line"></div>
-            <div class="no-comment-text">Комментарий под этой рецензией пока нет, прокомментируйте ее первым</div>
-            <div class="line"></div>
-            <div class="comment-form">
-                <div class="answer-nickname-block d-flex">
-                    <div class="to-answer">Ответить: </div>
-                    <div class="nickname-block" style="width: fit-content">
-                        <span class="nickname"></span>
-                        <div class="delete-answer" onclick="cencelAnswer()">
-                            <span class="pin">&#215;</span>
+            <div class="" th:if="${comments.size() > 0}">
+                <div class="container">
+                    <div class="comments-head"><h1>Комментарии</h1></div>
+                    <div class="mini-line"></div>
+                    <div class="comments">
+                        <div class="comment-item mb-2" th:each="comment : ${comments}" th:attr="id=${comment.getId()}">
+                            <a th:href="@{/user(id=${comment.getUser().getId()})}">
+                                <div class="icon" th:if="${comment.getUser().isActive()}">
+                                    <img th:if="${comment.getUser().getPhoto()} != null" th:src="@{/image/users/} + ${comment.getUser().getPhoto()}" width="100px" height="100px"/>
+                                    <img th:unless="${comment.getUser().getPhoto()} != null" src="/image/avatar.jpeg" width="100px" height="100px"/>
+                                </div>
+                                <div class="icon" th:unless="${comment.getUser().isActive}">
+                                    <img src="/image/banned.jpg" width="100px" height="100px"/>
+                                </div>
+                            </a>
+                            <div class="comment-block">
+                                <div class="author-date">
+                                    <div class="com-user"><a th:href="@{/user(id=${comment.getUser().getId()})}" th:text="${comment.getUser().getNick()}"></a></div>
+                                    <div class="author date" th:text="${comment.getDate()}"></div>
+                                </div>
+                                <div>
+                                        <span th:if="${comment.getAnswer() != null}">
+                                            <a th:href="@{#} + ${comment.getAnswer().getId()}" th:text="${comment.getAnswer().getUser().getNick()}"></a>,
+                                        </span>
+                                    <span class="comment" th:text="${comment.getComment()}"></span>
+                                    <div class="answer-block">
+                                        <input type="hidden" class="nickname-user" th:value="${comment.getUser().getNick()}"/>
+                                        <input type="hidden" id="idComment" th:value="${comment.getId()}"/>
+                                        <span class="answer-txt" onclick="sendAnswer(this)">Ответить</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="comment-form">
+                        <div class="answer-nickname-block d-flex">
+                            <div class="to-answer">Ответить: </div>
+                            <div class="nickname-block" style="width: fit-content">
+                                <span class="nickname"></span>
+                                <div class="delete-answer" onclick="cencelAnswer()">
+                                    <span class="pin">&#215;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-ajax="true" class="input-group mb-3">
+                            <input type="hidden" id="nickname-answer" value=""/>
+                            <input type="hidden" id="idAnswer" value=""/>
+                            <input id="commentField" type="text" class="form-control" placeholder="Комментировать" aria-label="Recipient's username" aria-describedby="button-addon2"/>
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="sendComment()">Отправить</button>
                         </div>
                     </div>
                 </div>
-                <div data-ajax="true" class="input-group mb-3">
-                    <input type="hidden" id="nickname-answer" value="">
-                    <input type="hidden" id="idAnswer" value="">
-                    <input id="commentField" type="text" class="form-control" placeholder="Комментировать" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="sendComment()">Отправить</button>
+            </div>
+            <div class="no-comments" th:unless="${comments.size() > 0}">
+                <div class="container">
+                    <div class="comments-head"><h1>Комментарии</h1></div>
+                    <div class="mini-line"></div>
+                    <div class="no-comment-text">Комментарий под этой рецензией пока нет, прокомментируйте ее первым</div>
+                    <div class="line"></div>
+                    <div class="comment-form">
+                        <div class="answer-nickname-block d-flex">
+                            <div class="to-answer">Ответить: </div>
+                            <div class="nickname-block" style="width: fit-content">
+                                <span class="nickname"></span>
+                                <div class="delete-answer" onclick="cencelAnswer()">
+                                    <span class="pin">&#215;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-ajax="true" class="input-group mb-3">
+                            <input type="hidden" id="nickname-answer" value=""/>
+                            <input type="hidden" id="idAnswer" value=""/>
+                            <input id="commentField" type="text" class="form-control" placeholder="Комментировать" aria-label="Recipient's username" aria-describedby="button-addon2"/>
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="sendComment()">Отправить</button>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <footer th:insert="parts/layouts :: footer"></footer>
+            <script type="text/javascript" src="/script/ratingScripts.js"></script>
+            <script type="text/javascript" src="/script/commentAjaxScript.js"></script>
+            <div th:insert="parts/layouts :: scripts"></div>
         </div>
-    </div>
-    <footer th:insert="parts/layouts :: footer"></footer>
-    <script type="text/javascript" src="/script/ratingScripts.js"></script>
-    <script type="text/javascript" src="/script/commentAjaxScript.js"></script>
-    <div th:insert="parts/layouts :: scripts"></div>
-</div>
-</body>
+    </body>
 </html>

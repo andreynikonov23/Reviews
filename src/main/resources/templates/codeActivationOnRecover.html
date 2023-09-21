@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
-<head th:insert="parts/layouts :: head">
-</head>
-<body>
-<div class="login-wrapper">
-  <div class="container auth-container">
-    <div class="form-block center-block caor-block">
-      <div class="h1 text-center form-head">Восстановление доступа</div>
-      <div class="line"></div>
-      <p class="mail-message">Введите код активации, который был выслан вам на почту</p>
-      <form class="form-login" method="post" action="/recover-request" th:object="${activationData}">
-        <input class="field-auth lonely-field" type="text" th:field="*{code}" id="code" placeholder="Код">
-        <input th:value="*{username}" type="hidden" th:field="*{username}" id="username">
-        <div class="error-block" th:if="${codeIsNotCorrect}">Код активации неверный</div>
-        <input class="btn btn-primary button-auth" type="submit" value="Подтвердить">
-        <a href="/login">Назад</a>
-      </form>
+  <head th:insert="parts/layouts :: head"></head>
+  <body>
+  <div class="login-wrapper">
+    <div class="container auth-container">
+      <div class="form-block center-block caor-block">
+        <div class="h1 text-center form-head">Восстановление доступа</div>
+        <div class="line"></div>
+        <p class="mail-message">Введите код активации, который был выслан вам на почту</p>
+        <form class="form-login" method="post" action="/recover-request" th:object="${activationData}">
+          <input class="field-auth lonely-field" type="text" th:field="*{code}" id="code" placeholder="Код"/>
+          <input th:value="*{username}" type="hidden" th:field="*{username}" id="username"/>
+          <div class="error-block" th:if="${codeIsNotCorrect}">Код активации неверный</div>
+          <input class="btn btn-primary button-auth" type="submit" value="Подтвердить"/>
+          <a href="/login">Назад</a>
+        </form>
+      </div>
     </div>
   </div>
-</div>
-<div th:insert="parts/layouts :: scripts"></div>
-</body>
+  <div th:insert="parts/layouts :: scripts"></div>
+  </body>
 </html>

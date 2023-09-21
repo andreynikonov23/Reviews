@@ -1,67 +1,66 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
-    <head th:insert="parts/layouts :: head">
-    </head>
+    <head th:insert="parts/layouts :: head"></head>
     <body>
-    <div th:insert="parts/layouts :: scripts"></div>
-    <div th:insert="parts/layouts :: delete-popup"></div>
-        <div class="wrapper" style="background-color: #c6c6c6;">
-            <header th:insert="parts/layouts :: header"></header>
-            <div class="container">
-                <div class="user-page">
-                    <div class="header-page">
-                        <div class="photo" th:if="${isActive}">
-                            <img class="selected-avatar" th:if="${user.getPhoto()} != null" th:src="@{/image/users/} + ${user.getPhoto()}" width="200px" height="200px">
-                            <img th:unless="${user.getPhoto()} != null" src="/image/avatar.jpeg" width="200px" height="200px">
-                        </div>
-                        <div class="photo" th:unless="${isActive}">
-                            <img src="/image/banned.jpg" width="200px" height="200px">
-                        </div>
-                        <div class="user-info-section">
-                            <div class="name-section">
+        <div th:insert="parts/layouts :: scripts"></div>
+        <div th:insert="parts/layouts :: delete-popup"></div>
+            <div class="wrapper" style="background-color: #c6c6c6;">
+                <header th:insert="parts/layouts :: header"></header>
+                <div class="container">
+                    <div class="user-page">
+                        <div class="header-page">
+                            <div class="photo" th:if="${isActive}">
+                                <img class="selected-avatar" th:if="${user.getPhoto()} != null" th:src="@{/image/users/} + ${user.getPhoto()}" width="200px" height="200px"/>
+                                <img th:unless="${user.getPhoto()} != null" src="/image/avatar.jpeg" width="200px" height="200px"/>
+                            </div>
+                            <div class="photo" th:unless="${isActive}">
+                                <img src="/image/banned.jpg" width="200px" height="200px"/>
+                            </div>
+                            <div class="user-info-section">
+                                <div class="name-section">
+                                    <div th:unless="${authorityUser == null}">
+                                        <div th:if="${authorityUser.getLogin() == user.getLogin()}">
+                                            <div class="name-line name-info h2">Login: </div>
+                                            <div class="name-line username h1" th:text="${user.getLogin()}"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="name-line name-info h2">Nickname: </div>
+                                    <div class="name-line username h1" th:text="${user.getNick()}"></div>
+                                    <div class="name-line id-user h2" th:text="'#' + ${user.getId()}"></div>
+                                </div>
+                                <div th:if="${isAdmin}" class="admin-section">Да я админ, базару нет, но подписчики-то вы, без вас этот группа ничто</div>
+                                <div th:unless="${isActive}" class="admin-section">Этот пользователь заблокирован</div>
+                                <div th:text="'Колличество рецензий: ' + ${reviews.size()}"></div>
                                 <div th:unless="${authorityUser == null}">
-                                    <div th:if="${authorityUser.getLogin() == user.getLogin()}">
-                                        <div class="name-line name-info h2">Login: </div>
-                                        <div class="name-line username h1" th:text="${user.getLogin()}"></div>
+                                    <div th:if="${authorityUserIsAdmin}" th:unless="${isAdmin}" class="delete-user-block">
+                                        <a th:if="${isActive}" th:href="@{/block(id=${user.getId()})}" class="delete-user delete-my">Заблокировать пользователя</a>
+                                        <a th:unless="${isActive}" th:href="@{/block(id=${user.getId()})}" class="delete-user delete-my">Разблокировать пользователя</a>
+                                    </div>
+                                </div>
+                                <div th:unless="${authorityUser == null}">
+                                    <div th:if="${authorityUser.getLogin() == user.getLogin()}" th:unless="${isAdmin}" class="delete-user-block">
+                                        <a href="/edit-profile" class="edit-user my">Изменить страницу</a><br/>
+                                        <a href="/delete-profile" class="delete-user my">Удалить страницу</a>
                                     </div>
                                 </div>
 
-                                <div class="name-line name-info h2">Nickname: </div>
-                                <div class="name-line username h1" th:text="${user.getNick()}"></div>
-                                <div class="name-line id-user h2" th:text="'#' + ${user.getId()}"></div>
                             </div>
-                            <div th:if="${isAdmin}" class="admin-section">Да я админ, базару нет, но подписчики-то вы, без вас этот группа ничто</div>
-                            <div th:unless="${isActive}" class="admin-section">Этот пользователь заблокирован</div>
-                            <div th:text="'Колличество рецензий: ' + ${reviews.size()}"></div>
+                            <div class="line"></div>
+                        </div>
+                        <div class="reviews-user">
+                            <h1>Рецензии</h1>
+                            <div class="mini-line"></div>
                             <div th:unless="${authorityUser == null}">
-                                <div th:if="${authorityUserIsAdmin}" th:unless="${isAdmin}" class="delete-user-block">
-                                    <a th:if="${isActive}" th:href="@{/block(id=${user.getId()})}" class="delete-user delete-my">Заблокировать пользователя</a>
-                                    <a th:unless="${isActive}" th:href="@{/block(id=${user.getId()})}" class="delete-user delete-my">Разблокировать пользователя</a>
+                                <div th:if="${authorityUser.getLogin() == user.getLogin()}" class="text-center mb-4">
+                                    <button class="add-review" onclick="document.location='/add-review'">Добавить</button>
                                 </div>
                             </div>
-                            <div th:unless="${authorityUser == null}">
-                                <div th:if="${authorityUser.getLogin() == user.getLogin()}" th:unless="${isAdmin}" class="delete-user-block">
-                                    <a href="/edit-profile" class="edit-user my">Изменить страницу</a><br/>
-                                    <a href="/delete-profile" class="delete-user my">Удалить страницу</a>
-                                </div>
-                            </div>
-
+                            <div th:insert="parts/layouts :: all-m-page"></div>
                         </div>
-                        <div class="line"></div>
-                    </div>
-                    <div class="reviews-user">
-                        <h1>Рецензии</h1>
-                        <div class="mini-line"></div>
-                        <div th:unless="${authorityUser == null}">
-                            <div th:if="${authorityUser.getLogin() == user.getLogin()}" class="text-center mb-4">
-                                <button class="add-review" onclick="document.location='/add-review'">Добавить</button>
-                            </div>
-                        </div>
-                        <div th:insert="parts/layouts :: all-m-page"></div>
                     </div>
                 </div>
+                <footer th:insert="parts/layouts :: footer"></footer>
             </div>
-            <footer th:insert="parts/layouts :: footer"></footer>
-        </div>
     </body>
 </html>

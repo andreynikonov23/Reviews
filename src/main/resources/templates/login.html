@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
-    <head th:insert="parts/layouts :: head">
-    </head>
+    <head th:insert="parts/layouts :: head"></head>
     <body>
         <div class="login-wrapper">
             <div class="container auth-container">
@@ -13,18 +12,18 @@
                   </div>
                   <form class="form-login" method="POST" action="/login">
                      <i class="input-icon fa fa-user fa-lg"></i>
-                    <input class="field-auth form-control" id="username" name="username" type="text" placeholder="Логин" required> <br/>
+                    <input class="field-auth form-control" id="username" name="username" type="text" placeholder="Логин" required/> <br/>
                     <i class="input-icon fa fa-lock fa-lg"></i>
-                    <input class="field-auth form-control" id="password" name="password" type="password" placeholder="Пароль" required>
+                    <input class="field-auth form-control" id="password" name="password" type="password" placeholder="Пароль" required/>
                       <div class="password-recover">
                           <a href="/recover">Забыли пароль?</a>
                       </div>
                     <div class="save-session-block">
-                        <input type="checkbox" name="remember-me"> <span>Запомнить меня</span>
+                        <input type="checkbox" name="remember-me"/> <span>Запомнить меня</span>
                     </div>
                                                                                         
                     <div class="button-block">
-                        <input class="btn btn-primary button-auth" type="submit" value="Вход">
+                        <input class="btn btn-primary button-auth" type="submit" value="Вход"/>
                     </div>
                   </form>
                     <div class="form-login">
