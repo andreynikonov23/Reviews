@@ -17,7 +17,7 @@ public class Country {
     @Column (name = "country_name")
     private String countryName;
 
-    @OneToMany (mappedBy = "country")
+    @OneToMany (mappedBy = "country", cascade = CascadeType.ALL)
     Set<Review> reviewSet;
 
     public Country(String countryName) {

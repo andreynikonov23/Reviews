@@ -398,3 +398,12 @@ footer{
 #yes{
     margin-right: 15px;
 }
+.film-name-head{
+    font-size: 32px;
+}
+.review-btn-span{
+    margin-left: 80px;
+}
+.review-btn-span .fa-pen{
+    text-decoration: none;
+}

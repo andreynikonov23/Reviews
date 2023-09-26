@@ -2,8 +2,10 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
     <head th:insert="parts/layouts :: head"></head>
     <body>
+    <div th:insert="parts/layouts :: delete-popup"></div>
         <div class="wrapper"  style="background-color: #c6c6c6;">
             <header th:insert="parts/layouts :: header"></header>
+
             <div class="container"  style="background-color: #fff;">
                 <div id="player" th:if="${review.getTrailerUrl() != null}">
                     <video width="100%" height="440px" controls="controls" autoplay>
@@ -39,7 +41,17 @@
                     </div>
 
                     <div class="movie-right col-8">
-                        <div class="film-name"><h1 th:text="${review.getFilmName()}"></h1></div>
+                        <div class="film-name">
+                            <span class="film-name-head" th:text="${review.getFilmName()}">
+                            </span>
+                            <span th:if="${authorityUser != null}">
+                                    <span class="review-btn-span">
+                                        <a class="fa fa-pen fa-lg" th:if="${authorityUser.getLogin() == review.getUser().getLogin()}" th:href="@{/edit-review(id=${review.getId()})}" data-value="pencil"></a>
+                                        <input type="hidden" th:value="${review.getId()}"/>
+                                        <span class="fa fa-trash fa-lg" th:if="${authorityUser.getLogin() == review.getUser().getLogin() || authorityUserIsAdmin}" onclick="openDeleteReviewPopUp(this)" data-value="trash"></span>
+                                    </span>
+                            </span>
+                        </div>
                         <div class="info">
                             <div class="info-col">Автор рецензии: <a th:href="@{/user(id=${review.getUser().getId()})}" th:text="${review.getUser().getNick()}"></a></div>
                             <div class="info-col">Год: <span th:text="${review.getYear()}"></span></div>
@@ -139,7 +151,9 @@
             <footer th:insert="parts/layouts :: footer"></footer>
             <script type="text/javascript" src="/script/ratingScripts.js"></script>
             <script type="text/javascript" src="/script/commentAjaxScript.js"></script>
+
             <div th:insert="parts/layouts :: scripts"></div>
+
         </div>
     </body>
 </html>

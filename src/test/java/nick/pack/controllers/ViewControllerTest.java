@@ -8,10 +8,7 @@ import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultMatcher;
 
-
-import javax.xml.xpath.XPathExpressionException;
 
 import static org.hamcrest.Matchers.*;
 import static org.springframework.security.test.web.servlet.response.SecurityMockMvcResultMatchers.authenticated;
@@ -61,5 +58,13 @@ public class ViewControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(xpath("/html/body/div/div/div/div").nodeCount(1));
+    }
+    @Test
+    public void alienReviewTest() throws Exception{
+        this.mockMvc.perform(get("/1"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(xpath("/html/body/div/div[1]/div[2]/div[2]/div[1]/span[2]/span/a").doesNotExist());
+
     }
 }
