@@ -18,7 +18,7 @@ public class Role {
     @Column (name = "name")
     private RoleEnum name;
 
-    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "role")
     Set<User> userSet;
 
     public Role(RoleEnum name) {
