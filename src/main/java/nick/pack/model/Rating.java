@@ -18,7 +18,7 @@ public class Rating {
     private int id;
     private int rating;
 
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
 

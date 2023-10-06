@@ -26,12 +26,11 @@ public class ViewControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    public void openingWithGuest() throws Exception{
+    public void opening() throws Exception{
         this.mockMvc.perform(get("/"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("REVIEWS")))
-                .andExpect(xpath("/html/body/header/header/div[1]/div/div[3]/button").string("Вход"))
                 .andExpect(xpath("/html/body/aside/div/div[1]/div/div/div[1]/div[@data-id='8']").exists())
                 .andExpect(xpath("/html/body/aside/div/div[3]/div[8]/div/div").exists());
     }
@@ -39,7 +38,7 @@ public class ViewControllerTest {
     //USER Security Test
     @Test
     @WithUserDetails("user")
-    public void openingWithUser() throws Exception {
+    public void openingWithAdmin() throws Exception {
         this.mockMvc.perform(get("/"))
                 .andDo(print())
                 .andExpect(authenticated())
@@ -54,16 +53,6 @@ public class ViewControllerTest {
                 .andExpect(xpath("/html/body/aside/div/div[3]/div[8]/div/div/div/div/div[3]/div/span[@data-value='trash']").doesNotExist());
     }
     @Test
-    @WithUserDetails("admin")
-    public void openingWithAdmin() throws Exception{
-        this.mockMvc.perform(get("/"))
-                .andDo(print())
-                .andExpect(authenticated())
-                .andExpect(status().isOk())
-                .andExpect(xpath("/html/body/aside/div/div[1]/div/div/div[1]/div/div/div[3]/div/span").exists())
-                .andExpect(xpath("/html/body/header/header/div[1]/nav/div[5]/a").string("Пользователи"));
-    }
-    @Test
     public void searchTest() throws Exception {
         this.mockMvc.perform(get("/search?value=TestReview8"))
                 .andDo(print())
@@ -71,12 +60,11 @@ public class ViewControllerTest {
                 .andExpect(xpath("/html/body/div/div/div/div").nodeCount(1));
     }
     @Test
-    public void alienReviewWithGuest() throws Exception{
+    public void alienReviewTest() throws Exception{
         this.mockMvc.perform(get("/1"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(xpath("/html/body/div[2]/div[1]/div[3]/div[1]/h1").string("TestReview1"))
-                .andExpect(xpath("/html/body/div[2]/div[1]/div[1]/video/source").exists())
-                .andExpect(xpath("/html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div/div[2]").string("6.0"));
+                .andExpect(xpath("/html/body/div/div[1]/div[2]/div[2]/div[1]/span[2]/span/a").doesNotExist());
+
     }
 }

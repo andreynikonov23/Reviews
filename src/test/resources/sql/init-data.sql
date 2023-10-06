@@ -1,6 +1,6 @@
-DELETE FROM comments;
-DELETE FROM ratings;
-DELETE FROM reviews;
+DELETE from comments;
+DELETE from ratings;
+DELETE from reviews;
 
 INSERT INTO reviews (id, user_id, name, trailer_url, poster, film_name, year, director, country_id, cast_names, text) VALUES
                     (1, 1, 'TestReview1', 'https://www.film.ru/sites/default/files/trailers/1615784/Taxi-Driver-Trailer-rus.mp4',

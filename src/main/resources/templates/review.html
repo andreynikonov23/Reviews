@@ -8,7 +8,7 @@
 
             <div class="container"  style="background-color: #fff;">
                 <div id="player" th:if="${review.getTrailerUrl() != null}">
-                    <video width="100%" height="440px" controls="controls" autoplay="autoplay">
+                    <video width="100%" height="440px" controls="controls" autoplay>
                         <source th:src="${review.getTrailerUrl()}"/>
                     </video>
                 </div>
