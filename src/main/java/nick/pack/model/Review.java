@@ -30,16 +30,16 @@ public class Review {
     @Column (name = "text")
     private String text;
 
-    @ManyToOne (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn (name = "user_id")
     private User user;
-    @ManyToOne (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn (name = "country_id")
     private Country country;
 
-    @OneToMany (mappedBy = "review", cascade = CascadeType.ALL)
+    @OneToMany (mappedBy = "review")
     Set<Comment> commentSet;
-    @OneToMany (mappedBy = "review", cascade = CascadeType.ALL)
+    @OneToMany (mappedBy = "review")
     Set<Rating> ratingSet;
 
     public Review(String name, String trailerUrl, String poster, String filmName, int year, String director, String cast, String text, User user, Country country) {

@@ -407,3 +407,7 @@ footer{
 .review-btn-span .fa-pen{
     text-decoration: none;
 }
+.review-btn-span .fa-trash{
+    margin-left: 25px;
+    cursor: pointer;
+}

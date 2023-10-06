@@ -4,7 +4,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -21,13 +20,13 @@ public class Comment{
     @Column (name = "date")
     private LocalDateTime date;
 
-    @ManyToOne (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn (name = "user_id")
     private User user;
-    @ManyToOne (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn (name = "answer")
     private Comment answer;
-    @ManyToOne (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn (name = "review_id")
     private Review review;
 

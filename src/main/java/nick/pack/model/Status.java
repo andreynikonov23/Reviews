@@ -17,7 +17,7 @@ public class Status {
     @Column (name = "status")
     private StatusEnum status;
 
-    @OneToMany(mappedBy = "status", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "status")
     Set<User> userSet;
 
     public Status(StatusEnum status) {

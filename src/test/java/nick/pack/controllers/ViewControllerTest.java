@@ -65,6 +65,6 @@ public class ViewControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(xpath("/html/body/div/div[1]/div[2]/div[2]/div[1]/span[2]/span/a").doesNotExist());
-
     }
+    @Test
 }

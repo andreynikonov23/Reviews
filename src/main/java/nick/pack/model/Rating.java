@@ -18,11 +18,11 @@ public class Rating {
     private int id;
     private int rating;
 
-    @ManyToOne (cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne (cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn (name = "review")
     private Review review;
 
