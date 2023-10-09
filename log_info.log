@@ -7242,3 +7242,1020 @@ Hello World!!!
 2023-10-01 20:42:03.901  INFO 15408 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-10-01 20:42:03.989  INFO 15408 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
 >>>>>>> 3b1275057c96cd91f13a68ae7e5da50e0f2b5d5b
+2023-10-09 13:37:00.203  INFO 9380 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 9380 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 13:37:00.205  INFO 9380 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 13:37:01.666  INFO 9380 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 13:37:01.784  INFO 9380 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 97 ms. Found 7 JPA repository interfaces.
+2023-10-09 13:37:02.955  INFO 9380 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 13:37:03.410  INFO 9380 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 13:37:03.693  INFO 9380 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 13:37:03.870  INFO 9380 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 13:37:04.265  INFO 9380 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 13:37:04.542  INFO 9380 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 13:37:06.037  INFO 9380 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 13:37:06.052  INFO 9380 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 13:37:07.315  WARN 9380 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 13:37:07 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 13:37:07.642  WARN 9380 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 13:37:07.643  INFO 9380 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 13:37:07.645  WARN 9380 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 13:37:07.645  INFO 9380 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 13:37:07.646  WARN 9380 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 13:37:07.646  INFO 9380 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 13:37:07.871  INFO 9380 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@209b4b35, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@77acc95a, org.springframework.security.web.context.SecurityContextPersistenceFilter@7b364f47, org.springframework.security.web.header.HeaderWriterFilter@7f958d4a, org.springframework.security.web.authentication.logout.LogoutFilter@50dd1e3a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@75d95b67, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7c93e69, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@459df48d, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@3dc4ed6f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@ff1a5a0, org.springframework.security.web.session.SessionManagementFilter@528c4353, org.springframework.security.web.access.ExceptionTranslationFilter@426a4301, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3fd21272]
+2023-10-09 13:37:08.648  INFO 9380 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 13:37:09.423  INFO 9380 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 13:37:09.424  INFO 9380 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 13:37:09.426  INFO 9380 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2023-10-09 13:37:09.469  INFO 9380 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 13:37:09.482  INFO 9380 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 9.833 seconds (JVM running for 12.339)
+2023-10-09 13:37:11 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 13:37:11.622  INFO 9380 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 13:37:11.626  INFO 9380 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 13:37:11.632  INFO 9380 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 13:42:35.230  INFO 1820 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 1820 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 13:42:35.233  INFO 1820 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 13:42:36.899  INFO 1820 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 13:42:37.064  INFO 1820 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 147 ms. Found 7 JPA repository interfaces.
+2023-10-09 13:42:38.635  INFO 1820 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 13:42:39.468  INFO 1820 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 13:42:40.037  INFO 1820 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 13:42:40.483  INFO 1820 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 13:42:41.440  INFO 1820 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 13:42:42.147  INFO 1820 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 13:42:43.984  INFO 1820 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 13:42:44.000  INFO 1820 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 13:42:45.422  WARN 1820 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 13:42:45 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 13:42:45.828  WARN 1820 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 13:42:45.830  INFO 1820 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 13:42:45.831  WARN 1820 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 13:42:45.832  INFO 1820 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 13:42:45.832  WARN 1820 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 13:42:45.832  INFO 1820 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 13:42:46.009  INFO 1820 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1cd2e348, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@73bcd9b4, org.springframework.security.web.context.SecurityContextPersistenceFilter@2526d5f9, org.springframework.security.web.header.HeaderWriterFilter@49ee3b8d, org.springframework.security.web.authentication.logout.LogoutFilter@48cbe1c9, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2a666c8e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@790f4933, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@78c23ade, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@72ea6fcb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@27aa7294, org.springframework.security.web.session.SessionManagementFilter@5c8d631, org.springframework.security.web.access.ExceptionTranslationFilter@463a1f47, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2ce3d95a]
+2023-10-09 13:42:46.910  INFO 1820 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 13:42:47.871  INFO 1820 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 13:42:47.872  INFO 1820 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 13:42:47.874  INFO 1820 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2023-10-09 13:42:47.925  INFO 1820 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 13:42:47.939  INFO 1820 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 13.229 seconds (JVM running for 15.307)
+2023-10-09 13:42:50 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 13:42:50.345  INFO 1820 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 13:42:50.349  INFO 1820 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 13:42:50.363  INFO 1820 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 13:43:15 DEBUG ReviewsApplication:12 - run server program
+Hello World!!!
+2023-10-09 13:43:15.927  INFO 21404 --- [main] nick.pack.ReviewsApplication             : Starting ReviewsApplication using Java 20.0.1 on ws001 with PID 21404 (C:\Users\nikonov.as\IdeaProjects\Reviews\target\classes started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 13:43:15.930  INFO 21404 --- [main] nick.pack.ReviewsApplication             : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 13:43:16.760  INFO 21404 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 13:43:16.842  INFO 21404 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73 ms. Found 7 JPA repository interfaces.
+2023-10-09 13:43:17.612  INFO 21404 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-10-09 13:43:17.624  INFO 21404 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-09 13:43:17.624  INFO 21404 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2023-10-09 13:43:17.786  INFO 21404 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-09 13:43:17.787  INFO 21404 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1810 ms
+2023-10-09 13:43:17.987  INFO 21404 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 13:43:18.189  INFO 21404 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 13:43:18.294  INFO 21404 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 13:43:18.369  INFO 21404 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 13:43:18.595  INFO 21404 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 13:43:18.736  INFO 21404 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 13:43:19.609  INFO 21404 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 13:43:19.621  INFO 21404 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 13:43:20.547  WARN 21404 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 13:43:20 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 13:43:20.755  WARN 21404 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 13:43:20.756  INFO 21404 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 13:43:20.756  WARN 21404 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 13:43:20.757  INFO 21404 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 13:43:20.757  WARN 21404 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 13:43:20.757  INFO 21404 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 13:43:20.807  INFO 21404 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@45f6181a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@19d0d1ab, org.springframework.security.web.context.SecurityContextPersistenceFilter@24bba1b7, org.springframework.security.web.header.HeaderWriterFilter@400d1c30, org.springframework.security.web.authentication.logout.LogoutFilter@6792f2c6, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1c966488, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@36e358de, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1164990a, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@4e553d60, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7e0941cc, org.springframework.security.web.session.SessionManagementFilter@50aa9a91, org.springframework.security.web.access.ExceptionTranslationFilter@1a1e38ab, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@28b7646]
+2023-10-09 13:43:21.027  INFO 21404 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 13:43:21.337  INFO 21404 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-10-09 13:43:21.350  INFO 21404 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 13:43:21.360  INFO 21404 --- [main] nick.pack.ReviewsApplication             : Started ReviewsApplication in 5.936 seconds (JVM running for 7.022)
+2023-10-09 13:43:28.094  INFO 21404 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-09 13:43:28.095  INFO 21404 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-10-09 13:43:28.096  INFO 21404 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-10-09 13:57:11.479  INFO 18924 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 18924 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 13:57:11.481  INFO 18924 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 13:57:12.881  INFO 18924 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 13:57:12.993  INFO 18924 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 96 ms. Found 7 JPA repository interfaces.
+2023-10-09 13:57:14.581  INFO 18924 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 13:57:14.991  INFO 18924 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 13:57:15.334  INFO 18924 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 13:57:15.550  INFO 18924 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 13:57:15.992  INFO 18924 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 13:57:16.314  INFO 18924 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 13:57:17.907  INFO 18924 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 13:57:17.934  INFO 18924 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 13:57:20.210  WARN 18924 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 13:57:20 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 13:57:20.841  WARN 18924 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 13:57:20.844  INFO 18924 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 13:57:20.846  WARN 18924 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 13:57:20.847  INFO 18924 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 13:57:20.847  WARN 18924 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 13:57:20.847  INFO 18924 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 13:57:21.235  INFO 18924 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7b11ff9a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3bd79444, org.springframework.security.web.context.SecurityContextPersistenceFilter@4724b2c1, org.springframework.security.web.header.HeaderWriterFilter@4027edeb, org.springframework.security.web.authentication.logout.LogoutFilter@2526d5f9, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@285ac40b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@537a8915, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@23ade612, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@1921b43c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5671078e, org.springframework.security.web.session.SessionManagementFilter@2f6d8c9, org.springframework.security.web.access.ExceptionTranslationFilter@3d5e0bf0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@61c3d7ac]
+2023-10-09 13:57:22.185  INFO 18924 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 13:57:23.013  INFO 18924 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 13:57:23.014  INFO 18924 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 13:57:23.015  INFO 18924 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-10-09 13:57:23.058  INFO 18924 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 13:57:23.072  INFO 18924 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 12.143 seconds (JVM running for 14.009)
+2023-10-09 13:57:24 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 13:57:24.497  INFO 18924 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 13:57:24.501  INFO 18924 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 13:57:24.507  INFO 18924 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 13:58:25.747  INFO 17052 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 17052 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 13:58:25.749  INFO 17052 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 13:58:27.162  INFO 17052 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 13:58:27.279  INFO 17052 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 100 ms. Found 7 JPA repository interfaces.
+2023-10-09 13:58:29.301  INFO 17052 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 13:58:29.970  INFO 17052 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 13:58:30.492  INFO 17052 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 13:58:30.747  INFO 17052 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 13:58:31.648  INFO 17052 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 13:58:32.248  INFO 17052 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 13:58:34.463  INFO 17052 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 13:58:34.486  INFO 17052 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 13:58:35.906  WARN 17052 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 13:58:36 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 13:58:36.474  WARN 17052 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 13:58:36.476  INFO 17052 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 13:58:36.479  WARN 17052 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 13:58:36.481  INFO 17052 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 13:58:36.483  WARN 17052 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 13:58:36.484  INFO 17052 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 13:58:36.701  INFO 17052 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6e96f3cd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4a0ee0ba, org.springframework.security.web.context.SecurityContextPersistenceFilter@49c947f7, org.springframework.security.web.header.HeaderWriterFilter@5ec06e97, org.springframework.security.web.authentication.logout.LogoutFilter@5b29d699, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@598f1faf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3b764e66, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@48cbe1c9, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@43b7bd5a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1b984ba5, org.springframework.security.web.session.SessionManagementFilter@3d6745ed, org.springframework.security.web.access.ExceptionTranslationFilter@d763b06, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@73bcd9b4]
+2023-10-09 13:58:37.695  INFO 17052 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 13:58:38.651  INFO 17052 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 13:58:38.652  INFO 17052 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 13:58:38.654  INFO 17052 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-10-09 13:58:38.741  INFO 17052 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 13:58:38.761  INFO 17052 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 13.587 seconds (JVM running for 15.34)
+2023-10-09 13:58:40 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 13:58:40.012  INFO 17052 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 13:58:40.018  INFO 17052 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 13:58:40.030  INFO 17052 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 14:02:43 DEBUG SecurityController:56 - /login [get-mapping]
+2023-10-09 14:16:27 DEBUG SecurityController:56 - /login [get-mapping]
+2023-10-09 14:25:15.975  INFO 17500 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 17500 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 14:25:15.977  INFO 17500 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 14:25:17.243  INFO 17500 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 14:25:17.355  INFO 17500 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 94 ms. Found 7 JPA repository interfaces.
+2023-10-09 14:25:18.326  INFO 17500 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 14:25:18.699  INFO 17500 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 14:25:18.918  INFO 17500 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 14:25:19.053  INFO 17500 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 14:25:19.379  INFO 17500 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 14:25:19.613  INFO 17500 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 14:25:20.756  INFO 17500 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 14:25:20.768  INFO 17500 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 14:25:21.912  WARN 17500 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 14:25:22 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 14:25:22.230  WARN 17500 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 14:25:22.231  INFO 17500 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 14:25:22.232  WARN 17500 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 14:25:22.232  INFO 17500 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 14:25:22.232  WARN 17500 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 14:25:22.232  INFO 17500 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 14:25:22.393  INFO 17500 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4c05f83b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@820b78a, org.springframework.security.web.context.SecurityContextPersistenceFilter@591febcb, org.springframework.security.web.header.HeaderWriterFilter@2526d5f9, org.springframework.security.web.authentication.logout.LogoutFilter@15c96f24, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@60688a97, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@797ee1a9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@578c99ac, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@7a2ffb0b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6a9ac8b, org.springframework.security.web.session.SessionManagementFilter@790f4933, org.springframework.security.web.access.ExceptionTranslationFilter@509e4902, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5d10df04]
+2023-10-09 14:25:23.097  INFO 17500 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 14:25:23.886  INFO 17500 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 14:25:23.887  INFO 17500 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 14:25:23.889  INFO 17500 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-10-09 14:25:23.944  INFO 17500 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 14:25:23.958  INFO 17500 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 8.463 seconds (JVM running for 10.152)
+2023-10-09 14:25:25 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 14:25:25.308  INFO 17500 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 14:25:25.314  INFO 17500 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 14:25:25.320  INFO 17500 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 14:32:38 DEBUG SecurityController:56 - /login [get-mapping]
+2023-10-09 14:35:37 DEBUG SecurityController:56 - /login [get-mapping]
+2023-10-09 14:35:44 DEBUG SecurityController:56 - /login [get-mapping]
+2023-10-09 14:36:29.062  INFO 10652 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 10652 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 14:36:29.064  INFO 10652 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 14:36:30.788  INFO 10652 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 14:36:30.908  INFO 10652 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 105 ms. Found 7 JPA repository interfaces.
+2023-10-09 14:36:31.921  INFO 10652 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 14:36:32.324  INFO 10652 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 14:36:32.634  INFO 10652 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 14:36:32.853  INFO 10652 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 14:36:33.239  INFO 10652 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 14:36:33.492  INFO 10652 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 14:36:34.627  INFO 10652 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 14:36:34.642  INFO 10652 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 14:36:35.864  WARN 10652 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 14:36:36 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 14:36:36.207  WARN 10652 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 14:36:36.208  INFO 10652 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 14:36:36.209  WARN 10652 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 14:36:36.210  INFO 10652 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 14:36:36.210  WARN 10652 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 14:36:36.210  INFO 10652 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 14:36:36.398  INFO 10652 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7c751692, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2569afda, org.springframework.security.web.context.SecurityContextPersistenceFilter@5b72b13a, org.springframework.security.web.header.HeaderWriterFilter@797ee1a9, org.springframework.security.web.authentication.logout.LogoutFilter@3f2d2f22, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5c0f508b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@48cbe1c9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@eee26bd, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@464abed, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@28dd8786, org.springframework.security.web.session.SessionManagementFilter@49c947f7, org.springframework.security.web.access.ExceptionTranslationFilter@6a95c2f6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@37fd496a]
+2023-10-09 14:36:37.279  INFO 10652 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 14:36:38.071  INFO 10652 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 14:36:38.072  INFO 10652 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 14:36:38.073  INFO 10652 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-10-09 14:36:38.125  INFO 10652 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 14:36:38.139  INFO 10652 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 9.634 seconds (JVM running for 11.296)
+2023-10-09 14:36:40 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 14:36:40.394  INFO 10652 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 14:36:40.399  INFO 10652 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 14:36:40.410  INFO 10652 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 15:18:32.188  INFO 3660 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 3660 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 15:18:32.193  INFO 3660 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 15:18:34.943  INFO 3660 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 15:18:35.615  INFO 3660 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 622 ms. Found 7 JPA repository interfaces.
+2023-10-09 15:18:38.117  INFO 3660 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 15:18:39.315  INFO 3660 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 15:18:39.745  INFO 3660 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 15:18:39.900  INFO 3660 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 15:18:40.222  INFO 3660 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 15:18:40.423  INFO 3660 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 15:18:41.694  INFO 3660 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 15:18:41.707  INFO 3660 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 15:18:42.928  WARN 3660 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 15:18:43 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 15:18:43.518  WARN 3660 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 15:18:43.519  INFO 3660 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 15:18:43.520  WARN 3660 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 15:18:43.521  INFO 3660 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 15:18:43.521  WARN 3660 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 15:18:43.521  INFO 3660 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 15:18:43.681  INFO 3660 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6f6c6c70, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@75d95b67, org.springframework.security.web.context.SecurityContextPersistenceFilter@7e366c6f, org.springframework.security.web.header.HeaderWriterFilter@193f3306, org.springframework.security.web.authentication.logout.LogoutFilter@4f5bfbca, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@401002ce, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@712c9bcf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@70f8d217, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@1bb78ae, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@40f15786, org.springframework.security.web.session.SessionManagementFilter@2148b47e, org.springframework.security.web.access.ExceptionTranslationFilter@6ae6a77b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2087c939]
+2023-10-09 15:18:44.491  INFO 3660 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 15:18:45.211  INFO 3660 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 15:18:45.212  INFO 3660 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 15:18:45.213  INFO 3660 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-10-09 15:18:45.266  INFO 3660 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 15:18:45.281  INFO 3660 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 13.935 seconds (JVM running for 16.723)
+2023-10-09 15:18:47 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 15:18:47.806  INFO 3660 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 15:18:47.810  INFO 3660 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 15:18:47.818  INFO 3660 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 15:45:28.396  INFO 1984 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 1984 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 15:45:28.398  INFO 1984 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 15:45:29.658  INFO 1984 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 15:45:29.769  INFO 1984 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 93 ms. Found 7 JPA repository interfaces.
+2023-10-09 15:45:31.022  INFO 1984 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 15:45:31.480  INFO 1984 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 15:45:31.759  INFO 1984 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 15:45:31.947  INFO 1984 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 15:45:32.321  INFO 1984 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 15:45:32.554  INFO 1984 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 15:45:33.660  INFO 1984 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 15:45:33.676  INFO 1984 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 15:45:34.900  WARN 1984 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 15:45:35 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 15:45:35.271  WARN 1984 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 15:45:35.272  INFO 1984 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 15:45:35.273  WARN 1984 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 15:45:35.273  INFO 1984 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 15:45:35.273  WARN 1984 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 15:45:35.273  INFO 1984 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 15:45:35.447  INFO 1984 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4b4bc73d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4cb91fa4, org.springframework.security.web.context.SecurityContextPersistenceFilter@31aa9b01, org.springframework.security.web.header.HeaderWriterFilter@7d4135c9, org.springframework.security.web.authentication.logout.LogoutFilter@6a95c2f6, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@123e9094, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@463a1f47, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@243162b1, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@285ac40b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@12aa2cca, org.springframework.security.web.session.SessionManagementFilter@33bf2602, org.springframework.security.web.access.ExceptionTranslationFilter@160cf225, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1921b43c]
+2023-10-09 15:45:36.251  INFO 1984 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 15:45:37.015  INFO 1984 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 15:45:37.016  INFO 1984 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 15:45:37.018  INFO 1984 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2023-10-09 15:45:37.064  INFO 1984 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 15:45:37.081  INFO 1984 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 9.261 seconds (JVM running for 11.021)
+2023-10-09 15:45:39 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 15:45:39.506  INFO 1984 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 15:45:39.512  INFO 1984 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 15:45:39.530  INFO 1984 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 15:46:57.165  WARN 21404 --- [http-nio-8080-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "favicon.ico"]
+2023-10-09 15:46:59 DEBUG SecurityController:56 - /login [get-mapping]
+2023-10-09 15:47:15 DEBUG SecurityController:56 - /login [get-mapping]
+2023-10-09 15:47:27 DEBUG SecurityController:56 - /login [get-mapping]
+2023-10-09 15:47:51.578  INFO 16024 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 16024 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 15:47:51.580  INFO 16024 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 15:47:52.740  INFO 16024 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 15:47:52.845  INFO 16024 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 87 ms. Found 7 JPA repository interfaces.
+2023-10-09 15:47:53.837  INFO 16024 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 15:47:54.203  INFO 16024 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 15:47:54.487  INFO 16024 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 15:47:54.642  INFO 16024 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 15:47:54.992  INFO 16024 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 15:47:55.242  INFO 16024 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 15:47:56.359  INFO 16024 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 15:47:56.373  INFO 16024 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 15:47:57.609  WARN 16024 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 15:47:57 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 15:47:57.940  WARN 16024 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 15:47:57.941  INFO 16024 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 15:47:57.942  WARN 16024 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 15:47:57.942  INFO 16024 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 15:47:57.942  WARN 16024 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 15:47:57.942  INFO 16024 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 15:47:58.130  INFO 16024 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@820b78a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6a9ac8b, org.springframework.security.web.context.SecurityContextPersistenceFilter@47b494ce, org.springframework.security.web.header.HeaderWriterFilter@53c9541c, org.springframework.security.web.authentication.logout.LogoutFilter@5a5a973c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5c46a957, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@38834000, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@67e628b, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@27ac3b6d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7683ea43, org.springframework.security.web.session.SessionManagementFilter@600e2000, org.springframework.security.web.access.ExceptionTranslationFilter@2526d5f9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@56d3af4d]
+2023-10-09 15:47:58.944  INFO 16024 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 15:47:59.736  INFO 16024 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 15:47:59.737  INFO 16024 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 15:47:59.739  INFO 16024 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2023-10-09 15:47:59.787  INFO 16024 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 15:47:59.799  INFO 16024 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 8.715 seconds (JVM running for 10.265)
+2023-10-09 15:48:01 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 15:48:01.039  INFO 16024 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 15:48:01.043  INFO 16024 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 15:48:01.060  INFO 16024 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 15:48:54 DEBUG SecurityController:56 - /login [get-mapping]
+2023-10-09 15:49:13 DEBUG SecurityController:56 - /login [get-mapping]
+2023-10-09 16:06:31.212  INFO 20724 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 20724 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 16:06:31.214  INFO 20724 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 16:06:32.465  INFO 20724 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 16:06:32.576  INFO 20724 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 93 ms. Found 7 JPA repository interfaces.
+2023-10-09 16:06:33.572  INFO 20724 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 16:06:34.000  INFO 20724 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 16:06:34.248  INFO 20724 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 16:06:34.433  INFO 20724 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 16:06:34.792  INFO 20724 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 16:06:35.006  INFO 20724 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 16:06:36.085  INFO 20724 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 16:06:36.099  INFO 20724 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:06:37.313  WARN 20724 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 16:06:37 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 16:06:37.664  WARN 20724 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:06:37.666  INFO 20724 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 16:06:37.666  WARN 20724 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:06:37.667  INFO 20724 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 16:06:37.667  WARN 20724 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:06:37.667  INFO 20724 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 16:06:37.871  INFO 20724 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@f7b7720, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1e0c898c, org.springframework.security.web.context.SecurityContextPersistenceFilter@4e4c05a0, org.springframework.security.web.header.HeaderWriterFilter@1a06b95, org.springframework.security.web.authentication.logout.LogoutFilter@63e648a0, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4154ecd3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6b529d42, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3fc14dc0, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@75d95b67, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1cd2e348, org.springframework.security.web.session.SessionManagementFilter@79486f38, org.springframework.security.web.access.ExceptionTranslationFilter@2148b47e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3dc4ed6f]
+2023-10-09 16:06:38.744  INFO 20724 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 16:06:39.581  INFO 20724 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 16:06:39.582  INFO 20724 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 16:06:39.584  INFO 20724 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-10-09 16:06:39.641  INFO 20724 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 16:06:39.655  INFO 20724 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 8.978 seconds (JVM running for 10.694)
+2023-10-09 16:06:41 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 16:06:41.021  INFO 20724 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:06:41.025  INFO 20724 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 16:06:41.039  INFO 20724 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 16:06:59.859  INFO 14268 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 14268 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 16:06:59.861  INFO 14268 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 16:07:01.074  INFO 14268 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 16:07:01.180  INFO 14268 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 87 ms. Found 7 JPA repository interfaces.
+2023-10-09 16:07:02.208  INFO 14268 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 16:07:02.588  INFO 14268 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 16:07:02.817  INFO 14268 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 16:07:03.003  INFO 14268 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 16:07:03.326  INFO 14268 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 16:07:03.600  INFO 14268 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 16:07:04.772  INFO 14268 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 16:07:04.785  INFO 14268 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:07:06.592  WARN 14268 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 16:07:07 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 16:07:07.232  WARN 14268 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:07:07.234  INFO 14268 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 16:07:07.236  WARN 14268 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:07:07.237  INFO 14268 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 16:07:07.238  WARN 14268 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:07:07.238  INFO 14268 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 16:07:07.639  INFO 14268 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@209b4b35, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@77acc95a, org.springframework.security.web.context.SecurityContextPersistenceFilter@7f958d4a, org.springframework.security.web.header.HeaderWriterFilter@23ade612, org.springframework.security.web.authentication.logout.LogoutFilter@591febcb, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@75d95b67, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@528c4353, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7b364f47, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@3dc4ed6f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@ff1a5a0, org.springframework.security.web.session.SessionManagementFilter@68e094c9, org.springframework.security.web.access.ExceptionTranslationFilter@48cd8e71, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@58be583e]
+2023-10-09 16:07:08.922  INFO 14268 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 16:07:10.537  INFO 14268 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 16:07:10.539  INFO 14268 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 16:07:10.541  INFO 14268 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2023-10-09 16:07:10.650  INFO 14268 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 16:07:10.680  INFO 14268 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 11.291 seconds (JVM running for 12.96)
+2023-10-09 16:07:11 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 16:07:11.320  INFO 14268 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:07:11.327  INFO 14268 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 16:07:11.354  INFO 14268 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 16:07:55.572  INFO 19172 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 19172 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 16:07:55.574  INFO 19172 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 16:07:56.703  INFO 19172 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 16:07:56.800  INFO 19172 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 84 ms. Found 7 JPA repository interfaces.
+2023-10-09 16:07:57.708  INFO 19172 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 16:07:58.093  INFO 19172 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 16:07:58.308  INFO 19172 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 16:07:58.456  INFO 19172 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 16:07:58.822  INFO 19172 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 16:07:59.046  INFO 19172 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 16:08:00.196  INFO 19172 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 16:08:00.210  INFO 19172 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:08:01.251  WARN 19172 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 16:08:01 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 16:08:01.551  WARN 19172 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:08:01.552  INFO 19172 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 16:08:01.552  WARN 19172 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:08:01.553  INFO 19172 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 16:08:01.553  WARN 19172 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:08:01.553  INFO 19172 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 16:08:01.691  INFO 19172 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5d2bc446, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6e96f3cd, org.springframework.security.web.context.SecurityContextPersistenceFilter@585672dd, org.springframework.security.web.header.HeaderWriterFilter@4ed5492c, org.springframework.security.web.authentication.logout.LogoutFilter@7f49df25, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@27ac3b6d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@50dd1e3a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6a6a3fc4, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@56d3af4d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4a0ee0ba, org.springframework.security.web.session.SessionManagementFilter@591febcb, org.springframework.security.web.access.ExceptionTranslationFilter@4e4c05a0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1cd2e348]
+2023-10-09 16:08:02.421  INFO 19172 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 16:08:03.231  INFO 19172 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 16:08:03.232  INFO 19172 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 16:08:03.234  INFO 19172 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-10-09 16:08:03.287  INFO 19172 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 16:08:03.303  INFO 19172 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 8.194 seconds (JVM running for 9.884)
+2023-10-09 16:08:04 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 16:08:04.505  INFO 19172 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:08:04.509  INFO 19172 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 16:08:04.517  INFO 19172 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 16:08:26 DEBUG SecurityController:56 - /login [get-mapping]
+2023-10-09 16:09:10 DEBUG SecurityController:56 - /login [get-mapping]
+2023-10-09 16:09:11 DEBUG SecurityController:64 - /registration [get-mapping]
+2023-10-09 16:09:37 DEBUG SecurityController:73 - /signup [post-mapping] with parameters: file=org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@9b2f269; object: user=User: [0, Jessie, 1234, Jessie, andreynikonov13@yandex.ru, null, null, null]
+2023-10-09 16:10:06 DEBUG SecurityController:56 - /login [get-mapping]
+2023-10-09 16:11:15 DEBUG SecurityController:56 - /login [get-mapping]
+2023-10-09 16:14:43 DEBUG SecurityController:56 - /login [get-mapping]
+2023-10-09 16:14:57 DEBUG SecurityController:56 - /login [get-mapping]
+2023-10-09 16:17:34.641  INFO 17720 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 17720 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 16:17:34.643  INFO 17720 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 16:17:35.784  INFO 17720 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 16:17:35.887  INFO 17720 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 89 ms. Found 7 JPA repository interfaces.
+2023-10-09 16:17:36.829  INFO 17720 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 16:17:37.198  INFO 17720 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 16:17:37.443  INFO 17720 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 16:17:37.577  INFO 17720 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 16:17:37.931  INFO 17720 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 16:17:38.174  INFO 17720 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 16:17:39.314  INFO 17720 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 16:17:39.326  INFO 17720 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:17:40.467  WARN 17720 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 16:17:40 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 16:17:40.831  WARN 17720 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:17:40.833  INFO 17720 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 16:17:40.834  WARN 17720 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:17:40.834  INFO 17720 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 16:17:40.834  WARN 17720 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:17:40.834  INFO 17720 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 16:17:40.977  INFO 17720 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4154ecd3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@b53ce18, org.springframework.security.web.context.SecurityContextPersistenceFilter@463a1f47, org.springframework.security.web.header.HeaderWriterFilter@33bf2602, org.springframework.security.web.authentication.logout.LogoutFilter@3c04ddda, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3ee2d546, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7e366c6f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@509e4902, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@6c3a7b84, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2a666c8e, org.springframework.security.web.session.SessionManagementFilter@193f3306, org.springframework.security.web.access.ExceptionTranslationFilter@48a21ea6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3c4e17ea]
+2023-10-09 16:17:41.735  INFO 17720 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 16:17:42.475  INFO 17720 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 16:17:42.476  INFO 17720 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 16:17:42.477  INFO 17720 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-10-09 16:17:42.519  INFO 17720 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 16:17:42.532  INFO 17720 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 8.36 seconds (JVM running for 10.211)
+2023-10-09 16:17:43 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 16:17:43.706  INFO 17720 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:17:43.710  INFO 17720 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 16:17:43.719  INFO 17720 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 16:18:01.069  INFO 19236 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 19236 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 16:18:01.071  INFO 19236 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 16:18:02.299  INFO 19236 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 16:18:02.406  INFO 19236 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 85 ms. Found 7 JPA repository interfaces.
+2023-10-09 16:18:03.428  INFO 19236 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 16:18:03.791  INFO 19236 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 16:18:04.015  INFO 19236 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 16:18:04.164  INFO 19236 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 16:18:04.523  INFO 19236 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 16:18:04.861  INFO 19236 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 16:18:05.982  INFO 19236 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 16:18:05.995  INFO 19236 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:18:07.210  WARN 19236 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 16:18:07 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 16:18:07.565  WARN 19236 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:18:07.566  INFO 19236 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 16:18:07.567  WARN 19236 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:18:07.567  INFO 19236 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 16:18:07.567  WARN 19236 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:18:07.567  INFO 19236 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 16:18:07.737  INFO 19236 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7683ea43, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@15a41088, org.springframework.security.web.context.SecurityContextPersistenceFilter@eee26bd, org.springframework.security.web.header.HeaderWriterFilter@5b72b13a, org.springframework.security.web.authentication.logout.LogoutFilter@3c4e17ea, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6e96f3cd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@39451d92, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@73b10975, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@659ac28c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@18356951, org.springframework.security.web.session.SessionManagementFilter@48cbe1c9, org.springframework.security.web.access.ExceptionTranslationFilter@3cd6d147, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5c0f508b]
+2023-10-09 16:18:08.464  INFO 19236 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 16:18:09.333  INFO 19236 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 16:18:09.334  INFO 19236 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 16:18:09.338  INFO 19236 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2023-10-09 16:18:09.390  INFO 19236 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 16:18:09.405  INFO 19236 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 8.829 seconds (JVM running for 10.538)
+2023-10-09 16:18:10 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 16:18:10.496  INFO 19236 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:18:10.500  INFO 19236 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 16:18:10.507  INFO 19236 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 16:18:47.928  INFO 17468 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 17468 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 16:18:47.931  INFO 17468 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 16:18:49.414  INFO 17468 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 16:18:49.522  INFO 17468 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 88 ms. Found 7 JPA repository interfaces.
+2023-10-09 16:18:50.864  INFO 17468 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 16:18:51.736  INFO 17468 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 16:18:52.038  INFO 17468 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 16:18:52.185  INFO 17468 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 16:18:52.542  INFO 17468 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 16:18:52.852  INFO 17468 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 16:18:53.958  INFO 17468 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 16:18:53.971  INFO 17468 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:18:55.226  WARN 17468 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 16:18:55 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 16:18:55.587  WARN 17468 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:18:55.589  INFO 17468 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 16:18:55.590  WARN 17468 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:18:55.590  INFO 17468 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 16:18:55.590  WARN 17468 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:18:55.591  INFO 17468 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 16:18:55.761  INFO 17468 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@f7b7720, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1e0c898c, org.springframework.security.web.context.SecurityContextPersistenceFilter@1a06b95, org.springframework.security.web.header.HeaderWriterFilter@243162b1, org.springframework.security.web.authentication.logout.LogoutFilter@5f190cfe, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3dc4ed6f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@79486f38, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4e4c05a0, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@3fd21272, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1cd2e348, org.springframework.security.web.session.SessionManagementFilter@509e4902, org.springframework.security.web.access.ExceptionTranslationFilter@59db8216, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@42257df7]
+2023-10-09 16:18:56.582  INFO 17468 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 16:18:57.309  INFO 17468 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 16:18:57.309  INFO 17468 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 16:18:57.311  INFO 17468 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-10-09 16:18:57.353  INFO 17468 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 16:18:57.365  INFO 17468 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 10.388 seconds (JVM running for 12.322)
+2023-10-09 16:18:58 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 16:18:58.486  INFO 17468 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:18:58.489  INFO 17468 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 16:18:58.498  INFO 17468 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 16:19:10.456  INFO 7844 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 7844 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 16:19:10.458  INFO 7844 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 16:19:11.662  INFO 7844 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 16:19:11.765  INFO 7844 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 88 ms. Found 7 JPA repository interfaces.
+2023-10-09 16:19:12.732  INFO 7844 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 16:19:13.101  INFO 7844 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 16:19:13.313  INFO 7844 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 16:19:13.487  INFO 7844 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 16:19:13.991  INFO 7844 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 16:19:14.257  INFO 7844 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 16:19:15.397  INFO 7844 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 16:19:15.409  INFO 7844 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:19:16.537  WARN 7844 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 16:19:16 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 16:19:16.896  WARN 7844 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:19:16.897  INFO 7844 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 16:19:16.898  WARN 7844 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:19:16.899  INFO 7844 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 16:19:16.899  WARN 7844 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:19:16.899  INFO 7844 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 16:19:17.081  INFO 7844 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1af78e37, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5c46a957, org.springframework.security.web.context.SecurityContextPersistenceFilter@790f4933, org.springframework.security.web.header.HeaderWriterFilter@5c8d631, org.springframework.security.web.authentication.logout.LogoutFilter@6ca30886, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@f7b7720, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3fc14dc0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@552b15f6, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@209b4b35, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7d95a717, org.springframework.security.web.session.SessionManagementFilter@4e4c05a0, org.springframework.security.web.access.ExceptionTranslationFilter@23ade612, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6bcfb561]
+2023-10-09 16:19:17.893  INFO 7844 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 16:19:18.642  INFO 7844 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 16:19:18.643  INFO 7844 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 16:19:18.645  INFO 7844 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-10-09 16:19:18.699  INFO 7844 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 16:19:18.714  INFO 7844 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 8.749 seconds (JVM running for 10.383)
+2023-10-09 16:19:19 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 16:19:19.809  INFO 7844 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:19:19.812  INFO 7844 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 16:19:19.818  INFO 7844 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 16:20:12.206  INFO 7908 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 7908 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 16:20:12.208  INFO 7908 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 16:20:13.354  INFO 7908 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 16:20:13.451  INFO 7908 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 84 ms. Found 7 JPA repository interfaces.
+2023-10-09 16:20:14.421  INFO 7908 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 16:20:14.825  INFO 7908 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 16:20:15.028  INFO 7908 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 16:20:15.150  INFO 7908 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 16:20:15.543  INFO 7908 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 16:20:15.761  INFO 7908 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 16:20:16.821  INFO 7908 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 16:20:16.835  INFO 7908 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:20:17.919  WARN 7908 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 16:20:18 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 16:20:18.255  WARN 7908 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:20:18.256  INFO 7908 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 16:20:18.256  WARN 7908 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:20:18.257  INFO 7908 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 16:20:18.257  WARN 7908 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:20:18.257  INFO 7908 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 16:20:18.402  INFO 7908 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@464abed, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1af78e37, org.springframework.security.web.context.SecurityContextPersistenceFilter@4f5bfbca, org.springframework.security.web.header.HeaderWriterFilter@459df48d, org.springframework.security.web.authentication.logout.LogoutFilter@1fdd5517, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@75c3584e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4ed5492c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@600e2000, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@36e98434, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5c46a957, org.springframework.security.web.session.SessionManagementFilter@15d2ea6b, org.springframework.security.web.access.ExceptionTranslationFilter@6af29394, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7e7987b8]
+2023-10-09 16:20:19.100  INFO 7908 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 16:20:19.864  INFO 7908 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 16:20:19.865  INFO 7908 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 16:20:19.866  INFO 7908 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-10-09 16:20:19.910  INFO 7908 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 16:20:19.922  INFO 7908 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 8.18 seconds (JVM running for 9.798)
+2023-10-09 16:20:21 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 16:20:21.152  INFO 7908 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:20:21.155  INFO 7908 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 16:20:21.164  INFO 7908 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 16:21:40.982  INFO 8544 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 8544 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 16:21:40.984  INFO 8544 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 16:21:42.376  INFO 8544 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 16:21:42.490  INFO 8544 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 92 ms. Found 7 JPA repository interfaces.
+2023-10-09 16:21:43.937  INFO 8544 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 16:21:44.474  INFO 8544 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 16:21:44.861  INFO 8544 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 16:21:45.068  INFO 8544 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 16:21:45.592  INFO 8544 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 16:21:45.973  INFO 8544 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 16:21:46.880  INFO 6396 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 6396 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 16:21:46.883  INFO 6396 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 16:21:47.885  INFO 8544 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 16:21:47.906  INFO 8544 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:21:48.657  INFO 6396 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 16:21:48.836  INFO 6396 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 156 ms. Found 7 JPA repository interfaces.
+2023-10-09 16:21:50.345  WARN 8544 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 16:21:51 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 16:21:51.231  WARN 8544 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:21:51.233  INFO 8544 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 16:21:51.234  WARN 8544 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:21:51.235  INFO 8544 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 16:21:51.235  WARN 8544 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:21:51.235  INFO 8544 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 16:21:51.648  INFO 6396 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 16:21:51.658  INFO 8544 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@18adc20a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7e7987b8, org.springframework.security.web.context.SecurityContextPersistenceFilter@23ade612, org.springframework.security.web.header.HeaderWriterFilter@4724b2c1, org.springframework.security.web.authentication.logout.LogoutFilter@78c23ade, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@58be583e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@68e094c9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7f958d4a, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@123e9094, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6bcfb561, org.springframework.security.web.session.SessionManagementFilter@537a8915, org.springframework.security.web.access.ExceptionTranslationFilter@394e504d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@285ac40b]
+2023-10-09 16:21:52.682  INFO 6396 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 16:21:53.319  INFO 6396 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 16:21:53.913  INFO 6396 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 16:21:54.332  INFO 8544 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 16:21:54.926  INFO 6396 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 16:21:55.648  INFO 6396 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 16:21:56.809  INFO 8544 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 16:21:56.810  INFO 8544 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 16:21:56.812  INFO 8544 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-10-09 16:21:56.892  INFO 8544 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 16:21:56.954  INFO 8544 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 16.535 seconds (JVM running for 18.16)
+2023-10-09 16:21:58.125  INFO 6396 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 16:21:58.148  INFO 6396 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:21:59 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 16:21:59.168  INFO 8544 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:21:59.175  INFO 8544 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 16:21:59.194  INFO 8544 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 16:22:00.140  WARN 6396 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 16:22:00 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 16:22:00.827  WARN 6396 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:22:00.829  INFO 6396 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 16:22:00.835  WARN 6396 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:22:00.837  INFO 6396 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 16:22:00.837  WARN 6396 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:22:00.838  INFO 6396 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 16:22:01.248  INFO 6396 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1cd2e348, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@73bcd9b4, org.springframework.security.web.context.SecurityContextPersistenceFilter@2526d5f9, org.springframework.security.web.header.HeaderWriterFilter@49ee3b8d, org.springframework.security.web.authentication.logout.LogoutFilter@48cbe1c9, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2a666c8e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@790f4933, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@78c23ade, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@72ea6fcb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@27aa7294, org.springframework.security.web.session.SessionManagementFilter@5c8d631, org.springframework.security.web.access.ExceptionTranslationFilter@463a1f47, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2ce3d95a]
+2023-10-09 16:22:02.772  INFO 6396 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 16:22:03.840  INFO 6396 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 16:22:03.840  INFO 6396 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 16:22:03.842  INFO 6396 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-10-09 16:22:03.912  INFO 6396 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 16:22:03.935  INFO 6396 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 17.777 seconds (JVM running for 20.584)
+2023-10-09 16:22:06 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 16:22:06.744  INFO 6396 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:22:06.749  INFO 6396 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 16:22:06.761  INFO 6396 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 16:25:20.725  INFO 12028 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 12028 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 16:25:20.727  INFO 12028 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 16:25:21.935  INFO 12028 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 16:25:22.034  INFO 12028 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 82 ms. Found 7 JPA repository interfaces.
+2023-10-09 16:25:23.013  INFO 12028 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 16:25:23.370  INFO 12028 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 16:25:23.575  INFO 12028 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 16:25:23.699  INFO 12028 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 16:25:24.013  INFO 12028 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 16:25:24.278  INFO 12028 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 16:25:25.409  INFO 12028 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 16:25:25.423  INFO 12028 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:25:26.627  WARN 12028 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 16:25:26 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 16:25:26.926  WARN 12028 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:25:26.927  INFO 12028 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 16:25:26.929  WARN 12028 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:25:26.929  INFO 12028 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 16:25:26.929  WARN 12028 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:25:26.930  INFO 12028 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 16:25:27.103  INFO 12028 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5c46a957, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7d95a717, org.springframework.security.web.context.SecurityContextPersistenceFilter@3cd6d147, org.springframework.security.web.header.HeaderWriterFilter@6a95c2f6, org.springframework.security.web.authentication.logout.LogoutFilter@3d605657, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1e0c898c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@53c9541c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5f190cfe, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@77acc95a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5c0f508b, org.springframework.security.web.session.SessionManagementFilter@3c04ddda, org.springframework.security.web.access.ExceptionTranslationFilter@528c4353, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7254a68a]
+2023-10-09 16:25:28.023  INFO 12028 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 16:25:28.797  INFO 12028 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 16:25:28.798  INFO 12028 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 16:25:28.799  INFO 12028 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-10-09 16:25:28.842  INFO 12028 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 16:25:28.853  INFO 12028 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 8.648 seconds (JVM running for 10.293)
+2023-10-09 16:25:30 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 16:25:30.085  INFO 12028 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:25:30.089  INFO 12028 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 16:25:30.097  INFO 12028 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 16:25:52.749  INFO 21392 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 21392 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 16:25:52.751  INFO 21392 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 16:25:53.931  INFO 21392 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 16:25:54.034  INFO 21392 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 88 ms. Found 7 JPA repository interfaces.
+2023-10-09 16:25:54.985  INFO 21392 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 16:25:55.318  INFO 21392 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 16:25:55.530  INFO 21392 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 16:25:55.666  INFO 21392 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 16:25:56.076  INFO 21392 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 16:25:56.365  INFO 21392 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 16:25:57.489  INFO 21392 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 16:25:57.509  INFO 21392 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:25:58.596  WARN 21392 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 16:25:58 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 16:25:58.880  WARN 21392 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:25:58.881  INFO 21392 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 16:25:58.882  WARN 21392 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:25:58.882  INFO 21392 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 16:25:58.882  WARN 21392 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:25:58.882  INFO 21392 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 16:25:59.026  INFO 21392 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@18adc20a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7e7987b8, org.springframework.security.web.context.SecurityContextPersistenceFilter@23ade612, org.springframework.security.web.header.HeaderWriterFilter@4724b2c1, org.springframework.security.web.authentication.logout.LogoutFilter@78c23ade, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@58be583e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@68e094c9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7f958d4a, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@123e9094, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6bcfb561, org.springframework.security.web.session.SessionManagementFilter@537a8915, org.springframework.security.web.access.ExceptionTranslationFilter@394e504d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@285ac40b]
+2023-10-09 16:25:59.731  INFO 21392 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 16:26:00.442  INFO 21392 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 16:26:00.443  INFO 21392 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 16:26:00.444  INFO 21392 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-10-09 16:26:00.483  INFO 21392 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 16:26:00.494  INFO 21392 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 8.247 seconds (JVM running for 9.87)
+2023-10-09 16:26:01 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 16:26:01.680  INFO 21392 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:26:01.682  INFO 21392 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 16:26:01.689  INFO 21392 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 16:26:19.365  INFO 19460 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 19460 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 16:26:19.367  INFO 19460 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 16:26:20.545  INFO 19460 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 16:26:20.646  INFO 19460 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 86 ms. Found 7 JPA repository interfaces.
+2023-10-09 16:26:21.701  INFO 19460 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 16:26:22.072  INFO 19460 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 16:26:22.303  INFO 19460 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 16:26:22.438  INFO 19460 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 16:26:22.789  INFO 19460 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 16:26:23.064  INFO 19460 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 16:26:24.195  INFO 19460 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 16:26:24.209  INFO 19460 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:26:25.673  WARN 19460 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 16:26:26 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 16:26:26.054  WARN 19460 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:26:26.055  INFO 19460 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 16:26:26.055  WARN 19460 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:26:26.056  INFO 19460 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 16:26:26.056  WARN 19460 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:26:26.056  INFO 19460 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 16:26:26.227  INFO 19460 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@36e98434, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@209b4b35, org.springframework.security.web.context.SecurityContextPersistenceFilter@79486f38, org.springframework.security.web.header.HeaderWriterFilter@509e4902, org.springframework.security.web.authentication.logout.LogoutFilter@47b494ce, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6f6c6c70, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3d42b756, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6b529d42, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@12aa2cca, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@77acc95a, org.springframework.security.web.session.SessionManagementFilter@70f8d217, org.springframework.security.web.access.ExceptionTranslationFilter@4724b2c1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5671078e]
+2023-10-09 16:26:27.063  INFO 19460 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 16:26:27.960  INFO 19460 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 16:26:27.961  INFO 19460 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 16:26:27.964  INFO 19460 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2023-10-09 16:26:28.021  INFO 19460 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 16:26:28.035  INFO 19460 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 9.207 seconds (JVM running for 10.963)
+2023-10-09 16:26:29 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 16:26:29.225  INFO 19460 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:26:29.228  INFO 19460 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 16:26:29.236  INFO 19460 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 16:26:52.485  INFO 2264 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 2264 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 16:26:52.487  INFO 2264 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 16:26:53.666  INFO 2264 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 16:26:53.782  INFO 2264 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 98 ms. Found 7 JPA repository interfaces.
+2023-10-09 16:26:54.786  INFO 2264 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 16:26:55.133  INFO 2264 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 16:26:55.368  INFO 2264 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 16:26:55.510  INFO 2264 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 16:26:55.861  INFO 2264 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 16:26:56.120  INFO 2264 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 16:26:57.199  INFO 2264 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 16:26:57.211  INFO 2264 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:26:58.372  WARN 2264 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 16:26:58 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 16:26:58.702  WARN 2264 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:26:58.704  INFO 2264 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 16:26:58.705  WARN 2264 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:26:58.705  INFO 2264 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 16:26:58.705  WARN 2264 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:26:58.706  INFO 2264 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 16:26:58.873  INFO 2264 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1cd2e348, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@73bcd9b4, org.springframework.security.web.context.SecurityContextPersistenceFilter@2526d5f9, org.springframework.security.web.header.HeaderWriterFilter@49ee3b8d, org.springframework.security.web.authentication.logout.LogoutFilter@48cbe1c9, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2a666c8e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@790f4933, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@78c23ade, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@72ea6fcb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@27aa7294, org.springframework.security.web.session.SessionManagementFilter@5c8d631, org.springframework.security.web.access.ExceptionTranslationFilter@463a1f47, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2ce3d95a]
+2023-10-09 16:26:59.687  INFO 2264 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 16:27:00.467  INFO 2264 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 16:27:00.467  INFO 2264 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 16:27:00.469  INFO 2264 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-10-09 16:27:00.507  INFO 2264 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 16:27:00.519  INFO 2264 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 8.547 seconds (JVM running for 10.11)
+2023-10-09 16:27:01 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 16:27:01.648  INFO 2264 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:27:01.651  INFO 2264 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 16:27:01.658  INFO 2264 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 16:27:24.861  INFO 21304 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 21304 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 16:27:24.864  INFO 21304 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 16:27:26.035  INFO 21304 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 16:27:26.142  INFO 21304 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 90 ms. Found 7 JPA repository interfaces.
+2023-10-09 16:27:27.145  INFO 21304 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 16:27:27.496  INFO 21304 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 16:27:27.777  INFO 21304 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 16:27:27.928  INFO 21304 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 16:27:28.286  INFO 21304 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 16:27:28.534  INFO 21304 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 16:27:29.605  INFO 21304 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 16:27:29.621  INFO 21304 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:27:30.737  WARN 21304 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 16:27:31 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 16:27:31.114  WARN 21304 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:27:31.116  INFO 21304 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 16:27:31.117  WARN 21304 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:27:31.117  INFO 21304 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 16:27:31.117  WARN 21304 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:27:31.117  INFO 21304 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 16:27:31.286  INFO 21304 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2a666c8e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@18adc20a, org.springframework.security.web.context.SecurityContextPersistenceFilter@6af29394, org.springframework.security.web.header.HeaderWriterFilter@47224d5d, org.springframework.security.web.authentication.logout.LogoutFilter@3d6745ed, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4b4bc73d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1a06b95, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5c8d631, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@7b11ff9a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7e7987b8, org.springframework.security.web.session.SessionManagementFilter@243162b1, org.springframework.security.web.access.ExceptionTranslationFilter@43b3b1b0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1a34772e]
+2023-10-09 16:27:32.068  INFO 21304 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 16:27:32.809  INFO 21304 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 16:27:32.810  INFO 21304 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 16:27:32.812  INFO 21304 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2023-10-09 16:27:32.858  INFO 21304 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 16:27:32.872  INFO 21304 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 8.51 seconds (JVM running for 10.133)
+2023-10-09 16:27:34 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 16:27:34.023  INFO 21304 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:27:34.027  INFO 21304 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 16:27:34.035  INFO 21304 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 16:28:01.193  INFO 18164 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 18164 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 16:28:01.195  INFO 18164 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 16:28:02.794  INFO 18164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 16:28:02.957  INFO 18164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 141 ms. Found 7 JPA repository interfaces.
+2023-10-09 16:28:05.108  INFO 18164 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 16:28:05.684  INFO 18164 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 16:28:06.112  INFO 18164 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 16:28:06.304  INFO 18164 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 16:28:06.762  INFO 18164 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 16:28:07.022  INFO 18164 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 16:28:08.309  INFO 18164 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 16:28:08.322  INFO 18164 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:28:09.883  WARN 18164 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 16:28:10 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 16:28:10.476  WARN 18164 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:28:10.477  INFO 18164 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 16:28:10.477  WARN 18164 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:28:10.478  INFO 18164 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 16:28:10.478  WARN 18164 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:28:10.478  INFO 18164 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 16:28:10.744  INFO 18164 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@36e98434, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@209b4b35, org.springframework.security.web.context.SecurityContextPersistenceFilter@79486f38, org.springframework.security.web.header.HeaderWriterFilter@509e4902, org.springframework.security.web.authentication.logout.LogoutFilter@47b494ce, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6f6c6c70, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3d42b756, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6b529d42, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@12aa2cca, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@77acc95a, org.springframework.security.web.session.SessionManagementFilter@70f8d217, org.springframework.security.web.access.ExceptionTranslationFilter@4724b2c1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5671078e]
+2023-10-09 16:28:11.784  INFO 18164 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 16:28:12.639  INFO 18164 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 16:28:12.639  INFO 18164 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 16:28:12.641  INFO 18164 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-10-09 16:28:12.697  INFO 18164 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 16:28:12.712  INFO 18164 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 12.069 seconds (JVM running for 13.952)
+2023-10-09 16:28:13 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 16:28:13.898  INFO 18164 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:28:13.901  INFO 18164 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 16:28:13.922  INFO 18164 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 16:28:20 DEBUG SecurityController:56 - /login [get-mapping]
+2023-10-09 16:28:54.239  INFO 19660 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 19660 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 16:28:54.242  INFO 19660 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 16:28:55.754  INFO 19660 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 16:28:55.868  INFO 19660 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 99 ms. Found 7 JPA repository interfaces.
+2023-10-09 16:28:57.089  INFO 19660 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 16:28:57.527  INFO 19660 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 16:28:57.805  INFO 19660 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 16:28:57.958  INFO 19660 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 16:28:58.615  INFO 19660 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 16:28:59.323  INFO 19660 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 16:29:00.782  INFO 19660 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 16:29:00.803  INFO 19660 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:29:03.179  WARN 19660 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 16:29:03 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 16:29:03.559  WARN 19660 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:29:03.560  INFO 19660 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 16:29:03.560  WARN 19660 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:29:03.561  INFO 19660 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 16:29:03.561  WARN 19660 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:29:03.561  INFO 19660 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 16:29:03.727  INFO 19660 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@247a8411, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4c05f83b, org.springframework.security.web.context.SecurityContextPersistenceFilter@47b494ce, org.springframework.security.web.header.HeaderWriterFilter@53c9541c, org.springframework.security.web.authentication.logout.LogoutFilter@5a5a973c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@659ac28c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@38834000, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@67e628b, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@5c0f508b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@820b78a, org.springframework.security.web.session.SessionManagementFilter@600e2000, org.springframework.security.web.access.ExceptionTranslationFilter@2526d5f9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@464abed]
+2023-10-09 16:29:04.583  INFO 19660 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 16:29:05.421  INFO 19660 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 16:29:05.422  INFO 19660 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 16:29:05.424  INFO 19660 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2023-10-09 16:29:05.477  INFO 19660 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 16:29:05.491  INFO 19660 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 11.822 seconds (JVM running for 13.466)
+2023-10-09 16:29:06 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 16:29:06.905  INFO 19660 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:29:06.909  INFO 19660 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 16:29:06.917  INFO 19660 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 16:29:14.877  INFO 2960 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 2960 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 16:29:14.879  INFO 2960 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 16:29:16.588  INFO 2960 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 16:29:16.780  INFO 2960 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 84 ms. Found 7 JPA repository interfaces.
+2023-10-09 16:29:17.769  INFO 2960 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 16:29:18.142  INFO 2960 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 16:29:18.382  INFO 2960 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 16:29:18.538  INFO 2960 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 16:29:18.831  INFO 2960 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 16:29:19.358  INFO 2960 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 16:29:20.407  INFO 2960 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 16:29:20.421  INFO 2960 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:29:21.680  WARN 2960 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 16:29:21 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 16:29:22.004  WARN 2960 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:29:22.006  INFO 2960 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 16:29:22.006  WARN 2960 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:29:22.007  INFO 2960 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 16:29:22.007  WARN 2960 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:29:22.007  INFO 2960 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 16:29:22.197  INFO 2960 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@247a8411, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4c05f83b, org.springframework.security.web.context.SecurityContextPersistenceFilter@67e628b, org.springframework.security.web.header.HeaderWriterFilter@47b494ce, org.springframework.security.web.authentication.logout.LogoutFilter@662061e3, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@659ac28c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7bf16972, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@46610fc9, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@5c0f508b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@820b78a, org.springframework.security.web.session.SessionManagementFilter@38834000, org.springframework.security.web.access.ExceptionTranslationFilter@78c23ade, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@464abed]
+2023-10-09 16:29:22.977  INFO 2960 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 16:29:23.763  INFO 2960 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 16:29:23.764  INFO 2960 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 16:29:23.766  INFO 2960 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2023-10-09 16:29:23.825  INFO 2960 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 16:29:23.837  INFO 2960 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 9.456 seconds (JVM running for 11.401)
+2023-10-09 16:29:26 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 16:29:26.566  INFO 2960 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:29:26.570  INFO 2960 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 16:29:26.579  INFO 2960 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 16:29:57.704  INFO 14116 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 14116 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 16:29:57.706  INFO 14116 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 16:29:58.933  INFO 14116 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 16:29:59.045  INFO 14116 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 96 ms. Found 7 JPA repository interfaces.
+2023-10-09 16:30:00.088  INFO 14116 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 16:30:00.434  INFO 14116 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 16:30:00.661  INFO 14116 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 16:30:00.788  INFO 14116 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 16:30:01.183  INFO 14116 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 16:30:01.439  INFO 14116 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 16:30:02.570  INFO 14116 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 16:30:02.587  INFO 14116 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:30:03.766  WARN 14116 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 16:30:04 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 16:30:04.120  WARN 14116 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:30:04.122  INFO 14116 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 16:30:04.123  WARN 14116 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:30:04.123  INFO 14116 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 16:30:04.123  WARN 14116 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:30:04.123  INFO 14116 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 16:30:04.283  INFO 14116 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@18adc20a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7e7987b8, org.springframework.security.web.context.SecurityContextPersistenceFilter@23ade612, org.springframework.security.web.header.HeaderWriterFilter@4724b2c1, org.springframework.security.web.authentication.logout.LogoutFilter@78c23ade, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@58be583e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@68e094c9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7f958d4a, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@123e9094, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6bcfb561, org.springframework.security.web.session.SessionManagementFilter@537a8915, org.springframework.security.web.access.ExceptionTranslationFilter@394e504d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@285ac40b]
+2023-10-09 16:30:05.163  INFO 14116 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 16:30:05.976  INFO 14116 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 16:30:05.977  INFO 14116 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 16:30:05.979  INFO 14116 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2023-10-09 16:30:06.040  INFO 14116 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 16:30:06.053  INFO 14116 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 8.829 seconds (JVM running for 10.422)
+2023-10-09 16:30:07 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 16:30:07.143  INFO 14116 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:30:07.147  INFO 14116 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 16:30:07.154  INFO 14116 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 16:30:25 DEBUG SecurityController:56 - /login [get-mapping]
+2023-10-09 16:31:07.681  INFO 10880 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 10880 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 16:31:07.683  INFO 10880 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 16:31:08.888  INFO 10880 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 16:31:08.991  INFO 10880 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 88 ms. Found 7 JPA repository interfaces.
+2023-10-09 16:31:09.946  INFO 10880 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 16:31:10.292  INFO 10880 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 16:31:10.511  INFO 10880 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 16:31:10.664  INFO 10880 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 16:31:11.025  INFO 10880 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 16:31:11.260  INFO 10880 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 16:31:12.376  INFO 10880 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 16:31:12.389  INFO 10880 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:31:13.567  WARN 10880 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 16:31:13 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 16:31:13.889  WARN 10880 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:31:13.890  INFO 10880 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 16:31:13.891  WARN 10880 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:31:13.892  INFO 10880 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 16:31:13.892  WARN 10880 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:31:13.892  INFO 10880 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 16:31:14.042  INFO 10880 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@464abed, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1af78e37, org.springframework.security.web.context.SecurityContextPersistenceFilter@459df48d, org.springframework.security.web.header.HeaderWriterFilter@7b364f47, org.springframework.security.web.authentication.logout.LogoutFilter@1fdd5517, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@75c3584e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@15d2ea6b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@600e2000, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@36e98434, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5c46a957, org.springframework.security.web.session.SessionManagementFilter@7c93e69, org.springframework.security.web.access.ExceptionTranslationFilter@47224d5d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7e7987b8]
+2023-10-09 16:31:14.856  INFO 10880 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 16:31:15.622  INFO 10880 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 16:31:15.623  INFO 10880 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 16:31:15.624  INFO 10880 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-10-09 16:31:15.672  INFO 10880 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 16:31:15.686  INFO 10880 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 8.499 seconds (JVM running for 10.177)
+2023-10-09 16:31:16 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 16:31:16.769  INFO 10880 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:31:16.772  INFO 10880 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 16:31:16.778  INFO 10880 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 16:31:43.472  INFO 7716 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 7716 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 16:31:43.474  INFO 7716 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 16:31:44.659  INFO 7716 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 16:31:44.765  INFO 7716 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 87 ms. Found 7 JPA repository interfaces.
+2023-10-09 16:31:45.760  INFO 7716 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 16:31:46.177  INFO 7716 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 16:31:46.433  INFO 7716 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 16:31:46.577  INFO 7716 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 16:31:46.907  INFO 7716 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 16:31:47.135  INFO 7716 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 16:31:48.168  INFO 7716 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 16:31:48.181  INFO 7716 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:31:49.439  WARN 7716 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 16:31:49 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 16:31:49.812  WARN 7716 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:31:49.813  INFO 7716 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 16:31:49.814  WARN 7716 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:31:49.814  INFO 7716 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 16:31:49.814  WARN 7716 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:31:49.814  INFO 7716 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 16:31:49.986  INFO 7716 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5d10df04, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@56d3af4d, org.springframework.security.web.context.SecurityContextPersistenceFilter@790f4933, org.springframework.security.web.header.HeaderWriterFilter@5c8d631, org.springframework.security.web.authentication.logout.LogoutFilter@6ca30886, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6bcfb561, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3fc14dc0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@552b15f6, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@b53ce18, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@43b7bd5a, org.springframework.security.web.session.SessionManagementFilter@4e4c05a0, org.springframework.security.web.access.ExceptionTranslationFilter@7e366c6f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@40f15786]
+2023-10-09 16:31:50.779  INFO 7716 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 16:31:51.577  INFO 7716 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 16:31:51.578  INFO 7716 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 16:31:51.580  INFO 7716 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2023-10-09 16:31:51.623  INFO 7716 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 16:31:51.633  INFO 7716 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 8.672 seconds (JVM running for 10.324)
+2023-10-09 16:31:52 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 16:31:52.712  INFO 7716 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:31:52.715  INFO 7716 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 16:31:52.720  INFO 7716 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-09 16:32:10.921  INFO 16696 --- [main] n.pack.controllers.ViewControllerTest    : Starting ViewControllerTest using Java 20.0.1 on ws001 with PID 16696 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-09 16:32:10.923  INFO 16696 --- [main] n.pack.controllers.ViewControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2023-10-09 16:32:12.109  INFO 16696 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-09 16:32:12.210  INFO 16696 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 87 ms. Found 7 JPA repository interfaces.
+2023-10-09 16:32:13.211  INFO 16696 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-09 16:32:13.601  INFO 16696 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-09 16:32:13.840  INFO 16696 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-09 16:32:13.988  INFO 16696 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-09 16:32:14.346  INFO 16696 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-09 16:32:14.603  INFO 16696 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-09 16:32:15.723  INFO 16696 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-09 16:32:15.738  INFO 16696 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:32:16.954  WARN 16696 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-09 16:32:17 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-09 16:32:17.283  WARN 16696 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:32:17.284  INFO 16696 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-09 16:32:17.285  WARN 16696 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:32:17.285  INFO 16696 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-09 16:32:17.286  WARN 16696 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-09 16:32:17.286  INFO 16696 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-09 16:32:17.458  INFO 16696 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3cd28235, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@75312c94, org.springframework.security.web.context.SecurityContextPersistenceFilter@2cd877d3, org.springframework.security.web.header.HeaderWriterFilter@6ca30886, org.springframework.security.web.authentication.logout.LogoutFilter@1f6ba47b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2569afda, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6318ff9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@eb1e868, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@1b984ba5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@140cfc5f, org.springframework.security.web.session.SessionManagementFilter@3d1c8f35, org.springframework.security.web.access.ExceptionTranslationFilter@600e2000, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@242ebd3b]
+2023-10-09 16:32:18.287  INFO 16696 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-09 16:32:19.049  INFO 16696 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-09 16:32:19.050  INFO 16696 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-09 16:32:19.051  INFO 16696 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-10-09 16:32:19.102  INFO 16696 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-09 16:32:19.122  INFO 16696 --- [main] n.pack.controllers.ViewControllerTest    : Started ViewControllerTest in 8.716 seconds (JVM running for 10.352)
+2023-10-09 16:32:20 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-09 16:32:20.270  INFO 16696 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-09 16:32:20.274  INFO 16696 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-09 16:32:20.293  INFO 16696 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

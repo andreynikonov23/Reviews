@@ -77,6 +77,92 @@ public class ViewControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(xpath("/html/body/div[2]/div[1]/div[3]/div[1]/h1").string("TestReview1"))
                 .andExpect(xpath("/html/body/div[2]/div[1]/div[1]/video/source").exists())
-                .andExpect(xpath("/html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div/div[2]").string("6.0"));
+                .andExpect(xpath("/html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div/div[2]").string("6.0"))
+                .andExpect(xpath("/html/body/div[2]/div[2]/div/div[3]/div[1]/div/div[2]/span").string("testComment1"))
+                .andExpect(xpath("/html/body/div[2]/div[2]/div/div[3]/div[2]/div/div[2]/span[1]/a").string("AdminNickname"))
+                .andExpect(xpath("/html/body/div[2]/div[1]/div[2]/div[2]/div[1]/span[2]/span/span").doesNotExist());
+    }
+    @Test
+    @WithUserDetails("user")
+    public void alienReviewWithUser() throws Exception{
+        this.mockMvc.perform(get("/1"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(xpath("/html/body/div[2]/div[1]/div[3]/div[1]/h1").string("TestReview1"))
+                .andExpect(xpath("/html/body/div[2]/div[1]/div[1]/video/source").exists())
+                .andExpect(xpath("/html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div/div[2]").string("3"))
+                .andExpect(xpath("/html/body/div[2]/div[2]/div/div[3]/div[1]/div/div[2]/span").string("testComment1"))
+                .andExpect(xpath("/html/body/div[2]/div[2]/div/div[3]/div[2]/div/div[2]/span[1]/a").string("AdminNickname"))
+                .andExpect(xpath("/html/body/div[2]/div[1]/div[2]/div[2]/div[1]/span[2]/span/span").doesNotExist());
+    }
+    @Test
+    @WithUserDetails("admin")
+    public void alienReviewWithAdmin() throws Exception{
+        this.mockMvc.perform(get("/2"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(xpath("/html/body/div[2]/div[1]/div[3]/div[1]/h1").string("TestReview2"))
+                .andExpect(xpath("/html/body/div[2]/div[1]/div[1]/video/source").exists())
+                .andExpect(xpath("/html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div/div[2]").string("10"))
+                .andExpect(xpath("/html/body/div[2]/div[2]/div/div[3]/div[1]/div/div[2]/span").string("testComment3"))
+                .andExpect(xpath("/html/body/div[2]/div[1]/div[2]/div[2]/div[1]/span[2]/span/span").exists());
+    }
+    @Test
+    @WithUserDetails("user")
+    public void ownerReviewWithUser() throws Exception{
+        this.mockMvc.perform(get("/2"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(xpath("/html/body/div[2]/div[1]/div[3]/div[1]/h1").string("TestReview2"))
+                .andExpect(xpath("/html/body/div[2]/div[1]/div[1]/video/source").exists())
+                .andExpect(xpath("/html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div/div[2]").string("7.5"))
+                .andExpect(xpath("/html/body/div[2]/div[2]/div/div[3]/div[1]/div/div[2]/span").string("testComment3"))
+                .andExpect(xpath("/html/body/div[2]/div[1]/div[2]/div[2]/div[1]/span[2]/span/a").exists())
+                .andExpect(xpath("/html/body/div[2]/div[1]/div[2]/div[2]/div[1]/span[2]/span/span").exists());
+    }
+    @Test
+    @WithUserDetails("admin")
+    public void ownerReviewWithAdmin() throws Exception{
+        this.mockMvc.perform(get("/1"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(xpath("/html/body/div[2]/div[1]/div[3]/div[1]/h1").string("TestReview1"))
+                .andExpect(xpath("/html/body/div[2]/div[1]/div[1]/video/source").exists())
+                .andExpect(xpath("/html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div/div[2]").string("9"))
+                .andExpect(xpath("/html/body/div[2]/div[2]/div/div[3]/div[1]/div/div[2]/span").string("testComment1"))
+                .andExpect(xpath("/html/body/div[2]/div[2]/div/div[3]/div[2]/div/div[2]/span[1]/a").string("AdminNickname"))
+                .andExpect(xpath("/html/body/div[2]/div[1]/div[2]/div[2]/div[1]/span[2]/span/a").exists())
+                .andExpect(xpath("/html/body/div[2]/div[1]/div[2]/div[2]/div[1]/span[2]/span/span").exists());
+    }
+    @Test
+    public void alienProfile() throws Exception{
+        this.mockMvc.perform(get("/user?id=2"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(xpath("/html/body/div[3]/div/div/div[1]/div[2]/div[1]/div[2]").string("UserNickname"))
+                .andExpect(xpath("/html/body/div[3]/div/div/div[2]/div[2]/div").nodeCount(3))
+                .andExpect(xpath("/html/body/div[3]/div/div/div[2]/div[3]/div[1]/div/div/div/div/div[3]/div/span").doesNotExist());
+    }
+    @Test
+    @WithUserDetails("admin")
+    public void alienProfileWithAdmin() throws Exception{
+        this.mockMvc.perform(get("/user?id=2"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(xpath("/html/body/div[3]/div/div/div[1]/div[2]/div[1]/div[3]").string("UserNickname"))
+                .andExpect(xpath("/html/body/div[3]/div/div/div[2]/div[3]/div").nodeCount(3))
+                .andExpect(xpath("/html/body/div[3]/div/div/div[1]/div[2]/div[3]/div/a").string("Заблокировать пользователя"))
+                .andExpect(xpath("/html/body/div[3]/div/div/div[2]/div[3]/div[1]/div/div/div/div/div[3]/div/span").exists());
+    }
+    @Test
+    @WithUserDetails("user")
+    public void adminProfile() throws Exception{
+        this.mockMvc.perform(get("/user?id=1"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(xpath("/html/body/div[3]/div/div/div[1]/div[2]/div[1]/div[3]").string("AdminNickname"))
+                .andExpect(xpath("/html/body/div[3]/div/div/div[1]/div[2]/div[2]").string("Да я админ, базару нет, но подписчики-то вы, без вас этот группа ничто"))
+                .andExpect(xpath("/html/body/div[3]/div/div/div[2]/div[3]/div").nodeCount(3))
+                .andExpect(xpath("/html/body/div[3]/div/div/div[2]/div[3]/div[1]/div/div/div/div/div[3]/div/span").doesNotExist());
     }
 }

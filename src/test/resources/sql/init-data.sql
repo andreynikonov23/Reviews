@@ -22,5 +22,5 @@ INSERT INTO reviews (id, user_id, name, trailer_url, poster, film_name, year, di
 INSERT INTO ratings (id, user_id, review, rating) VALUES (1,1, 1, 9), (2,2, 1, 3), (3,3, 1, 6), (4,1, 2, 10), (6,3, 2, 5), (7,1, 3, 9), (8,2, 3, 1),
                                                     (9,3, 3, 4), (10,1, 4, 9), (11,2, 4, 7), (12,3, 4, 2), (13,1, 5, 6), (15,3, 5, 3), (16, 2, 8, 10);
 INSERT INTO comments (id,user_id, comment, answer, review_id, date) VALUES (1,1, 'testComment1', null, 1, '2023-01-06 00:12:02'), (2,2, 'testComment2', 1, 1, '2023-01-06 04:02:23'),
-                                                                        (3,3, 'testComment3', 1, 2, '2023-02-06 14:33:24'), (4,1, 2, null, 2, '2023-03-06 22:33:24'),
+                                                                        (3,3, 'testComment3', null, 2, '2023-02-06 14:33:24'), (4,1, 2, null, 2, '2023-03-06 22:33:24'),
                                                                         (5,1, 2, 1, 2, '2023-03-06 22:35:11');
