@@ -102,15 +102,19 @@ public class ViewController {
     @GetMapping("/edit-review")
     @PreAuthorize("hasAuthority('crud')")
     public String editReview(@RequestParam("id") int id, Model model){
-        setAuthorizedUserAsModel(model);
+        User user = setAuthorizedUserAsModel(model);
 
         Review review = reviewService.findById(id);
-        List<Country> countries = countryService.findByAll();
+        if (review.getUser().equals(user)){
+            List<Country> countries = countryService.findByAll();
 
-        model.addAttribute("review", review);
-        model.addAttribute("countries", countries);
+            model.addAttribute("review", review);
+            model.addAttribute("countries", countries);
 
-        return "postReview";
+            return "postReview";
+        }
+
+        return "redirect:/";
     }
 
     @PostMapping("/save")
