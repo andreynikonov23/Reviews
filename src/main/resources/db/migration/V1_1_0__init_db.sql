@@ -14,7 +14,7 @@ create table if not exists country (
     id serial not null,
     rating int4,
     review int4,
-    "user" int4,
+    user_id int4,
     primary key (id));
 create table if not exists reviews (
     id  serial not null,
@@ -51,7 +51,7 @@ alter table comments add constraint answer foreign key (answer) references comme
 alter table comments add constraint reviews_id foreign key (review_id) references reviews on delete cascade;
 alter table comments add constraint comments_users_id_fkey foreign key (user_id) references users on delete cascade;
 alter table ratings add constraint review foreign key (review) references reviews on delete cascade;
-alter table ratings add constraint "user" foreign key ("user") references users on delete cascade;
+alter table ratings add constraint "user" foreign key (user_id) references users on delete cascade;
 alter table reviews add constraint reviews_country_id_fkey foreign key (country_id) references country on delete cascade;
 alter table reviews add constraint reviews_users_id_fkey foreign key (user_id) references users on delete cascade;
 alter table users add constraint users_role_id_fkey foreign key (role_id) references role on delete cascade;
