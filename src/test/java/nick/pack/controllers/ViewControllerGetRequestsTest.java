@@ -10,9 +10,8 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 
 
-import java.util.List;
-
 import static org.hamcrest.Matchers.*;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestBuilders.formLogin;
 import static org.springframework.security.test.web.servlet.response.SecurityMockMvcResultMatchers.authenticated;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -23,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @TestPropertySource("/application-test.properties")
 @AutoConfigureMockMvc
 @Sql(value = {"/sql/init-data.sql"}, executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-public class ViewControllerTest {
+public class ViewControllerGetRequestsTest {
     @Autowired
     private MockMvc mockMvc;
 
@@ -244,7 +243,7 @@ public class ViewControllerTest {
     }
     @Test
     public void editReviewWithGuest() throws Exception{
-        this.mockMvc.perform(get("/edit-review"))
+        this.mockMvc.perform(get("/edit-review").param("id", "2"))
                 .andDo(print())
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("http://localhost/login"));
@@ -287,11 +286,17 @@ public class ViewControllerTest {
                 .andExpect(xpath("/html/body/div[1]/aside/div/div[2]/div/div[1]/img[@src='/image/banned.jpg']").exists());
     }
     @Test
-    @WithUserDetails("users")
-    public void usersTestWithNotAdmin() throws Exception{
+    public void usersWithGuest() throws Exception{
         this.mockMvc.perform(get("/users"))
                 .andDo(print())
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("http://localhost/login"));
+    }
+    @Test
+    @WithUserDetails("user")
+    public void usersWithUser() throws Exception{
+        this.mockMvc.perform(get("/users"))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
     }
 }
