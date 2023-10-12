@@ -47,12 +47,12 @@ create table if not exists users (
     role_id int4,
     status_id int4,
     primary key (id));
-alter table comments add constraint answer foreign key (answer) references comments;
-alter table comments add constraint reviews_id foreign key (review_id) references reviews;
-alter table comments add constraint comments_users_id_fkey foreign key (user_id) references users;
-alter table ratings add constraint review foreign key (review) references reviews;
-alter table ratings add constraint "user" foreign key ("user") references users;
-alter table reviews add constraint reviews_country_id_fkey foreign key (country_id) references country;
-alter table reviews add constraint reviews_users_id_fkey foreign key (user_id) references users;
-alter table users add constraint users_role_id_fkey foreign key (role_id) references role;
-alter table users add constraint users_status_id_fkey foreign key (status_id) references status;
+alter table comments add constraint answer foreign key (answer) references comments on delete cascade;
+alter table comments add constraint reviews_id foreign key (review_id) references reviews on delete cascade;
+alter table comments add constraint comments_users_id_fkey foreign key (user_id) references users on delete cascade;
+alter table ratings add constraint review foreign key (review) references reviews on delete cascade;
+alter table ratings add constraint "user" foreign key ("user") references users on delete cascade;
+alter table reviews add constraint reviews_country_id_fkey foreign key (country_id) references country on delete cascade;
+alter table reviews add constraint reviews_users_id_fkey foreign key (user_id) references users on delete cascade;
+alter table users add constraint users_role_id_fkey foreign key (role_id) references role on delete cascade;
+alter table users add constraint users_status_id_fkey foreign key (status_id) references status on delete cascade;
