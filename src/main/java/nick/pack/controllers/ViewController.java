@@ -120,10 +120,18 @@ public class ViewController {
     @PostMapping("/save")
     @PreAuthorize("hasAuthority('crud')")
     public String saveReview(@ModelAttribute("review") Review review, Model model){
+        System.out.println("Работает");
         User user = setAuthorizedUserAsModel(model);
 
         if (review.getUser() == null){
+            Review testReview = reviewService.findById(review.getId());
+            if (testReview != null){
+                return "redirect:/";
+            }
             review.setUser(user);
+        } else if (!(review.getUser().equals(user))) {
+            System.out.println("Пизда");
+            return "redirect:/";
         }
 
         reviewService.saveAndFlush(review);
@@ -131,6 +139,7 @@ public class ViewController {
         return "redirect:/user?id=" + user.getId();
 
     }
+
 
     @PostMapping("/delete")
     @PreAuthorize("hasAuthority('crud')")

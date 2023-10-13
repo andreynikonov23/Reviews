@@ -20,6 +20,11 @@ public class Status {
     @OneToMany(mappedBy = "status")
     Set<User> userSet;
 
+    public Status(int id, StatusEnum status) {
+        this.id = id;
+        this.status = status;
+    }
+
     public Status(StatusEnum status) {
         this.status = status;
     }

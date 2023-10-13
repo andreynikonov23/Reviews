@@ -1,6 +1,5 @@
 package nick.pack.model;
 
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -19,6 +18,11 @@ public class Country {
 
     @OneToMany (mappedBy = "country")
     Set<Review> reviewSet;
+
+    public Country(int id, String countryName) {
+        this.id = id;
+        this.countryName = countryName;
+    }
 
     public Country(String countryName) {
         this.countryName = countryName;
