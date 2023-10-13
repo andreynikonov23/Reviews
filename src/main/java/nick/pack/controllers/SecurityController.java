@@ -256,15 +256,6 @@ public class SecurityController {
 
 
 
-
-
-
-
-
-
-
-
-
     public String generateCode(){
         String chars = "0123456789";
 

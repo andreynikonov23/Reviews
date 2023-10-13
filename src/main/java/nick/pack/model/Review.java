@@ -1,5 +1,6 @@
 package nick.pack.model;
 
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -7,6 +8,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "reviews")
 public class Review {
