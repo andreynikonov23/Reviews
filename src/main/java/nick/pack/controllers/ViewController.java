@@ -129,6 +129,7 @@ public class ViewController {
         reviewService.saveAndFlush(review);
 
         return "redirect:/user?id=" + user.getId();
+
     }
 
     @PostMapping("/delete")
