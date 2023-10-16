@@ -124,4 +124,13 @@ public class ViewControllerPostRequestsTest {
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/error"));
     }
+    @Test
+    public void deleteTestWithGuest() throws Exception{
+        this.mockMvc.perform(post("/delete")
+                        .content("id=7")
+                        .contentType("application/x-www-form-urlencoded"))
+                .andDo(print())
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("http://localhost/login"));
+    }
 }

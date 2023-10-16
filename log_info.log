@@ -23527,3 +23527,34 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving template [404 N
 2023-10-16 11:56:10.369  INFO 7548 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-10-16 11:56:10.372  INFO 7548 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-10-16 11:56:10.379  INFO 7548 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-16 11:58:36.328  INFO 7096 --- [main] n.p.c.ViewControllerPostRequestsTest     : Starting ViewControllerPostRequestsTest using Java 20.0.1 on ws001 with PID 7096 (started by nikonov.as in C:\Users\nikonov.as\IdeaProjects\Reviews)
+2023-10-16 11:58:36.330  INFO 7096 --- [main] n.p.c.ViewControllerPostRequestsTest     : No active profile set, falling back to 1 default profile: "default"
+2023-10-16 11:58:37.492  INFO 7096 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-16 11:58:37.593  INFO 7096 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 85 ms. Found 7 JPA repository interfaces.
+2023-10-16 11:58:38.539  INFO 7096 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-16 11:58:38.918  INFO 7096 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-16 11:58:39.159  INFO 7096 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-16 11:58:39.283  INFO 7096 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-16 11:58:39.643  INFO 7096 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-16 11:58:39.877  INFO 7096 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-16 11:58:41.183  INFO 7096 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-16 11:58:41.196  INFO 7096 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-16 11:58:42.318  WARN 7096 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-16 11:58:42 DEBUG SecurityConfig:58 - performing security configuration with parameters (csrf=disable
+2023-10-16 11:58:42.659  WARN 7096 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-16 11:58:42.660  INFO 7096 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-16 11:58:42.661  WARN 7096 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-16 11:58:42.662  INFO 7096 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-16 11:58:42.662  WARN 7096 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-16 11:58:42.662  INFO 7096 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-16 11:58:42.859  INFO 7096 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@41433530, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7c751692, org.springframework.security.web.context.SecurityContextPersistenceFilter@38834000, org.springframework.security.web.header.HeaderWriterFilter@4f5bfbca, org.springframework.security.web.authentication.logout.LogoutFilter@3140ad41, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7d95a717, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6a6a3fc4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7bf16972, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@598f1faf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2569afda, org.springframework.security.web.session.SessionManagementFilter@585672dd, org.springframework.security.web.access.ExceptionTranslationFilter@5c8d631, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@43b7bd5a]
+2023-10-16 11:58:43.602  INFO 7096 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-16 11:58:44.398  INFO 7096 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-16 11:58:44.399  INFO 7096 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-16 11:58:44.400  INFO 7096 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-10-16 11:58:44.442  INFO 7096 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-16 11:58:44.456  INFO 7096 --- [main] n.p.c.ViewControllerPostRequestsTest     : Started ViewControllerPostRequestsTest in 8.606 seconds (JVM running for 10.297)
+2023-10-16 11:58:44 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-16 11:58:44.848  INFO 7096 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-16 11:58:44.851  INFO 7096 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-16 11:58:44.858  INFO 7096 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
