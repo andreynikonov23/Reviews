@@ -3,6 +3,7 @@ package nick.pack.controllers;
 import nick.pack.model.*;
 import nick.pack.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -96,7 +97,7 @@ public class ViewController {
         model.addAttribute("review", review);
         model.addAttribute("countries", countries);
 
-        return "postReview";
+        return "addReview";
     }
 
     @GetMapping("/edit-review")
@@ -110,27 +111,39 @@ public class ViewController {
 
             model.addAttribute("review", review);
             model.addAttribute("countries", countries);
+            model.addAttribute("edit", true);
 
-            return "postReview";
+            return "editReview";
         }
 
         return "redirect:/";
     }
 
-    @PostMapping("/save")
+    @PostMapping("/add")
+    @PreAuthorize("hasAuthority('crud')")
+    public String addReview(@ModelAttribute("review") Review review, Model model){
+        User user = setAuthorizedUserAsModel(model);
+        review.setUser(user);
+        reviewService.saveAndFlush(review);
+
+        return "redirect:/user?id=" + user.getId();
+
+    }
+    @PostMapping("/edit")
     @PreAuthorize("hasAuthority('crud')")
     public String saveReview(@ModelAttribute("review") Review review, Model model){
-        System.out.println("Работает");
         User user = setAuthorizedUserAsModel(model);
 
         if (review.getUser() == null){
-            Review testReview = reviewService.findById(review.getId());
-            if (testReview != null){
-                return "redirect:/";
-            }
-            review.setUser(user);
-        } else if (!(review.getUser().equals(user))) {
-            System.out.println("Пизда");
+            return "redirect:/";
+        }
+
+        if (!(review.getUser().equals(user))){
+            return "redirect:/";
+        }
+
+        Review testReview = reviewService.findById(review.getId());
+        if (!(testReview.getUser().equals(review.getUser()))){
             return "redirect:/";
         }
 
@@ -143,11 +156,16 @@ public class ViewController {
 
     @PostMapping("/delete")
     @PreAuthorize("hasAuthority('crud')")
-    public String deleteReview(@ModelAttribute("id") Integer id){
+    public String deleteReview(@ModelAttribute("id") Integer id, Model model){
+        User user = setAuthorizedUserAsModel(model);
+
         Review review = reviewService.findById(id);
+        if (!(review.getUser().equals(user))){
+            return "redirect:/error";
+        }
         reviewService.delete(review);
 
-        return "redirect:/";
+        return "redirect:/user?id=" + user.getId();
     }
 
     @GetMapping("/users")

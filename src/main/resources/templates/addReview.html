@@ -5,7 +5,7 @@
         <div class="wrapper" style="background-color: #c6c6c6;">
             <header th:insert="parts/layouts :: header"></header>
             <div class="container"  style="background-color: #fff;">
-                <form method="post" action="/save" th:object="${review}" class="crud-reviews">
+                <form method="post" action="/add" th:object="${review}" class="crud-reviews">
                     <div class="set-trailer-url">
                         <label for="trailerUrl" class="set-trailer-label">Трейлер</label>
                         <input type="text" placeholder="URL" id="trailerUrl" name="trailerUrl" th:field="*{trailerUrl}"/>

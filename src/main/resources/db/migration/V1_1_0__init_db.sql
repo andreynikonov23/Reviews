@@ -23,7 +23,7 @@ create table if not exists reviews (
     film_name varchar(255),
     name varchar(50),
     poster varchar(300),
-    text varchar(255),
+    text text,
     trailer_url varchar(100),
     year int4,
     country_id int4,

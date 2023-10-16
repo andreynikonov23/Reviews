@@ -1,11 +1,6 @@
 package nick.pack.controllers;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import nick.pack.model.*;
-import nick.pack.service.ReviewService;
-import nick.pack.service.UserService;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -32,7 +27,7 @@ public class ViewControllerPostRequestsTest {
     @Test
     @WithUserDetails("user")
     public void createReviewTestWithAuthority() throws Exception{
-        this.mockMvc.perform(post("/save")
+        this.mockMvc.perform(post("/add")
                         .content(CREATE_BODY)
                         .contentType("application/x-www-form-urlencoded"))
                 .andDo(print())
@@ -46,8 +41,8 @@ public class ViewControllerPostRequestsTest {
     @Test
     @WithUserDetails("admin")
     public void editReviewTest() throws Exception {
-        this.mockMvc.perform(post("/save")
-                        .content(EDIT_BODY)
+        this.mockMvc.perform(post("/edit")
+                        .content(EDIT_BODY + "&user=1")
                         .contentType("application/x-www-form-urlencoded"))
                 .andDo(print())
                 .andExpect(status().is3xxRedirection())
@@ -55,12 +50,22 @@ public class ViewControllerPostRequestsTest {
         this.mockMvc.perform(get("/user").param("id", "1"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(xpath("/html/body/div[3]/div/div/div[2]/div[3]/div[4]/div/div/div/div/a").string("TestEditReview"));
+                .andExpect(xpath("/html/body/div[3]/div/div/div[2]/div[3]/div[3]/div/div/div/div/a").string("TestEditReview"));
     }
     @Test
     @WithUserDetails ("user")
     public void editReviewTestWithAlienUser() throws Exception {
-        this.mockMvc.perform(post("/save")
+        this.mockMvc.perform(post("/edit")
+                        .content(EDIT_BODY + "&user=1")
+                        .contentType("application/x-www-form-urlencoded"))
+                .andDo(print())
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/"));
+    }
+    @Test
+    @WithUserDetails ("user")
+    public void editReviewTestWithoutAuthor() throws Exception {
+        this.mockMvc.perform(post("/edit")
                         .content(EDIT_BODY)
                         .contentType("application/x-www-form-urlencoded"))
                 .andDo(print())
@@ -68,18 +73,55 @@ public class ViewControllerPostRequestsTest {
                 .andExpect(redirectedUrl("/"));
     }
     @Test
-    public void saveReviewTestWithGuest() throws Exception {
-        this.mockMvc.perform(post("/save")
+    @WithUserDetails ("user")
+    public void editReviewTestWithAlienAuthor() throws Exception {
+        this.mockMvc.perform(post("/edit")
+                        .content(EDIT_BODY + "&user=2")
+                        .contentType("application/x-www-form-urlencoded"))
+                .andDo(print())
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/"));
+    }
+    @Test
+    public void addReviewTestWithGuest() throws Exception {
+        this.mockMvc.perform(post("/add")
                         .content(CREATE_BODY)
                         .contentType("application/x-www-form-urlencoded"))
                 .andDo(print())
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("http://localhost/login"));
     }
-//    @Test
-//    @WithUserDetails
-//    public void deleteReviewTestWithAuthority() throws Exception{
-//        this.mockMvc.perform(post("/delete")
-//                .content("id=1"))
-//    }
+    @Test
+    public void editReviewTestWithGuest() throws Exception{
+        this.mockMvc.perform(post("/edit")
+                        .content(EDIT_BODY + "&user=1")
+                        .contentType("application/x-www-form-urlencoded"))
+                .andDo(print())
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("http://localhost/login"));
+    }
+    @Test
+    @WithUserDetails("admin")
+    public void deleteTest() throws Exception{
+        this.mockMvc.perform(post("/delete")
+                        .content("id=7")
+                        .contentType("application/x-www-form-urlencoded"))
+                .andDo(print())
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/user?id=1"));
+        this.mockMvc.perform(get("/user").param("id", "1"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(xpath("/html/body/div[3]/div/div/div[2]/div[3]/div").nodeCount(2));
+    }
+    @Test
+    @WithUserDetails("user")
+    public void deleteTestWithAlienUser() throws Exception{
+        this.mockMvc.perform(post("/delete")
+                        .content("id=7")
+                        .contentType("application/x-www-form-urlencoded"))
+                .andDo(print())
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/error"));
+    }
 }
