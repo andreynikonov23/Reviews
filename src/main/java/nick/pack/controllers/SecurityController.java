@@ -186,6 +186,7 @@ public class SecurityController {
     }
 
     @GetMapping("/edit-profile")
+    @PreAuthorize("hasAuthority('crud')")
     public String editUserForm(Model model){
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.findUserByLogin(login);
@@ -241,6 +242,9 @@ public class SecurityController {
 
         User user = userService.findUserById(id);
 
+        if (user.isAdmin()){
+            return "redirect:/error";
+        }
         if(user.isActive()){
             user.setStatus(statusService.setBannedStatus());
             userService.saveAndFlush(user);

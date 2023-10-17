@@ -641,7 +641,7 @@ ALTER TABLE ONLY public.users
 --
 
 ALTER TABLE ONLY public.users
-    ADD CONSTRAINT users_status_id_fkey FOREIGN KEY (status_id) REFERENCES public.status(id) NOT VALID;
+    ADD CONSTRAINT users_status_id_fkey FOREIGN KEY (status_id) REFERENCES public.status(id);
 
 
 -- Completed on 2023-10-06 16:04:00

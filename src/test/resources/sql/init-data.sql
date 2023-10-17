@@ -1,7 +1,18 @@
 DELETE from comments;
 DELETE from ratings;
 DELETE from reviews;
+DELETE from country;
+DELETE from users;
+DELETE from role;
+DELETE from status;
 
+INSERT INTO role (id, name) VALUES (1, 'ADMIN'), (2, 'USER');
+INSERT INTO status (id, status) VALUES (1, 'ACTIVE'), (2, 'BANNED');
+INSERT INTO country (id, country_name) VALUES (1, 'США'), (2, 'Франция'), (3, 'СССР');
+INSERT INTO users (id, login, password, role_id, status_id, nickname, photo, email) VALUES
+                  (1, 'admin', '$2a$12$K91NDBeibhwvvRl.T1gP3OoxQyPsCZii/ladJoeeCWK9AwqnLIMxi', 1, 1, 'AdminNickname', 'icon.jpg', 'xxxkeep3rxxx@gmail.com'),
+                  (2, 'user', '$2a$12$K91NDBeibhwvvRl.T1gP3OoxQyPsCZii/ladJoeeCWK9AwqnLIMxi', 2, 1, 'UserNickname', null, 'andreynikonov13@yandex.ru'),
+                  (3, 'ban_user', '$2a$12$K91NDBeibhwvvRl.T1gP3OoxQyPsCZii/ladJoeeCWK9AwqnLIMxi', 2, 2, 'BannedUser', null, 'gogag51389@sesxe.com');
 INSERT INTO reviews (id, user_id, name, trailer_url, poster, film_name, year, director, country_id, cast_names, text) VALUES
                     (1, 1, 'TestReview1', 'https://www.film.ru/sites/default/files/trailers/1615784/Taxi-Driver-Trailer-rus.mp4',
                      'https://www.kino-teatr.ru/movie/posters/big/6/10716.jpg', 'testName1', '2023', 'testDirector1', 1, 'testCast1', 'text text text text text'),

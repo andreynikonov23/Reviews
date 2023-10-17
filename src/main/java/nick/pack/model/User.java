@@ -30,7 +30,7 @@ public class User {
     private String nick;
 
     @Column (name = "email")
-    @Email(message = "Недопустимый Email")
+    @Email(message = "*Недопустимый Email")
     @NotEmpty(message = "*Пустое поле Email")
     private String email;
 
