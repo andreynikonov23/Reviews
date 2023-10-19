@@ -759,7 +759,7 @@ CREATE INDEX users_index ON public.users USING btree (id, login, password, role_
 --
 
 ALTER TABLE ONLY public.comments
-    ADD CONSTRAINT answer FOREIGN KEY (answer) REFERENCES public.comments(id) NOT VALID;
+    ADD CONSTRAINT answer FOREIGN KEY (answer) REFERENCES public.comments(id) ON DELETE CASCADE ON UPDATE CASCADE NOT VALID;
 
 
 --
@@ -768,7 +768,7 @@ ALTER TABLE ONLY public.comments
 --
 
 ALTER TABLE ONLY public.comments
-    ADD CONSTRAINT comments_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users(id);
+    ADD CONSTRAINT comments_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users(id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 
 --
@@ -777,7 +777,7 @@ ALTER TABLE ONLY public.comments
 --
 
 ALTER TABLE ONLY public.ratings
-    ADD CONSTRAINT review FOREIGN KEY (review) REFERENCES public.reviews(id) NOT VALID;
+    ADD CONSTRAINT review FOREIGN KEY (review) REFERENCES public.reviews(id) ON DELETE CASCADE ON UPDATE CASCADE NOT VALID;
 
 
 --
@@ -786,7 +786,7 @@ ALTER TABLE ONLY public.ratings
 --
 
 ALTER TABLE ONLY public.comments
-    ADD CONSTRAINT review_id FOREIGN KEY (review_id) REFERENCES public.reviews(id) NOT VALID;
+    ADD CONSTRAINT review_id FOREIGN KEY (review_id) REFERENCES public.reviews(id) ON DELETE CASCADE ON UPDATE CASCADE NOT VALID;
 
 
 --
@@ -795,7 +795,7 @@ ALTER TABLE ONLY public.comments
 --
 
 ALTER TABLE ONLY public.reviews
-    ADD CONSTRAINT reviews_country_id_fkey FOREIGN KEY (country_id) REFERENCES public.country(id);
+    ADD CONSTRAINT reviews_country_id_fkey FOREIGN KEY (country_id) REFERENCES public.country(id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 
 --
@@ -804,7 +804,7 @@ ALTER TABLE ONLY public.reviews
 --
 
 ALTER TABLE ONLY public.reviews
-    ADD CONSTRAINT reviews_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users(id);
+    ADD CONSTRAINT reviews_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users(id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 
 --
@@ -813,7 +813,7 @@ ALTER TABLE ONLY public.reviews
 --
 
 ALTER TABLE ONLY public.spring_session_attributes
-    ADD CONSTRAINT spring_session_attributes_fk FOREIGN KEY (session_primary_id) REFERENCES public.spring_session(primary_id) ON DELETE CASCADE;
+    ADD CONSTRAINT spring_session_attributes_fk FOREIGN KEY (session_primary_id) REFERENCES public.spring_session(primary_id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 
 --
@@ -822,7 +822,7 @@ ALTER TABLE ONLY public.spring_session_attributes
 --
 
 ALTER TABLE ONLY public.ratings
-    ADD CONSTRAINT "user" FOREIGN KEY (user_id) REFERENCES public.users(id) NOT VALID;
+    ADD CONSTRAINT "user" FOREIGN KEY (user_id) REFERENCES public.users(id) ON DELETE CASCADE ON UPDATE CASCADE NOT VALID;
 
 
 --
@@ -831,7 +831,7 @@ ALTER TABLE ONLY public.ratings
 --
 
 ALTER TABLE ONLY public.users
-    ADD CONSTRAINT users_role_id_fkey FOREIGN KEY (role_id) REFERENCES public.role(id);
+    ADD CONSTRAINT users_role_id_fkey FOREIGN KEY (role_id) REFERENCES public.role(id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 
 -- Completed on 2023-10-17 09:32:42
