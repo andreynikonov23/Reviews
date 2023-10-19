@@ -1,4 +1,4 @@
-package nick.pack.controllers;
+package nick.pack.integration;
 
 import nick.pack.mail.MailSenderService;
 import nick.pack.model.*;

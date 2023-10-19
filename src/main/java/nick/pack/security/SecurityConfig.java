@@ -103,4 +103,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public ArrayList<User> confirmedUsers(){return new ArrayList<>();}
+
 }
