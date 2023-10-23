@@ -19,9 +19,9 @@ public class UserEditorDTO {
         this.password = password;
     }
 
-    public UserEditorDTO(User user, String nick, String photo) {
+    public UserEditorDTO(User user) {
         this.user = user;
-        this.nick = nick;
-        this.photo = photo;
+        this.nick = user.getNick();
+        this.photo = user.getPhoto();
     }
 }

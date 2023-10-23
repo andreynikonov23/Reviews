@@ -3,16 +3,16 @@ package nick.pack.utils;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.context.annotation.Bean;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ActivationCodeHashKeyDTO {
-    private String username;
+public class ActivationCodeDTO {
+    private String login;
     private String code;
 
-    public String getHashKey(){
-        return username + "-" + code;
+    //Unique key for unconfirmed users
+    public String getUniqueKey(){
+        return login + "-" + code;
     }
 }

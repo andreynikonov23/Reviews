@@ -17,10 +17,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 
-//Контроллер для обработки ajax-запросов
+//Controller for processing ajax requests
 @RestController
 public class AjaxController {
-    private static final Logger logger = Logger.getLogger(AjaxController.class);
     @Autowired
     private UserService userService;
     @Autowired
@@ -31,42 +30,30 @@ public class AjaxController {
     private CommentService commentService;
 
 
-    //Fetch-запрос для рейтинга
+    //Fetch-request for rating
     @PostMapping("/set-rating")
     @PreAuthorize("hasAuthority('crud')")
     public void setRating(@RequestParam ("id") int id, @RequestBody String requestBody){
-        try {
-            logger.debug("/set-rating [post-mapping] with requestParam: idReview=" + id + "& requestBody: " + requestBody);
+        User user = getAuthorityUser();
 
-            User user = getAuthorityUser();
+        Review review = reviewService.findById(id);
 
-            Review review = reviewService.findById(id);
+        int beginIndex = requestBody.indexOf(":") + 2;
+        int endIndex = requestBody.lastIndexOf("\"");
+        String valueStr = requestBody.substring(beginIndex, endIndex);
 
-            int beginIndex = requestBody.indexOf(":") + 2;
-            int endIndex = requestBody.lastIndexOf("\"");
-            String valueStr = requestBody.substring(beginIndex, endIndex);
-
-            Rating rating = new Rating(Integer.parseInt(valueStr), user, review);
-            logger.debug("save rating: " + rating + " in database");
-            ratingService.saveAndFlush(rating);
-        } catch (Exception e){
-            logger.error("/set-rating with requestParam: idReview=" + id + "& requestBody: " + requestBody);
-            e.printStackTrace();
-        }
-
+        Rating rating = new Rating(Integer.parseInt(valueStr), user, review);
+        ratingService.saveAndFlush(rating);
     }
 
 
-    //Fetch-запрос для комментариев
+    //Fetch-request for comment
     @PostMapping("/send-comment")
     @PreAuthorize("hasAuthority('crud')")
     public Comment sendComment(@RequestParam ("review") int id, @RequestBody CommentDTO commentDTO){
-        logger.debug("/send-comment [post-mapping] with requestParam: idReview=" + id + "& requestBody: " + commentDTO);
-
         LocalDateTime date = commentDTO.getDate();
         Review review = reviewService.findById(id);
         User user = getAuthorityUser();
-        logger.debug("via " + user);
 
         Comment comment = new Comment(commentDTO.getComment(), date, user, review);
 
@@ -82,10 +69,8 @@ public class AjaxController {
     }
 
 
-    //Возвращает объект авторизованного пользователя
+    //Return object authorization user
     public User getAuthorityUser(){
-        logger.info("get authority user from database...");
-        String login = SecurityContextHolder.getContext().getAuthentication().getName();
-        return userService.findUserByLogin(login);
+        return userService.findUserByLogin(SecurityContextHolder.getContext().getAuthentication().getName());
     }
 }

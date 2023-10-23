@@ -21,24 +21,16 @@ import javax.annotation.PreDestroy;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-//Класс конфигурации
+//Configuration class
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    //Logger
-    private static final Logger logger = Logger.getLogger(SecurityConfig.class);
     //Service
     private final UserService service;
     @Autowired
     public SecurityConfig(UserService service) {
         this.service = service;
-    }
-
-    //destroy-method
-    @PreDestroy
-    public void destroy(){
-        logger.debug("shutting down the server");
     }
 
 
@@ -58,7 +50,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        logger.debug("performing security configuration with parameters (csrf=disable");
         http.
                 csrf().disable().
                 authorizeRequests().

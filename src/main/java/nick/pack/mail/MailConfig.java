@@ -8,6 +8,7 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import java.util.Properties;
 
+//Configuration class for mail
 @Configuration
 public class MailConfig {
 
@@ -31,6 +32,7 @@ public class MailConfig {
 
 
 
+    //Configuration mail sender
     @Bean
     public JavaMailSender javaMailSender(){
         JavaMailSenderImpl javaMailSender = new JavaMailSenderImpl();

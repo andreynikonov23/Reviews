@@ -15,6 +15,7 @@ public class CommentDTO {
     private String comment;
     private String date;
 
+    //Getter with parse date string to the LocalDateTime
     public LocalDateTime getDate(){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         return LocalDateTime.parse(date, formatter);

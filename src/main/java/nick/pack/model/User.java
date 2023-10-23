@@ -179,12 +179,14 @@ public class User {
         return false;
     }
 
+    //Checking if this user is admin
     public boolean isAdmin(){
         if (this.role.getRoleName().equals(RoleEnum.ADMIN)){
             return true;
         }
         return false;
     }
+    //Checking if this user is active
     public boolean isActive() {
         if (this.status.getStatusEnum().equals(StatusEnum.ACTIVE)) {
             return true;

@@ -18,6 +18,8 @@ public class RoleService implements Find<Role, Integer> {
         this.repository = repository;
     }
 
+
+
     @Override
     public List<Role> findByAll() {
         return repository.findAll();
@@ -28,9 +30,11 @@ public class RoleService implements Find<Role, Integer> {
         return repository.findRoleById(integer);
     }
 
+    //Set USER role to the user
     public Role setUserRole(){
         return repository.findRoleById(1);
     }
+        //Set ADMIN role to the user
     public Role setAdminRole(){
         return repository.findRoleById(2);
     }

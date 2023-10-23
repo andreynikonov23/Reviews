@@ -1,11 +1,10 @@
+//Проверка паролей в поле "Пароль" и "Повторить пароль"
 function passwordValidator(){
     let password = document.getElementById("password");
     let repeatPassword = document.getElementById("password-repeat");
     let button = document.querySelector(".block-btn");
     let errorBlock = document.querySelector(".hidden");
 
-    console.log(password.value);
-    console.log(repeatPassword.value);
     if(password.value === repeatPassword.value && password.value !== '' && repeatPassword.value !== ''){
         button.disabled = false;
     } else{
@@ -22,13 +21,11 @@ function passwordValidator(){
     }
 }
 
-
+//Проверка заполнения поля Имя
 function profileValidator(){
     let nick = document.getElementById('nick');
     let button = document.getElementById('edit-btn');
     let errorBlock = document.querySelector('.hidden');
-
-    console.log(nick.value);
 
     if (nick.value === ''){
         errorBlock.style.display = 'block';
@@ -39,16 +36,5 @@ function profileValidator(){
         nick.style.borderColor = 'black';
         button.disabled = false;
 
-    }
-}
-
-function deleteProfileValidator(){
-    let button = document.querySelector('.yes');
-    let password = document.getElementById("password");
-
-    if(password.value === ''){
-        button.disabled = true;
-    } else {
-        button.disabled = false;
     }
 }

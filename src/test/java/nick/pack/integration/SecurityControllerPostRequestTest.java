@@ -124,7 +124,7 @@ public class SecurityControllerPostRequestTest {
         user.setRole(roleService.setUserRole());
         user.setStatus(statusService.setActiveStatus());
         Mockito.when(unconfirmedUsers.get("test-0000")).thenReturn(user);
-        String data = "code=0000&username=test";
+        String data = "code=0000&login=test";
 
         this.mockMvc.perform(post("/activate")
                             .contentType("application/x-www-form-urlencoded")
@@ -174,7 +174,7 @@ public class SecurityControllerPostRequestTest {
     }
     @Test
     public void recoverAccess() throws Exception {
-        String data = "code=0000&username=user";
+        String data = "code=0000&login=user";
         Mockito.when(unconfirmedUsers.get("user-0000")).thenReturn(userService.findUserById(2));
         this.mockMvc.perform(post("/recover-request")
                             .contentType("application/x-www-form-urlencoded")
@@ -185,7 +185,7 @@ public class SecurityControllerPostRequestTest {
     }
     @Test
     public void recoverAccessWithNotValidCode() throws Exception {
-        String data = "code=1111&username=user";
+        String data = "code=1111&login=user";
         Mockito.when(unconfirmedUsers.get("user-0000")).thenReturn(userService.findUserById(2));
         this.mockMvc.perform(post("/recover-request")
                         .contentType("application/x-www-form-urlencoded")

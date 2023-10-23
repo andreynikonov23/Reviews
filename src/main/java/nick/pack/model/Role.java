@@ -1,6 +1,5 @@
 package nick.pack.model;
 
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;

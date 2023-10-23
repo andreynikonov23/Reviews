@@ -16,8 +16,9 @@ public enum RoleEnum {
         this.permissions = permissions;
     }
 
+    //Get Set with authorities this role
     public Set<SimpleGrantedAuthority> getAuthorities(){
-        Set<SimpleGrantedAuthority> authorities = new HashSet<>();
+        Set<SimpleGrantedAuthority> authorities;
         authorities = permissions.stream().map(x -> new SimpleGrantedAuthority(x.getPermission())).collect(Collectors.toSet());
         return authorities;
     }

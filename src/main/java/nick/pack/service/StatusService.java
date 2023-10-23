@@ -29,10 +29,11 @@ public class StatusService implements Find<Status, Integer> {
         return repository.findStatusById(integer);
     }
 
+    //Set active status to the user
     public Status setActiveStatus(){
         return repository.findStatusById(1);
     }
-
+    //Set banned status to the user
     public Status setBannedStatus(){
         return repository.findStatusById(2);
     }

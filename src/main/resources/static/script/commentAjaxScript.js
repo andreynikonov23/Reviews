@@ -1,12 +1,12 @@
-console.log("CommentScript start")
-console.log(window.location.href);
+
 const reviewIdent = window.location.href.substring(window.location.href.lastIndexOf("/") + 1);
 console.log(reviewIdent);
 
+//sending comment in server
 async function sendComment(){
-    let noComment = document.querySelector('.no-comments');
-    if (noComment){
-        noComment.classList.remove('no-comments');
+    let noComments = document.querySelector('.no-comments');
+    if (noComments){
+        noComments.classList.remove('no-comments');
         let commentBlock = document.querySelector('.no-comment-text');
         commentBlock.textContent = "";
         commentBlock.classList.add("comments");
@@ -32,13 +32,11 @@ async function sendComment(){
 
     const data = await response.json();
     console.log(data.id);
-    //user info
+
     let userLink = document.querySelector('.account-link').href;
     let avatarIcon = document.querySelector('.avatar-icon').src;
     let nickname = document.querySelector('.authority-user-nick').innerHTML
 
-
-    //idComment
     let commentHtml;
     if (answer === ""){
         commentHtml =
@@ -93,33 +91,35 @@ async function sendComment(){
             "   </div>\n" +
             "<div/>";
     }
-
         comments.insertAdjacentHTML("beforeend", commentHtml);
         document.getElementById("commentField").value = "";
         cencelAnswer();
 }
-function dateFormatter(date){
-    let a = new Date(date);
-    let result = a.getFullYear() + "-";
-    if (a.getMonth() < 10){
-        result = result + "0" + a.getMonth() + "-";
+
+//format in valid date
+function dateFormatter(dateString){
+    let date = new Date(dateString);
+    let result = date.getFullYear() + "-";
+    if (date.getMonth() < 10){
+        result = result + "0" + date.getMonth() + "-";
     } else
-        result = result + a.getMonth() + "-"
-    if (a.getDate() < 10){
-        result = result + "0" + a.getDate() + " ";
+        result = result + date.getMonth() + "-"
+    if (date.getDate() < 10){
+        result = result + "0" + date.getDate() + " ";
     } else
-        result = result + a.getDate() + " ";
-    if (a.getHours() < 10){
-        result = result + "0" + a.getHours() + ":";
+        result = result + date.getDate() + " ";
+    if (date.getHours() < 10){
+        result = result + "0" + date.getHours() + ":";
     } else
-        result = result + a.getHours() + ":";
-    if (a.getMinutes() < 10){
-        result = result + "0" + a.getMinutes();
+        result = result + date.getHours() + ":";
+    if (date.getMinutes() < 10){
+        result = result + "0" + date.getMinutes();
     } else
-        result = result + a.getMinutes();
+        result = result + date.getMinutes();
     return result;
 }
 
+//int comment with answer
 function sendAnswer(spanElem){
     document.querySelector(".nickname-block").style.display='block';
     const nickname = document.querySelector(".nickname");
@@ -129,6 +129,8 @@ function sendAnswer(spanElem){
     document.getElementById("nickname-answer").value = spanElem.previousSibling.previousSibling.previousSibling.previousSibling.value;
     nickname.textContent=spanElem.previousSibling.previousSibling.previousSibling.previousSibling.value;
 }
+
+//clear answer field
 function cencelAnswer(){
     document.querySelector(".nickname-block").style.display='none';
     document.getElementById("idAnswer").value="";

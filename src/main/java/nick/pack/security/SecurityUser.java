@@ -2,6 +2,7 @@ package nick.pack.security;
 
 import nick.pack.model.StatusEnum;
 import nick.pack.model.User;
+import org.apache.log4j.Logger;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -58,8 +59,8 @@ public class SecurityUser implements UserDetails {
         return isActive;
     }
 
+    //Conversation nick.pack.model.User to User class Spring Security
     public static UserDetails fromUser(User user) {
-
         return new org.springframework.security.core.userdetails.User(
                 user.getLogin(),
                 user.getPassword(),

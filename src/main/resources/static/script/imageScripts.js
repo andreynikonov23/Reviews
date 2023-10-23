@@ -1,5 +1,4 @@
 let image = document.querySelector('.selected-avatar');
-console.log(image);
 
 function load(input){
     let file = input.files[0];
@@ -14,6 +13,5 @@ function load(input){
 
 function searchImage(){
     let url = document.getElementById('poster').value;
-    console.log(url);
     image.src = url;
 }

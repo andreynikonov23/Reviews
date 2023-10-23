@@ -5,9 +5,8 @@ import nick.pack.model.User;
 import nick.pack.service.RoleService;
 import nick.pack.service.StatusService;
 import nick.pack.service.UserService;
-import nick.pack.utils.ActivationCodeHashKeyDTO;
+import nick.pack.utils.ActivationCodeDTO;
 import nick.pack.utils.UserEditorDTO;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -29,13 +28,11 @@ import java.nio.file.Paths;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.UUID;
 
+//Controller for working with authorization and accounts
 @Controller
 public class SecurityController {
-    private static final Logger logger = Logger.getLogger(SecurityController.class);
-
     @Autowired
     private UserService userService;
     @Autowired
@@ -47,84 +44,131 @@ public class SecurityController {
     @Autowired
     private MailSenderService mailSender;
 
-    //Неподтвержденные аккаунты
     @Autowired
     private HashMap<String, User> unconfirmedUsers;
-    //Подтвержденные аккаунты для смены пароля
     @Autowired
     private ArrayList<User> confirmedUsers;
 
 
                 //Servlets
-    //Страница авторизации
+            //Get mappings
+    //Authorization page
     @GetMapping ("/login")
     public String login(){
-        logger.debug("/login [get-mapping]");
         return "login";
     }
 
-
-    //Страница регистрации
+    //Registration page
     @GetMapping("/registration")
     public String registration(Model model){
-        logger.debug("/registration [get-mapping]");
         model.addAttribute("user", new User());
+
         return "registration";
     }
 
+    //Recover Password: Page with entering email
+    @GetMapping("/recover")
+    public String recoverAccess(Model model){
+        model.addAttribute("email", "");
 
-    //Регистрация
+        return "email";
+    }
+
+    //Account Change Page
+    @GetMapping("/edit-profile")
+    @PreAuthorize("hasAuthority('crud')")
+    public String editUserForm(Model model){
+        String login = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userService.findUserByLogin(login);
+
+        UserEditorDTO userProfileEditorDTO = new UserEditorDTO(user);
+        model.addAttribute("userEditor", userProfileEditorDTO);
+
+        return "editUser";
+    }
+
+    //Confirmation page about account deletion
+    @GetMapping("/delete-profile")
+    @PreAuthorize("hasAuthority('crud')")
+    public String deleteProfile(Model model){
+        String password = "";
+        model.addAttribute("password", password);
+        model.addAttribute("passwordInvalid", false);
+
+        return "deleteProfile";
+    }
+
+    //Blocking users
+    @GetMapping ("/block")
+    @PreAuthorize("hasAuthority('blocking')")
+    public String blockUser(@RequestParam("id") int id, Model model, HttpServletRequest request){
+        User user = userService.findUserById(id);
+
+        if (user.isAdmin()){
+            return "redirect:/error";
+        }
+        if(user.isActive()){
+            user.setStatus(statusService.setBannedStatus());
+            userService.saveAndFlush(user);
+        } else {
+            user.setStatus(statusService.setActiveStatus());
+            userService.saveAndFlush(user);
+        }
+
+        String referer = request.getHeader("Referer");
+        return "redirect:" + referer;
+    }
+
+            //Post Mappings
+    //Registration
     @PostMapping("/signup")
     public String signUp(@RequestParam("file") MultipartFile file, @ModelAttribute("user") @Valid User user, BindingResult bindingResult, Model model){
-        logger.debug("/signup [post-mapping] with parameters: file=" + file + "; object: user=" + user);
         model.addAttribute("loginExist", false);
         model.addAttribute("emailExist", false);
-        //Проверка на валидность полей
+        //Checking the validity of fields
         if (bindingResult.hasErrors()){
-            logger.debug("invalid form registration");
             return "registration";
         }
-        //Существует ли пользователь с таким же логином
+        //Is there a user with the same login
         if (userService.loginExists(user)){
-            logger.debug("/signup invalid form registration login is exist");
             model.addAttribute("loginExist", true);
             return "registration";
         }
-        //Существует ли пользователь с таким же email
+        //Is there a user with the same email
         if (userService.emailExists(user)){
             model.addAttribute("emailExist", true);
             return "registration";
         }
-        //Если пользователь выбрал фотографию профиля
+        //If the user has selected a profile photo
         if(file.getSize() != 0){
             setProfilePhoto(file, user);
         }
-        //Кодировка полученного пароля
+        //Encoding of the received password
         String encodePassword = passwordEncoder.encode(user.getPassword());
-        //Заполнение полей класса обьекта
+        //Filling in the fields of the object class
         user.setPassword(encodePassword);
         user.setRole(roleService.setUserRole());
         user.setStatus(statusService.setActiveStatus());
-        //Генерация кода активации
+        //Generating an activation code
         String activationCode = generateCode();
-        //Добавление в хэш-таблицу
-        ActivationCodeHashKeyDTO hashKeyDTO = new ActivationCodeHashKeyDTO(user.getLogin(), activationCode);
-        unconfirmedUsers.put(hashKeyDTO.getHashKey(), user);
-        //Создание аттрибутов для ввода кода активации пользователем на отдельной страницу
-        ActivationCodeHashKeyDTO userInputHashKey = new ActivationCodeHashKeyDTO(user.getLogin(), "");
-        model.addAttribute("activationData", userInputHashKey);
-        //Тест отправки письма на почту
-        String text = "Вы регистрируйтесь на сайте <a href=\"http://localhost:8080/\">Reviews.com</a>, осталось совсем чуть-чуть, введите ваш код активации на сайте\n" + activationCode;
-        mailSender.send(user.getEmail(), "Activation Account", text);
+        //set to dto
+        ActivationCodeDTO activationCodeDTO = new ActivationCodeDTO(user.getLogin(), activationCode);
+        unconfirmedUsers.put(activationCodeDTO.getUniqueKey(), user);
+        //Creating attributes for entering the activation code by the user on a separate page
+        ActivationCodeDTO userInputActivationCode = new ActivationCodeDTO(user.getLogin(), "");
+        model.addAttribute("activationData", userInputActivationCode);
+        //send message to the email
+        String message = "Вы регистрируйтесь на сайте \"http://localhost:8080/\", осталось совсем чуть-чуть, введите ваш код активации на сайте\n" + activationCode;
+        mailSender.send(user.getEmail(), "Активация учетной записи", message);
 
         return "codeActivationOnReg";
     }
 
 
-    //Активация аккаунта
+    //Activation Account
     @PostMapping("/activate")
-    public String activateAccount(@ModelAttribute("activationData") ActivationCodeHashKeyDTO activationData, Model model){
-        User user = unconfirmedUsers.get(activationData.getHashKey());
+    public String activateAccount(@ModelAttribute("activationData") ActivationCodeDTO activationData, Model model){
+        User user = unconfirmedUsers.get(activationData.getUniqueKey());
 
         if (user == null){
             model.addAttribute("codeIsNotCorrect", true);
@@ -136,13 +180,7 @@ public class SecurityController {
         return "redirect:/login";
     }
 
-    @GetMapping("/recover")
-    public String recoverAccess(Model model){
-        model.addAttribute("email", "");
-
-        return "email";
-    }
-
+    //Sending an activation code to an email to restore access
     @PostMapping("/mail-send")
     public String mailSend(@ModelAttribute("email") String email, Model model){
         User user = userService.findUserByEmail(email);
@@ -153,54 +191,51 @@ public class SecurityController {
             return "email";
         }
         String activationCode = generateCode();
-        ActivationCodeHashKeyDTO hashKeyDTO = new ActivationCodeHashKeyDTO(user.getLogin(), activationCode);
-        unconfirmedUsers.put(hashKeyDTO.getHashKey(), user);
-        ActivationCodeHashKeyDTO userInputHashKey = new ActivationCodeHashKeyDTO(user.getLogin(), "");
-        model.addAttribute("activationData", userInputHashKey);
+        ActivationCodeDTO activationCodeDTO = new ActivationCodeDTO(user.getLogin(), activationCode);
+        unconfirmedUsers.put(activationCodeDTO.getUniqueKey(), user);
+        ActivationCodeDTO userInputActivationCode = new ActivationCodeDTO(user.getLogin(), "");
+        model.addAttribute("activationData", userInputActivationCode);
 
         mailSender.send(email, "ActivationCode", "Ваш код активации:\n" + activationCode);
+
         return "codeActivationOnRecover";
     }
 
+    //Checking the entered activation code, sends a page to change the password if the code is correct
     @PostMapping("/recover-request")
-    public String recoverRequest(@ModelAttribute("activationData") ActivationCodeHashKeyDTO hashKeyDTO, Model model){
-        User user = unconfirmedUsers.get(hashKeyDTO.getHashKey());
+    public String recoverRequest(@ModelAttribute("activationData") ActivationCodeDTO hashKeyDTO, Model model){
+        User user = unconfirmedUsers.get(hashKeyDTO.getUniqueKey());
 
         if(user == null){
             model.addAttribute("codeIsNotCorrect", true);
             return "codeActivationOnRecover";
         }
+
         UserEditorDTO userEditorDTO = new UserEditorDTO(user, "");
         model.addAttribute("userEditor", userEditorDTO);
         confirmedUsers.add(user);
+
         return "editPassword";
     }
 
+    //Changing the password
     @PostMapping("/edit-password")
     public String editPassword(@ModelAttribute("password") UserEditorDTO userEditorDTO, Model model){
         User user = userEditorDTO.getUser();
+
         if (confirmedUsers.contains(user)){
             String encodedPassword = passwordEncoder.encode(userEditorDTO.getPassword());
             user.setPassword(encodedPassword);
             userService.saveAndFlush(user);
             confirmedUsers.remove(user);
+
             return "redirect:/login";
         }
+
         return "redirect:/error";
     }
 
-    @GetMapping("/edit-profile")
-    @PreAuthorize("hasAuthority('crud')")
-    public String editUserForm(Model model){
-        String login = SecurityContextHolder.getContext().getAuthentication().getName();
-        User user = userService.findUserByLogin(login);
-
-        UserEditorDTO userProfileEditorDTO = new UserEditorDTO(user, user.getNick(), user.getPhoto());
-        model.addAttribute("userEditor", userProfileEditorDTO);
-
-        return "editUser";
-    }
-
+    //Changing the account
     @PostMapping("/edit-user")
     public String editUser(@RequestParam("file") MultipartFile file, @ModelAttribute("user") UserEditorDTO userEditor, Model model){
         User user = userEditor.getUser();
@@ -219,16 +254,7 @@ public class SecurityController {
         return "redirect:/";
     }
 
-    @GetMapping("/delete-profile")
-    @PreAuthorize("hasAuthority('crud')")
-    public String deleteProfile(Model model){
-        String password = "";
-        model.addAttribute("password", password);
-        model.addAttribute("passwordInvalid", false);
-
-        return "deleteProfile";
-    }
-
+    //Deleting the account
     @PostMapping("/delete-user")
     @PreAuthorize("hasAuthority('crud')")
     public String deleteUser(@ModelAttribute("password") String password, Model model){
@@ -245,30 +271,10 @@ public class SecurityController {
         return "redirect:/";
     }
 
-    @GetMapping ("/block")
-    @PreAuthorize("hasAuthority('blocking')")
-    public String blockUser(@RequestParam("id") int id, Model model, HttpServletRequest request){
-
-        User user = userService.findUserById(id);
-
-        if (user.isAdmin()){
-            return "redirect:/error";
-        }
-        if(user.isActive()){
-            user.setStatus(statusService.setBannedStatus());
-            userService.saveAndFlush(user);
-        } else {
-            user.setStatus(statusService.setActiveStatus());
-            userService.saveAndFlush(user);
-        }
-
-        String referer = request.getHeader("Referer");
-        return "redirect:" + referer;
-    }
 
 
-
-
+                //Common methods
+    //Generating a unique code
     public String generateCode(){
         String chars = "0123456789";
 
@@ -283,23 +289,24 @@ public class SecurityController {
         return stringBuilder.toString();
     }
 
+    //Copying the selected profile photo to the server storage
     public void setProfilePhoto(MultipartFile file, User user){
-        //Задать уникальное имя для файла
+        //Set a unique file name
         String fileName = UUID.randomUUID().toString() + "-" + file.getOriginalFilename();
         try {
-            //url куда будет сохраняться картинка
-            File filePath = new File("classpath:/src/main/resources/static/image/users\\");
-            Path path = Paths.get(filePath.getAbsolutePath().replaceAll("classpath:", "") + "\\" + fileName);
+            //url where the image will be saved
+            File folderWithImages = new File("classpath:/src/main/resources/static/image/users\\");
+            Path path = Paths.get(folderWithImages.getAbsolutePath().replaceAll("classpath:", "") + "\\" + fileName);
 
-            //Создать файл с данным url
+            //Create a file with this url
             Files.createFile(path);
-            //Получение массива байт из полученного от клиента изображением
+            //Getting an array of bytes from an image received from the client
             byte[] bytes = file.getBytes();
             ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
-            //Запись массива байт в созданный файл
+            //Writing an array of bytes to the created file
             BufferedImage bufferedImage = ImageIO.read(bais);
             ImageIO.write(bufferedImage, "jpg", new File(String.valueOf(path)));
-            //Задать обьекту фото
+            //Set the user a photo
             user.setPhoto(fileName);
         } catch (IOException e) {
             throw new RuntimeException(e);

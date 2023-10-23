@@ -30,6 +30,8 @@ public class RatingService implements DAO<Rating, Integer> {
             repository.saveAndFlush(rating);
     }
 
+
+
     @Override
     public void delete(Rating rating) {
         repository.delete(rating);
@@ -49,14 +51,7 @@ public class RatingService implements DAO<Rating, Integer> {
         return repository.findRatingByUserAndReview(user, review);
     }
 
-    public List<Rating> findRatingsReview(Review review){
-        return repository.findRatingByReview(review);
-    }
-
-    public List<Rating> findRatingsUser(User user){
-        return repository.findRatingByUser(user);
-    }
-
+    //Checking whether the user has set a rating for this review
     public int isSetRating(User authorityUser, Review review){
         Rating rating = findRatingByUserAndReview(authorityUser, review);
         if (rating != null){
@@ -65,6 +60,7 @@ public class RatingService implements DAO<Rating, Integer> {
         return 0;
     }
 
+    //Get an overall rating for this review
     public double getOverallRating(Review review){
         List<Rating> ratings = repository.findRatingByReview(review);
         if (ratings.size() > 0){

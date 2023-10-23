@@ -1,11 +1,9 @@
 package nick.pack.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -31,23 +29,6 @@ public class Comment{
     @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn (name = "review_id")
     private Review review;
-
-    public Comment(int id, String comment, LocalDateTime date, User user, Comment answer, Review review) {
-        this.id = id;
-        this.comment = comment;
-        this.date = date;
-        this.user = user;
-        this.answer = answer;
-        this.review = review;
-    }
-
-    public Comment(String comment, User user, Comment answer, LocalDateTime date, Review review) {
-        this.comment = comment;
-        this.user = user;
-        this.answer = answer;
-        this.date = date;
-        this.review = review;
-    }
 
     public Comment(String comment, LocalDateTime date, User user, Review review) {
         this.comment = comment;

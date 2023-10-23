@@ -3,6 +3,7 @@ package nick.pack.service;
 import nick.pack.model.Country;
 import nick.pack.repository.CountryRepository;
 import nick.pack.service.dao.DAO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,9 +12,11 @@ import java.util.List;
 public class CountryService implements DAO<Country, Integer> {
     private final CountryRepository repository;
 
+    @Autowired
     public CountryService(CountryRepository repository) {
         this.repository = repository;
     }
+
 
     @Override
     public List<Country> findByAll() {

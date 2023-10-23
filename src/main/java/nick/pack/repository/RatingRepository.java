@@ -16,9 +16,6 @@ public interface RatingRepository extends JpaRepository<Rating, Integer> {
     @Query("SELECT r FROM Rating r WHERE r.review = :review")
     List<Rating> findRatingByReview(@Param("review") Review review);
 
-    @Query("SELECT r FROM Rating r WHERE r.user = :user")
-    List<Rating> findRatingByUser(@Param("user") User user);
-
     @Query("SELECT r FROM Rating r WHERE r.user = :user AND r.review = :review")
     Rating findRatingByUserAndReview(@Param("user") User user, @Param("review") Review review);
 }

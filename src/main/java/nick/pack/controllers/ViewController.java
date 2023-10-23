@@ -28,21 +28,23 @@ public class ViewController {
     @Autowired
     private CountryService countryService;
 
+                //Servlets
+            //Get mappings
+    //Main page
     @GetMapping("/")
     public String index(Model model){
-        User user = setAuthorizedUserAsModel(model);
+        setAuthorizedUserAsModel(model);
 
         List<Review> reviews = reviewService.findByAll();
         Collections.reverse(reviews);
-        Integer id = 0;
-        model.addAttribute("idDeleteReview", id);
+
         model.addAttribute("reviews", reviews);
         model.addAttribute("ratingService", ratingService);
-
 
         return "index";
     }
 
+    //Review page
     @GetMapping("/{id}")
     public String review(@PathVariable("id") int id, Model model){
         setAuthorizedUserAsModel(model);
@@ -51,11 +53,11 @@ public class ViewController {
         model.addAttribute("review", review);
         model.addAttribute("ratingService", ratingService);
         model.addAttribute("comments", commentService.findCommentsReview(review));
-        Comment comment = commentService.findById(1);
 
         return "review";
     }
 
+    //User page
     @GetMapping("/user")
     public String user(@RequestParam(name = "id") int id, Model model){
         setAuthorizedUserAsModel(model);
@@ -71,6 +73,8 @@ public class ViewController {
 
         return "user";
     }
+
+    //Search result page
     @GetMapping("/search")
     public String search(@RequestParam(name="value", required = false) String value, Model model){
         setAuthorizedUserAsModel(model);
