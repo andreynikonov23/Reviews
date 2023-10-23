@@ -1,5 +1,6 @@
 package nick.pack.security;
 
+import nick.pack.model.User;
 import nick.pack.service.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.annotation.PreDestroy;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 //Класс конфигурации
 @Configuration
@@ -92,4 +95,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder(12);
     }
+
+    @Bean
+    public HashMap<String, User> unconfirmedUsers() {
+        return new HashMap<>();
+    }
+
+    @Bean
+    public ArrayList<User> confirmedUsers(){return new ArrayList<>();}
+
 }

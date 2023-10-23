@@ -27,7 +27,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.SecureRandom;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -46,7 +48,11 @@ public class SecurityController {
     private MailSenderService mailSender;
 
     //Неподтвержденные аккаунты
-    private final HashMap<String, User> unconfirmedUsers = new HashMap<>();
+    @Autowired
+    private HashMap<String, User> unconfirmedUsers;
+    //Подтвержденные аккаунты для смены пароля
+    @Autowired
+    private ArrayList<User> confirmedUsers;
 
 
                 //Servlets
@@ -120,11 +126,9 @@ public class SecurityController {
     public String activateAccount(@ModelAttribute("activationData") ActivationCodeHashKeyDTO activationData, Model model){
         User user = unconfirmedUsers.get(activationData.getHashKey());
 
-        System.out.println("for /activate ===" + activationData.getCode() + " " + activationData.getUsername() + " ; result == " + activationData.getHashKey());
-
         if (user == null){
             model.addAttribute("codeIsNotCorrect", true);
-            return "email";
+            return "codeActivationOnRecover";
         }
 
         userService.saveAndFlush(user);
@@ -161,8 +165,6 @@ public class SecurityController {
     @PostMapping("/recover-request")
     public String recoverRequest(@ModelAttribute("activationData") ActivationCodeHashKeyDTO hashKeyDTO, Model model){
         User user = unconfirmedUsers.get(hashKeyDTO.getHashKey());
-        System.out.println("rec--------------------" + user);
-
 
         if(user == null){
             model.addAttribute("codeIsNotCorrect", true);
@@ -170,22 +172,25 @@ public class SecurityController {
         }
         UserEditorDTO userEditorDTO = new UserEditorDTO(user, "");
         model.addAttribute("userEditor", userEditorDTO);
+        confirmedUsers.add(user);
         return "editPassword";
     }
 
     @PostMapping("/edit-password")
     public String editPassword(@ModelAttribute("password") UserEditorDTO userEditorDTO, Model model){
-        System.out.println("----------------------------------------------------------------");
-        String encodedPassword = passwordEncoder.encode(userEditorDTO.getPassword());
         User user = userEditorDTO.getUser();
-        user.setPassword(encodedPassword);
-        System.out.println(user + "-------- old password");
-        userService.saveAndFlush(user);
-
-        return "redirect:/login";
+        if (confirmedUsers.contains(user)){
+            String encodedPassword = passwordEncoder.encode(userEditorDTO.getPassword());
+            user.setPassword(encodedPassword);
+            userService.saveAndFlush(user);
+            confirmedUsers.remove(user);
+            return "redirect:/login";
+        }
+        return "redirect:/error";
     }
 
     @GetMapping("/edit-profile")
+    @PreAuthorize("hasAuthority('crud')")
     public String editUserForm(Model model){
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.findUserByLogin(login);
@@ -198,8 +203,12 @@ public class SecurityController {
 
     @PostMapping("/edit-user")
     public String editUser(@RequestParam("file") MultipartFile file, @ModelAttribute("user") UserEditorDTO userEditor, Model model){
-        System.out.println(userEditor);
         User user = userEditor.getUser();
+        User userTest = userService.findUserByLogin(SecurityContextHolder.getContext().getAuthentication().getName());
+
+        if (!(userTest.equals(user))){
+            return "redirect:/error";
+        }
         user.setNick(userEditor.getNick());
 
         if(file.getSize() != 0){
@@ -221,6 +230,7 @@ public class SecurityController {
     }
 
     @PostMapping("/delete-user")
+    @PreAuthorize("hasAuthority('crud')")
     public String deleteUser(@ModelAttribute("password") String password, Model model){
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.findUserByLogin(login);
@@ -241,6 +251,9 @@ public class SecurityController {
 
         User user = userService.findUserById(id);
 
+        if (user.isAdmin()){
+            return "redirect:/error";
+        }
         if(user.isActive()){
             user.setStatus(statusService.setBannedStatus());
             userService.saveAndFlush(user);
@@ -274,15 +287,10 @@ public class SecurityController {
         //Задать уникальное имя для файла
         String fileName = UUID.randomUUID().toString() + "-" + file.getOriginalFilename();
         try {
-            String str = getClass().getResource("/static/image/users/").toString().substring(6);
-            str = str.replace(":", ":");
-            str = str.replace("/", "\\");
-
-            System.out.println(str);
-
             //url куда будет сохраняться картинка
-            //Path path = Paths.get(str + fileName);
-            Path path = Paths.get("C:\\Users\\Андрей\\IdeaProjects\\reviews\\src\\main\\resources\\static\\image\\users\\" + fileName);
+            File filePath = new File("classpath:/src/main/resources/static/image/users\\");
+            Path path = Paths.get(filePath.getAbsolutePath().replaceAll("classpath:", "") + "\\" + fileName);
+
             //Создать файл с данным url
             Files.createFile(path);
             //Получение массива байт из полученного от клиента изображением

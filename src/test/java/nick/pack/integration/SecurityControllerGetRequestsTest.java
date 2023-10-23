@@ -1,4 +1,4 @@
-package nick.pack.controllers;
+package nick.pack.integration;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,6 +6,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.containsString;
@@ -17,6 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @TestPropertySource("/application-test.properties")
+@Sql(value = {"/sql/init-data.sql"}, executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 public class SecurityControllerGetRequestsTest {
     @Autowired
     private MockMvc mockMvc;
@@ -72,11 +74,58 @@ public class SecurityControllerGetRequestsTest {
                 .andExpect(content().string(containsString("Удаление профиля")));
     }
     @Test
+    public void deleteProfileWithGuest() throws Exception {
+        this.mockMvc.perform(get("/delete-profile"))
+                .andDo(print())
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("http://localhost/login"));
+    }
+    @Test
     @WithUserDetails("user")
     public void editProfileTest() throws Exception {
         this.mockMvc.perform(get("/edit-profile"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(xpath("//*[@id=\"nick\"][@value='UserNickname']").exists());
+    }
+    @Test
+    public void editProfileWithGuest() throws Exception {
+        this.mockMvc.perform(get("/edit-profile"))
+                .andDo(print())
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("http://localhost/login"));
+    }
+    @Test
+    @WithUserDetails("admin")
+    public void blockingUsers() throws Exception {
+        this.mockMvc.perform(get("/block").param("id", "2"))
+                .andDo(print())
+                .andExpect(status().is3xxRedirection());
+        this.mockMvc.perform(formLogin().user("user").password("1"))
+                .andDo(print())
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/login?error"));
+        this.mockMvc.perform(get("/block").param("id", "3"))
+                .andDo(print())
+                .andExpect(status().is3xxRedirection());
+        this.mockMvc.perform(formLogin().user("ban_user").password("1"))
+                .andDo(print())
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/"));
+    }
+    @Test
+    @WithUserDetails("user")
+    public void blockingUsersWithUser() throws Exception {
+        this.mockMvc.perform(get("/block").param("id", "3"))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
+    }
+    @Test
+    @WithUserDetails("admin")
+    public void blockingAdmin() throws Exception {
+        this.mockMvc.perform(get("/block").param("id", "1"))
+                .andDo(print())
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/error"));
     }
 }
