@@ -39,9 +39,9 @@ INSERT INTO reviews (user_id, name, trailer_url, poster, film_name, year, direct
                     (2, 'TestReview8', 'https://www.film.ru/sites/default/files/trailers/16916130/The-Batman-trailer-3-rus.mp4',
                         'https://www.kino-teatr.ru/movie/posters/big/6/10716.jpg', 'testName8', '2023', 'testDirector8', 2, 'testCast8', 'text text text text text');
 INSERT INTO ratings (user_id, review, rating) VALUES (1, 1, 9), (2, 1, 3), (3, 1, 6), (1, 2, 10), (3, 2, 5), (1, 3, 9), (2, 3, 1),
-                                                    (3, 3, 4), (1, 4, 9), (2, 4, 7), (3, 4, 2), (1, 5, 6), (3, 5, 3), (2, 8, 10);
+                                                     (3, 3, 4), (1, 4, 9), (2, 4, 7), (3, 4, 2), (1, 5, 6), (3, 5, 3), (2, 8, 10);
 INSERT INTO comments (user_id, comment, answer, review_id, date) VALUES (1, 'testComment1', null, 1, '2023-01-06 00:12:02'),
-                                                                           (2, 'testComment2', 1, 1, '2023-01-06 04:02:23'),
-                                                                            (3, 'testComment3', null, 2, '2023-02-06 14:33:24'),
-                                                                            (2, 'testComment4', 3, 2, '2023-03-06 22:33:24'),
-                                                                            (1, 'testComment5', 4, 2, '2023-03-06 22:35:11');
+                                                                        (2, 'testComment2', 1, 1, '2023-01-06 04:02:23'),
+                                                                        (3, 'testComment3', null, 2, '2023-02-06 14:33:24'),
+                                                                        (2, 'testComment4', 3, 2, '2023-03-06 22:33:24'),
+                                                                        (1, 'testComment5', 4, 2, '2023-03-06 22:35:11');
