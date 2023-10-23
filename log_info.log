@@ -23558,3 +23558,7 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving template [404 N
 2023-10-16 11:58:44.848  INFO 7096 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-10-16 11:58:44.851  INFO 7096 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-10-16 11:58:44.858  INFO 7096 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-16 21:36:10 DEBUG SecurityConfig:38 - shutting down the server
+2023-10-16 21:36:11.029  INFO 7004 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-16 21:36:11.806  INFO 7004 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-16 21:36:11.900  INFO 7004 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
