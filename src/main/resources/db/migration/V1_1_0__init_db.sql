@@ -63,7 +63,7 @@ ALTER TABLE ONLY role ALTER COLUMN id SET DEFAULT nextval('role_id_seq'::regclas
 ALTER TABLE ONLY status ALTER COLUMN id SET DEFAULT nextval('status_id_seq'::regclass);
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 SELECT pg_catalog.setval('comments_id_seq', 1, true);
-SELECT pg_catalog.setval('country_id_seq', 1, true);
+SELECT pg_catalog.setval('country_id_seq', 19, true);
 SELECT pg_catalog.setval('ratings_id_seq', 1, true);
 SELECT pg_catalog.setval('reviews_id_seq', 1, true);
 SELECT pg_catalog.setval('role_id_seq', 1, true);
