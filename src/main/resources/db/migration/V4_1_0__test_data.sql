@@ -84,10 +84,10 @@ INSERT INTO reviews (user_id, name, poster, film_name, year, director, country_i
                1, 'Леонардо Ди Каприо',
                'Короче... хороший фильм)))))'
            );
-INSERT INTO ratings (id,"user", review, rating)
-    VALUES (1,1, 1, 10), (2,2, 1, 1);
-INSERT INTO ratings (id,"user", review, rating)
-    VALUES (3,1, 2, 4), (4,2, 2, 9);
+INSERT INTO ratings (user_id, review, rating)
+    VALUES (1, 1, 10), (2, 1, 1);
+INSERT INTO ratings (user_id, review, rating)
+    VALUES (1, 2, 4), (2, 2, 9);
 INSERT INTO comments (user_id, comment, review_id)
     VALUES (1, 'Классный фильм', 1);
 INSERT INTO comments (user_id, comment, answer, review_id)

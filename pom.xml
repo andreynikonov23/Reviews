@@ -126,7 +126,6 @@
 					<password>1234</password>
 					<baselineOnMigrate>true</baselineOnMigrate>
 					<driver>org.postgresql.Driver</driver>
-					<locations>classpath:db/migration</locations>
 					<schemas>
 						<schema>public</schema>
 					</schemas>
