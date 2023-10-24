@@ -1,3 +1,11 @@
+drop sequence if exists comments_id_seq;
+drop sequence if exists country_id_seq;
+drop sequence if exists ratings_id_seq;
+drop sequence if exists reviews_id_seq;
+drop sequence if exists role_id_seq;
+drop sequence if exists status_id_seq;
+drop sequence if exists users_id_seq;
+
 create table if not exists comments (
     id  serial not null,
     comment text,
@@ -47,56 +55,6 @@ create table if not exists users (
     role_id int4,
     status_id int4,
     primary key (id));
-
-create sequence comments_id_seq
-    as integer
-    start with 1
-    increment by 1
-    no minvalue
-    no maxvalue
-    cache 1;
-create sequence country_id_seq
-    as integer
-    start with 1
-    increment by 1
-    no minvalue
-    no maxvalue
-    cache 1;
-create sequence ratings_id_seq
-    as integer
-    start with 1
-    increment by 1
-    no minvalue
-    no maxvalue
-    cache 1;
-create sequence reviews_id_seq
-    as integer
-    start with 1
-    increment by 1
-    no minvalue
-    no maxvalue
-    cache 1;
-create sequence role_id_seq
-    as integer
-    start with 1
-    increment by 1
-    no minvalue
-    no maxvalue
-    cache 1;
-create sequence status_id_seq
-    as integer
-    start with 1
-    increment by 1
-    no minvalue
-    no maxvalue
-    cache 1;
-create sequence users_id_seq
-    as integer
-    start with 1
-    increment by 1
-    no minvalue
-    no maxvalue
-    cache 1;
 ALTER TABLE ONLY comments ALTER COLUMN id SET DEFAULT nextval('comments_id_seq'::regclass);
 ALTER TABLE ONLY country ALTER COLUMN id SET DEFAULT nextval('country_id_seq'::regclass);
 ALTER TABLE ONLY ratings ALTER COLUMN id SET DEFAULT nextval('ratings_id_seq'::regclass);
