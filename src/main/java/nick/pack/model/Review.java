@@ -7,8 +7,6 @@ import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "reviews")
 public class Review {
@@ -43,6 +41,22 @@ public class Review {
     Set<Comment> commentSet;
     @OneToMany (mappedBy = "review")
     Set<Rating> ratingSet;
+
+    public Review(int id, String name, String trailerUrl, String poster, String filmName, int year, String director, String cast, String text, User user, Country country) {
+        this.id = id;
+        this.name = name;
+        this.trailerUrl = trailerUrl;
+        this.poster = poster;
+        this.filmName = filmName;
+        this.year = year;
+        this.director = director;
+        this.cast = cast;
+        this.text = text;
+        this.user = user;
+        this.country = country;
+    }
+
+    public Review(){}
 
     public Review(String name, String trailerUrl, String poster, String filmName, int year, String director, String cast, String text, User user, Country country) {
         this.name = name;

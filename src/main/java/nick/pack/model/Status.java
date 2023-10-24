@@ -6,7 +6,6 @@ import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
 
-@NoArgsConstructor
 @Entity
 @Table(name = "status")
 public class Status {
@@ -24,6 +23,8 @@ public class Status {
         this.id = id;
         this.status = status;
     }
+
+    public Status(){}
 
     public Status(StatusEnum status) {
         this.status = status;

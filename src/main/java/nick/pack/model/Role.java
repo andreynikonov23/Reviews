@@ -6,7 +6,6 @@ import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
 
-@NoArgsConstructor
 @Entity
 @Table (name = "role")
 public class Role {
@@ -24,7 +23,7 @@ public class Role {
         this.id = id;
         this.name = name;
     }
-
+    public Role(){}
     public Role(RoleEnum name) {
         this.name = name;
     }

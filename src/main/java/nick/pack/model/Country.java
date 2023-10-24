@@ -6,7 +6,6 @@ import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
 
-@NoArgsConstructor
 @Entity
 @Table (name = "country")
 public class Country {
@@ -23,6 +22,7 @@ public class Country {
         this.id = id;
         this.countryName = countryName;
     }
+    public Country(){}
 
     public Country(String countryName) {
         this.countryName = countryName;
