@@ -47,6 +47,70 @@ create table if not exists users (
     role_id int4,
     status_id int4,
     primary key (id));
+
+create sequence comments_id_seq
+    as integer
+    start with 1
+    increment by 1
+    no minvalue
+    no maxvalue
+    cache 1;
+create sequence country_id_seq
+    as integer
+    start with 1
+    increment by 1
+    no minvalue
+    no maxvalue
+    cache 1;
+create sequence ratings_id_seq
+    as integer
+    start with 1
+    increment by 1
+    no minvalue
+    no maxvalue
+    cache 1;
+create sequence reviews_id_seq
+    as integer
+    start with 1
+    increment by 1
+    no minvalue
+    no maxvalue
+    cache 1;
+create sequence role_id_seq
+    as integer
+    start with 1
+    increment by 1
+    no minvalue
+    no maxvalue
+    cache 1;
+create sequence status_id_seq
+    as integer
+    start with 1
+    increment by 1
+    no minvalue
+    no maxvalue
+    cache 1;
+create sequence users_id_seq
+    as integer
+    start with 1
+    increment by 1
+    no minvalue
+    no maxvalue
+    cache 1;
+ALTER TABLE ONLY comments ALTER COLUMN id SET DEFAULT nextval('comments_id_seq'::regclass);
+ALTER TABLE ONLY country ALTER COLUMN id SET DEFAULT nextval('country_id_seq'::regclass);
+ALTER TABLE ONLY ratings ALTER COLUMN id SET DEFAULT nextval('ratings_id_seq'::regclass);
+ALTER TABLE ONLY reviews ALTER COLUMN id SET DEFAULT nextval('reviews_id_seq'::regclass);
+ALTER TABLE ONLY role ALTER COLUMN id SET DEFAULT nextval('role_id_seq'::regclass);
+ALTER TABLE ONLY status ALTER COLUMN id SET DEFAULT nextval('status_id_seq'::regclass);
+ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+SELECT pg_catalog.setval('comments_id_seq', 1, true);
+SELECT pg_catalog.setval('country_id_seq', 1, true);
+SELECT pg_catalog.setval('ratings_id_seq', 1, true);
+SELECT pg_catalog.setval('reviews_id_seq', 1, true);
+SELECT pg_catalog.setval('role_id_seq', 1, true);
+SELECT pg_catalog.setval('status_id_seq', 1, true);
+SELECT pg_catalog.setval('users_id_seq', 1, true);
 alter table comments add constraint answer foreign key (answer) references comments on update cascade on delete cascade;
 alter table comments add constraint reviews_id foreign key (review_id) references reviews on update cascade on delete cascade;
 alter table comments add constraint comments_users_id_fkey foreign key (user_id) references users on update cascade on delete cascade;
