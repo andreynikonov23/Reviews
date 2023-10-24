@@ -90,6 +90,7 @@ public class ViewController {
         return "search";
     }
 
+    //Page for creating the review
     @GetMapping("/add-review")
     @PreAuthorize("hasAuthority('crud')")
     public String addReviewForm(Model model){
@@ -104,6 +105,7 @@ public class ViewController {
         return "addReview";
     }
 
+    //Page for changing the review
     @GetMapping("/edit-review")
     @PreAuthorize("hasAuthority('crud')")
     public String editReview(@RequestParam("id") int id, Model model){
@@ -123,6 +125,24 @@ public class ViewController {
         return "redirect:/";
     }
 
+    //Page with all users for admin
+    @GetMapping("/users")
+    @PreAuthorize("hasAuthority('viewuser')")
+    public String users(Model model){
+        setAuthorizedUserAsModel(model);
+        List<User> users = new ArrayList<>(userService.selectAll());
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).isAdmin()){
+                users.remove(i);
+            }
+        }
+        model.addAttribute("users", users);
+
+        return "usersList";
+    }
+
+            //Post mappings
+    //Creating review
     @PostMapping("/add")
     @PreAuthorize("hasAuthority('crud')")
     public String addReview(@ModelAttribute("review") Review review, Model model){
@@ -133,6 +153,7 @@ public class ViewController {
         return "redirect:/user?id=" + user.getId();
 
     }
+    //Changing review
     @PostMapping("/edit")
     @PreAuthorize("hasAuthority('crud')")
     public String saveReview(@ModelAttribute("review") Review review, Model model){
@@ -156,8 +177,7 @@ public class ViewController {
         return "redirect:/user?id=" + user.getId();
 
     }
-
-
+    //Deleting review
     @PostMapping("/delete")
     @PreAuthorize("hasAuthority('crud')")
     public String deleteReview(@ModelAttribute("id") Integer id, Model model){
@@ -172,21 +192,9 @@ public class ViewController {
         return "redirect:/user?id=" + user.getId();
     }
 
-    @GetMapping("/users")
-    @PreAuthorize("hasAuthority('viewuser')")
-    public String users(Model model){
-        setAuthorizedUserAsModel(model);
-        List<User> users = new ArrayList<>(userService.selectAll());
-        for (int i = 0; i < users.size(); i++) {
-            if (users.get(i).isAdmin()){
-                users.remove(i);
-            }
-        }
-        model.addAttribute("users", users);
 
-        return "usersList";
-    }
-
+            //Common methods
+    //Returns an authorized user object and adds it to the Model
     public User setAuthorizedUserAsModel(Model model){
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.findUserByLogin(login);

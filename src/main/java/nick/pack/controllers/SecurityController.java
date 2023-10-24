@@ -50,7 +50,7 @@ public class SecurityController {
     private ArrayList<User> confirmedUsers;
 
 
-                //Servlets
+                //Mappings
             //Get mappings
     //Authorization page
     @GetMapping ("/login")
