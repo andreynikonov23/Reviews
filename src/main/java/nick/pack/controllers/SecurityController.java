@@ -295,8 +295,8 @@ public class SecurityController {
         String fileName = UUID.randomUUID().toString() + "-" + file.getOriginalFilename();
         try {
             //url where the image will be saved
-            File folderWithImages = new File("classpath:/src/main/resources/static/image/users\\");
-            Path path = Paths.get(folderWithImages.getAbsolutePath().replaceAll("classpath:", "") + "\\" + fileName);
+            File folderWithImages = new File("classpath:/src/main/resources/static/image/users//");
+            Path path = Paths.get(folderWithImages.getAbsolutePath().replaceAll("classpath:", "") + "/" + fileName);
 
             //Create a file with this url
             Files.createFile(path);

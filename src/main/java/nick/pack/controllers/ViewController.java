@@ -33,7 +33,8 @@ public class ViewController {
     //Main page
     @GetMapping("/")
     public String index(Model model){
-        setAuthorizedUserAsModel(model);
+        User user = setAuthorizedUserAsModel(model);
+
 
         List<Review> reviews = reviewService.findByAll();
         Collections.reverse(reviews);
