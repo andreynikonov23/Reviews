@@ -846,3 +846,32 @@ Caused by: java.lang.IllegalStateException: Illegal access: this web application
 2023-10-26 14:38:12.764  INFO 11242 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-10-26 14:38:12.823  INFO 11242 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-10-26 14:38:13.181  INFO 11242 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-26 14:39:31.489  INFO 11500 --- [main] nick.pack.ReviewsApplication             : Starting ReviewsApplication using Java 20.0.2.1 on andrey-VirtualBox with PID 11500 (/home/andrey/IdeaProjects/Reviews/target/classes started by andrey in /home/andrey/IdeaProjects/Reviews)
+2023-10-26 14:39:31.507  INFO 11500 --- [main] nick.pack.ReviewsApplication             : No active profile set, falling back to 1 default profile: "default"
+2023-10-26 14:39:36.348  INFO 11500 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-26 14:39:36.907  INFO 11500 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 439 ms. Found 7 JPA repository interfaces.
+2023-10-26 14:39:41.350  INFO 11500 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-10-26 14:39:41.430  INFO 11500 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-26 14:39:41.432  INFO 11500 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2023-10-26 14:39:42.243  INFO 11500 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-26 14:39:42.281  INFO 11500 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 10464 ms
+2023-10-26 14:39:43.907  INFO 11500 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-26 14:39:45.606  INFO 11500 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-26 14:39:46.737  INFO 11500 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-26 14:39:47.212  INFO 11500 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-10-26 14:39:48.629  INFO 11500 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-26 14:39:49.302  INFO 11500 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2023-10-26 14:39:54.354  INFO 11500 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-26 14:39:54.368  INFO 11500 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-26 14:40:00.134  WARN 11500 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-26 14:40:03.790  WARN 11500 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-26 14:40:03.806  INFO 11500 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-10-26 14:40:03.841  WARN 11500 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/image/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-26 14:40:03.844  INFO 11500 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/image/**']
+2023-10-26 14:40:03.845  WARN 11500 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/script/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-10-26 14:40:03.848  INFO 11500 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/script/**']
+2023-10-26 14:40:04.845  INFO 11500 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@43778d6d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@44ac94c2, org.springframework.security.web.context.SecurityContextPersistenceFilter@5263f554, org.springframework.security.web.header.HeaderWriterFilter@21b3d356, org.springframework.security.web.authentication.logout.LogoutFilter@376bae20, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2cdcedef, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@95958d9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@452a32f2, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@25af1dbf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@19b33b0d, org.springframework.security.web.session.SessionManagementFilter@285ac29, org.springframework.security.web.access.ExceptionTranslationFilter@21e15093, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4cd7128]
+2023-10-26 14:40:08.941  INFO 11500 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-10-26 14:40:12.494  INFO 11500 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-10-26 14:40:12.595  INFO 11500 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-10-26 14:40:12.688  INFO 11500 --- [main] nick.pack.ReviewsApplication             : Started ReviewsApplication in 45.231 seconds (JVM running for 50.27)

@@ -35,7 +35,6 @@ public class ViewController {
     public String index(Model model){
         User user = setAuthorizedUserAsModel(model);
 
-
         List<Review> reviews = reviewService.findByAll();
         Collections.reverse(reviews);
 
